@@ -14,7 +14,7 @@ function menu() {
 
 function matchX() {
   background(254, 201, 1);
-  translate(-(x),10)
+  //translate(-(x),10)
   textFont("Helvetica")
   fill(0)
   noStroke();
