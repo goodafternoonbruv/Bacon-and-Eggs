@@ -1,11 +1,17 @@
 var x = 0;
 function setup() {
-  createCanvas(500, 500);
+  createCanvas(windowWidth, windowHeight);
+  windowResized();
 }
 
 function draw() {
   matchX()
   x+=9;
+  //createCanvas(windowWidth, windowHeight);
+}
+
+function windowResized() {
+  resizeCanvas(windowWidth, windowHeight);
 }
 
 function menu() {
