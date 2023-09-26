@@ -13,7 +13,9 @@ function windowResized()
 }
 
 function draw() {
-  //mousePressed(hi());
-  
+  if (mouseIsPressed == true)
+  {
+    hi();
+  }
 }
 
