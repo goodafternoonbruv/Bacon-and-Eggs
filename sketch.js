@@ -7,6 +7,12 @@ function setup() {
   hi();
 }
 
+function mousePressed(){
+
+Singles();
+
+}
+
 function windowResized()
 {
   resizeCanvas(windowWidth, windowHeight);
@@ -16,6 +22,7 @@ function draw() {
   if (mouseIsPressed == true)
   {
     hi();
+   
   }
 }
 
