@@ -1,5 +1,4 @@
 import{hi} from 'test.js';
-export{hi};
 var x = 0;
 function setup() {
   
