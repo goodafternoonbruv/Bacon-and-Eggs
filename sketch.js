@@ -1,9 +1,10 @@
-import{hi} from 'test.js';
+//import{hi} from 'test.js';
 var x = 0;
 function setup() {
   
   createCanvas(windowWidth, windowHeight);
   windowResized();
+  hi();
 }
 
 function windowResized()
@@ -13,6 +14,6 @@ function windowResized()
 
 function draw() {
   //mousePressed(hi());
-  hi();
+  
 }
 
