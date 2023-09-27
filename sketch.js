@@ -7,11 +7,6 @@ function setup() {
   hi();
 }
 
-function mousePressed(){
-
-Singles();
-
-}
 
 function windowResized()
 {
@@ -19,10 +14,5 @@ function windowResized()
 }
 
 function draw() {
-  if (mouseIsPressed == true)
-  {
-    hi();
-   
-  }
-}
 
+}
