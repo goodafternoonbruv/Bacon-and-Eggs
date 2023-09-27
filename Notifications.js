@@ -1,6 +1,6 @@
 
 function Singles(){
 
-alert("HOT SINGLES ARE IN YOUR AREA!");
+alert("READY TO CHAT");
 
 }
