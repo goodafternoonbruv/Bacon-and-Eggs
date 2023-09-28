@@ -41,6 +41,8 @@ PUT ANY IMAGE YOU WANT TO DISPLAY BEHIND THE HEADER TODO
 
 */
 
+background-color: #f6dd79;
+
 }
 
 .nav{
@@ -72,4 +74,18 @@ justify-content: space-between;
 align-items: center;
 }
 
+.list{
+
+list-style: none;
+
+}
+
+.link{
+
+color: var(--dark-color);
+text-decoration: none;
+font-weight: bold;
+position: relative;
+
+}
 
