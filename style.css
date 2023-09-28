@@ -30,7 +30,7 @@ canvas {
 body{
 
   font-family: 'Rubik', sans-serif;
-
+ 
 }
 
 header{
@@ -38,9 +38,8 @@ header{
 /* 
 
 PUT ANY IMAGE YOU WANT TO DISPLAY BEHIND THE HEADER TODO
-
+background-color: #f6dd79;
 */
-
 background-color: #f6dd79;
 
 }
