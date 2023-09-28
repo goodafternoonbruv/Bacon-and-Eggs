@@ -1,23 +1,30 @@
-class User
+class List
 {
-
-    constructor(Gender, age, )
+    constructor(x, y, firstUser, currUser)
     {
-        
+        this.x = x;
+        this.y = y;
+        this.first = firstUser;
+        this.curr = currUser;
     }
 
-    
+    function addUser (User) {
+        while (curr.next != null)
+        {
+            curr.next = User;
+        }
+
+    }
+
 }
 
-class list
+class User
 {
-    // let first = new User();;
-    // let curr;
-    first = new User();
-    curr = new User();
-
-    list()
+    constructor(age, gender, [])
     {
-
+        this.age = age;
+        this.gender = gender;
+        this.hobbies = [];
     }
+
 }
