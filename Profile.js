@@ -8,10 +8,10 @@ class List
         this.curr = currUser;
     }
 
-    function addUser (User) {
+    addUser (user) {
         while (curr.next != null)
         {
-            curr.next = User;
+            curr.next = user;
         }
 
     }
