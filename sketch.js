@@ -1,8 +1,9 @@
-var x = 0;
+let userManager;
 function setup() {
   
   createCanvas(windowWidth, windowHeight);
   windowResized();
+  uploadData();
 }
 
 function windowResized()
@@ -12,4 +13,9 @@ function windowResized()
 
 function draw() {
 
+}
+
+function uploadData()
+{
+  userManager = new List();
 }
