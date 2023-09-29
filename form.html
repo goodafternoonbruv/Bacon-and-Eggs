@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<html>
 <head>
 
  <!-- FONT IMPORTED FROM GOOGLE FONTS-->
@@ -37,6 +38,7 @@
 <body>
 
     <header>
+      <link rel="stylesheet" href="form.css">
 
         <nav class="nav">
             <div class="logo-container">
@@ -58,81 +60,89 @@
   
             </ul>
             
-             
   
         </nav>
 
     </header>
 
+    <div class="form">
+      <form>
+        <center>
+          <label for="fname">First name:</label><br>
+          <input type="text" id="fname" name="fname"><br>
+          <label for="lname">Last name:</label><br>
+          <input type="text" id="lname" name="lname"><br>
+          <label for="age">Age:</label><br>
+          <input type="range" name="Age" min="1" max="100" onchange="updateTextInput(this.value);"><br>
+          <input type="text" id="textInput" value=""><br><br>
 
-    <form>
-        <label for="fname">First name:</label><br>
-        <input type="text" id="fname" name="fname"><br>
-        <label for="lname">Last name:</label><br>
-        <input type="text" id="lname" name="lname"><br>
-        <label for="age">Age:</label><br>
-        <input type="range" name="Age" min="1" max="100" onchange="updateTextInput(this.value);"><br>
-        <input type="text" id="textInput" value=""><br>
+
+          
+          <text>What is your sexual preference?</text><br><br>
+          <input type="checkbox" id="sexuality1" name="sexuality1" value="Mprefer">
+          <label for="sexuality1"> I like men</label><br>
+          <input type="checkbox" id="sexuality2" name="sexuality2" value="Fprefer">
+          <label for="sexuality2"> I like women</label><br>
+          <input type="checkbox" id="sexuality3" name="sexuality3" value="Nprefer">
+          <label for="sexuality3"> I like non-binary</label><br>
+          <br>
+
+          <text>What are some of your areas of interest? (Select 5)</text><br><br>
+          <input type="checkbox" id="hobby1" name="hobby1" value="Gaming">
+          <label for="hobby1"> I like Gaming</label><br>
+          <input type="checkbox" id="hobby2" name="hobby2" value="Reading">
+          <label for="hobby2"> I like Reading</label><br>
+          <input type="checkbox" id="hobby3" name="hobby3" value="Writing">
+          <label for="hobby3"> I like Writing</label><br>
+          <input type="checkbox" id="hobby4" name="hobby4" value="Poetry">
+          <label for="hobby4"> I like Poetry</label><br>
+          <input type="checkbox" id="hobby5" name="hobby5" value="Photography">
+          <label for="hobby5"> I like Photography</label><br>
+          <input type="checkbox" id="hobby6" name="hobby6" value="Traveling">
+          <label for="hobby6"> I like Traveling</label><br>
+          <input type="checkbox" id="hobby7" name="hobby7" value="Cycling">
+          <label for="hobby7"> I like Cycling</label><br>
+          <input type="checkbox" id="hobby8" name="hobby8" value="Hiking">
+          <label for="hobby8"> I like Hiking</label><br>
+          <input type="checkbox" id="hobby9" name="hobby9" value="Swimming">
+          <label for="hobby9"> I like Swimming</label><br>
+          <input type="checkbox" id="hobby10" name="hobby10" value="Sports">
+          <label for="hobby10"> I like Sports</label><br>
+          <input type="checkbox" id="hobby11" name="hobby11" value="Dancing">
+          <label for="hobby11"> I like Dancing</label><br>
+          <input type="checkbox" id="hobby12" name="hobby12" value="Singing">
+          <label for="hobby12"> I like Singing</label><br>
+          <input type="checkbox" id="hobby13" name="hobby13" value="Instruments">
+          <label for="hobby13"> I like Instruments</label><br>
+          <input type="checkbox" id="hobby14" name="hobby14" value="Art">
+          <label for="hobby14"> I like Art</label><br>
+          <input type="checkbox" id="hobby15" name="hobby15" value="DIY">
+          <label for="hobby15"> I like DIY</label><br>
+          <input type="checkbox" id="hobby17" name="hobby17" value="Yoga">
+          <label for="hobby17"> I like Yoga</label><br>
+          <input type="checkbox" id="hobby18" name="hobby18" value="Fishing">
+          <label for="hobby18"> I like Fishing</label><br>
+          <input type="checkbox" id="hobby19" name="hobby19" value="Kayaking-Canoeing-Sailing">
+          <label for="hobby19"> I like Kayaking/Canoeing/Sailing</label><br>
+          <input type="checkbox" id="hobby20" name="hobby20" value="Cooking/Baking">
+          <label for="hobby20"> I like Cooking/Baking</label><br>
+          <input type="checkbox" id="hobby21" name="hobby21" value="Cards">
+          <label for="hobby21"> I like Cards</label><br>
+          <input type="checkbox" id="hobby15" name="hobby21" value="Chess">
+          <label for="hobby21"> I like Chess</label><br>
+          <input type="checkbox" id="hobby22" name="hobby22" value="Knitting-Sewing-Crocheting">
+          <label for="hobby22"> I like Knitting/Sewing/Crocheting</label><br>
+          <input type="checkbox" id="hobby23" name="hobby23" value="Gardening">
+          <label for="hobby23"> I like Gardening</label><br>
+          <br>
 
 
-        <input type="checkbox" id="sexuality1" name="sexuality1" value="Mprefer">
-        <label for="sexuality1"> I like men</label><br>
-        <input type="checkbox" id="sexuality2" name="sexuality2" value="Fprefer">
-        <label for="sexuality2"> I like women</label><br>
-        <input type="checkbox" id="sexuality3" name="sexuality3" value="Nprefer">
-        <label for="sexuality3"> I like non-binary</label><br>
-        <br>
-
-        
-        <input type="checkbox" id="hobby1" name="hobby1" value="Gaming">
-        <label for="hobby1"> I like Gaming</label><br>
-        <input type="checkbox" id="hobby2" name="hobby2" value="Reading">
-        <label for="hobby2"> I like Reading</label><br>
-        <input type="checkbox" id="hobby3" name="hobby3" value="Writing">
-        <label for="hobby3"> I like Writing</label><br>
-        <input type="checkbox" id="hobby4" name="hobby4" value="Poetry">
-        <label for="hobby4"> I like Poetry</label><br>
-        <input type="checkbox" id="hobby5" name="hobby5" value="Photography">
-        <label for="hobby5"> I like Photography</label><br>
-        <input type="checkbox" id="hobby6" name="hobby6" value="Traveling">
-        <label for="hobby6"> I like Traveling</label><br>
-        <input type="checkbox" id="hobby7" name="hobby7" value="Cycling">
-        <label for="hobby7"> I like Cycling</label><br>
-        <input type="checkbox" id="hobby8" name="hobby8" value="Hiking">
-        <label for="hobby8"> I like Hiking</label><br>
-        <input type="checkbox" id="hobby9" name="hobby9" value="Swimming">
-        <label for="hobby9"> I like Swimming</label><br>
-        <input type="checkbox" id="hobby10" name="hobby10" value="Sports">
-        <label for="hobby10"> I like Sports</label><br>
-        <input type="checkbox" id="hobby11" name="hobby11" value="Dancing">
-        <label for="hobby11"> I like Dancing</label><br>
-        <input type="checkbox" id="hobby12" name="hobby12" value="Singing">
-        <label for="hobby12"> I like Singing</label><br>
-        <input type="checkbox" id="hobby13" name="hobby13" value="Instruments">
-        <label for="hobby13"> I like Instruments</label><br>
-        <input type="checkbox" id="hobby14" name="hobby14" value="Art">
-        <label for="hobby14"> I like Art</label><br>
-        <input type="checkbox" id="hobby15" name="hobby15" value="DIY">
-        <label for="hobby15"> I like DIY</label><br>
-        <input type="checkbox" id="hobby17" name="hobby17" value="Yoga">
-        <label for="hobby17"> I like Yoga</label><br>
-        <input type="checkbox" id="hobby18" name="hobby18" value="Fishing">
-        <label for="hobby18"> I like Fishing</label><br>
-        <input type="checkbox" id="hobby19" name="hobby19" value="Kayaking-Canoeing-Sailing">
-        <label for="hobby19"> I like Kayaking-Canoeing-Sailing</label><br>
-        <input type="checkbox" id="hobby20" name="hobby20" value="Cooking/Baking">
-        <label for="hobby20"> I like Cooking/Baking</label><br>
-        <input type="checkbox" id="hobby21" name="hobby21" value="Cards">
-        <label for="hobby21"> I like Cards</label><br>
-        <input type="checkbox" id="hobby15" name="hobby21" value="Chess">
-        <label for="hobby21"> I like Chess</label><br>
-        <input type="checkbox" id="hobby22" name="hobby22" value="Knitting-Sewing-Crocheting">
-        <label for="hobby22"> I like Knitting-Sewing-Crocheting</label><br>
-        <input type="checkbox" id="hobby23" name="hobby23" value="Gardening">
-        <label for="hobby23"> I like Gardening</label><br>
-    </form>
+          <input type="submit" Value="Submit">
+        </center>
+      </form>
 
 
 
 
 </body>
+</html>
