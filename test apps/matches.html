@@ -10,7 +10,28 @@
     <body>
         <script>
 
-            fetch();
+           // fetch("MatchMaker Data Collection Questionnaire (Responses) - Form Responses 1.csv");
+
+            getData();
+
+             async function getData(){
+
+                const response = await fetch("MatchMaker Data Collection Questionnaire (Responses) - Form Responses 1.csv");
+                const data = await response.text();
+                //console.log(data);
+
+                const rows = data.split('\n').slice(1);
+
+                rows.forEach(elt => {
+                
+                const row = elt.split(',');
+                console.log(row);
+
+                });
+
+               // console.log(rows);
+
+            }
 
         </script>
 
