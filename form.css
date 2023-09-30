@@ -19,7 +19,13 @@ Secondary Color #f6dd79;
     html, body {
       margin: 0;
       padding: 0;
-      background-color: #f6efe7;
+      background-color: var(#F09B78);
+      background-image: url("/icon/Form Background.jpg");
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center center;
+        background-attachment: fixed;
+        background-color: aqua;
     }
     
     canvas {
@@ -29,7 +35,14 @@ Secondary Color #f6dd79;
     body{
     
       font-family: 'Rubik', sans-serif;
-     
+      
+    }
+
+    form{
+
+    background-color: #F09B78;
+    padding: 10px;
+
     }
     
     header{
@@ -86,5 +99,6 @@ Secondary Color #f6dd79;
     position: relative;
     
     }
-    
+
+
     
