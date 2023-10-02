@@ -1,16 +1,17 @@
-Name, Age, Hobby 1, Hobby 2, Hobby 3, Hobby 4, Hobby 5
-User 1, 25, Reading, Hiking, Cooking, Painting, Cycling
-User 2, 30, Swimming, Photography, Gardening, Yoga, Traveling
-User 3, 22, Dancing, Gaming, Running, Singing, Drawing
-User 4, 35, Fishing, Watching Movies, Playing Guitar, Camping, Bird Watching
-User 5, 28, Playing Chess, Biking, Traveling, Cooking, Painting
-User 6, 29, Playing Piano, Swimming, Hiking, Photography, Reading
-User 7, 27, Running, Painting, Writing, Gardening, Photography
-User 8, 32, Traveling, Dancing, Cooking, Watching Movies, Playing Guitar
-User 9, 26, Playing Soccer, Cycling, Yoga, Painting, Singing
-User 10, 31, Bird Watching, Drawing, Gaming, Hiking, Photography
-User 11, 23, Playing Guitar, Reading, Camping, Biking, Cooking
-User 12, 24, Singing, Painting, Swimming, Running, Writing
-User 13, 34, Photography, Gardening, Traveling, Dancing, Hiking
-User 14, 33, Playing Chess, Cooking, Playing Piano, Watching Movies, Cycling
-User 15, 20, Gaming, Bird Watching, Drawing, Yoga, Swimming
+First Name,Last Name,Age,Hobby 1,Hobby 2,Hobby 3,Hobby 4,Hobby 5
+Alice,Smith,28,Sports,Dancing,Music,Art,Outdoors/traveling
+Bob,Johnson,32,Gaming,Reading,Fishing,Singing,Board games
+Charlie,Davis,20,Music,Art,Gaming,Reading,Fishing
+David,Wilson,25,Sports,Outdoors/traveling,Fishing,Music,Reading
+Emma,Moore,35,Singing,Outdoors/traveling,Board games,Gaming,Art
+Frank,Anderson,30,Art,Fishing,Sports,Reading,Dancing
+Grace,Thomas,22,Music,Board games,Singing,Dancing,Outdoors/traveling
+Hannah,Hall,26,Gaming,Outdoors/traveling,Art,Music,Board games
+Isabel,Young,18,Sports,Music,Fishing,Reading,Dancing
+Jack,Wright,29,Outdoors/traveling,Board games,Fishing,Singing,Dancing
+Kevin,Harris,38,Art,Music,Sports,Reading,Fishing
+Lily,Martin,27,Dancing,Art,Singing,Outdoors/traveling,Board games
+Mike,Clark,31,Sports,Gaming,Outdoors/traveling,Fishing,Music
+Nora,Adams,24,Fishing,Music,Art,Reading,Gaming
+Olivia,Turner,40,Outdoors/traveling,Reading,Dancing,Sports,Music
+
