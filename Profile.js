@@ -60,3 +60,9 @@ class User
     }
 
 }
+
+function storeAsCsv(event)
+{
+    event.preventDefault();
+    console.log(event);
+}
