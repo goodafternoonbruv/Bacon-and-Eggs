@@ -1,8 +1,8 @@
 class List
 {
-    constructor(first)
+    constructor()
     {
-        this.first = first;
+        let first = null;
         this.curr = this.first;
         //addData();
     }
@@ -32,11 +32,12 @@ class List
     // }
 
     addUser (user) {
-        while (curr.next != null)
+        while (this.curr.next != null)
         {
-            curr.next = user;
+            curr = curr.next;
         }
-        setNext();
+        setNext(user);
+        this.curr = this.curr.next;
     }
 
 }
@@ -50,12 +51,18 @@ class User
         this.age = age;
         this.gender = gender;
         this.hobbies = hobbies;
-        let next;
+        let next = null;
     }
 
     setNext(user)
     {
-        next = user;
+        this.next = user;
     }
 
+}
+
+function storeAsCsv(event)
+{
+    event.preventDefault();
+    console.log(event);
 }
