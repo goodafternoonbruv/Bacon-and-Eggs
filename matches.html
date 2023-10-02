@@ -16,11 +16,11 @@
 
              async function getData(){
 
-                const response = await fetch("MatchMaker Data Collection Questionnaire (Responses) - Form Responses 1.csv");
+                const response = await fetch("MatchMaker Responses.csv");
                 const data = await response.text();
                 //console.log(data);
 
-                const rows = data.split('\n').slice(1);
+                const rows = data.split('\n').slice(0);
 
                 rows.forEach(elt => {
                 

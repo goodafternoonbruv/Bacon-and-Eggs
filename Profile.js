@@ -66,3 +66,24 @@ function storeAsCsv(event)
     event.preventDefault();
     console.log(event);
 }
+
+getData();
+
+async function getData(){
+
+   const response = await fetch("MatchMaker Responses.csv");
+   const data = await response.text();
+   //console.log(data);
+
+   const rows = data.split('\n').slice(0);
+
+   rows.forEach(elt => {
+   
+   const row = elt.split(',');
+   console.log(row);
+
+   });
+
+  // console.log(rows);
+
+}

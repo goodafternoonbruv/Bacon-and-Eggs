@@ -1,5 +1,10 @@
 <?php
-$fieldA = $_POST["textnames"];
+$fieldA = $_POST[""];
+
+
+
+
+
 $keys = array('id_number', 'first_name'); //FORM ELEMENTS
 $csv_line = array();
 foreach($keys as $key){
