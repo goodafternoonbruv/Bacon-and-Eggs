@@ -1,4 +1,4 @@
-class List {
+  /*class List {
     constructor() {
         let first = null;
         this.curr = this.first;
@@ -62,11 +62,16 @@ class User {
 
 }
 
+
+
+
 function storeAsCsv(event) {
     event.preventDefault();
     console.log(event);
 }
 
+
+*/
 getData();
 
 async function getData() {
@@ -80,7 +85,15 @@ async function getData() {
     rows.forEach(elt => {
 
         const row = elt.split(',');
-        console.log(row);
+        const firstName = row[0];
+        const lastName = row[1];
+        const Hobby1 = row[3];
+        const Hobby2 = row[4];
+        const Hobby3 = row[5];
+        const Hobby4 = row[6];
+        const Hobby5 = row[7];
+        const Hobby6 = row[8];
+        console.log(firstName, lastName);
 
     });
 
