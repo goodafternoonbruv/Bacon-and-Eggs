@@ -4,6 +4,7 @@ function setup() {
   createCanvas(windowWidth, windowHeight);
   windowResized();
   uploadData();
+  getData();
 }
 
 function windowResized() {
@@ -16,6 +17,7 @@ function draw() {
 
 function uploadData() {
   userManager = new List(); //create list
+  /*
   //create user (link)
   let user = new User("Jamal", "Murry", 28, 0, [true, true, true, true, false, false, false, false, false, false]);
   //pass through user (link) to be added to the list
@@ -23,16 +25,5 @@ function uploadData() {
 
   user = new User("Brent", "Nickel", 63, 0, [false, false, false, false, false, false, true, true, false, true]);
   userManager.addUser(user);
-
-  userManager.curr = userManager.first;
-  if (userManager.first = null)
-  {
-    print("No users in link list");
-  } else
-  {
-    while (userManager.curr)
-    {
-      print(userManager.curr);
-    }
-  }
+  */
 }
