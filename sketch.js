@@ -30,9 +30,6 @@ function uploadData() {
     print("No users in link list");
   } else
   {
-    while (userManager.curr)
-    {
-      print(userManager.curr);
-    }
+
   }
 }

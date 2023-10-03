@@ -1,4 +1,4 @@
-  /*class List {
+  class List {
     constructor() {
         let first = null;
         this.curr = this.first;
@@ -29,6 +29,7 @@
     //     }
     // }
 
+
     addUser(user) {
         if (this.first == null) {
             this.first = user;
@@ -36,11 +37,13 @@
         {
             this.curr = this.first;
 
-            while (this.curr.next)
+           while (this.curr.next)
             {
                 this.curr = this.curr.next;
             }
             this.curr.next = user;
+
+            
         }
     }
 
@@ -71,7 +74,7 @@ function storeAsCsv(event) {
 }
 
 
-*/
+
 getData();
 
 async function getData() {
