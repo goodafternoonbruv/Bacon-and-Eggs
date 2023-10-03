@@ -40,7 +40,7 @@
             {
                 this.curr = this.curr.next;
             }
-            this.curr.setNext(user);
+            this.curr.next = user;
         }
     }
 
@@ -85,7 +85,6 @@ async function getData() {
     rows.forEach(elt => {
 
         const row = elt.split(',');
-<<<<<<< HEAD
         const firstName = row[0];
         const lastName = row[1];
         const Hobby1 = row[3];
@@ -95,10 +94,6 @@ async function getData() {
         const Hobby5 = row[7];
         const Hobby6 = row[8];
         console.log(firstName, lastName);
-=======
-        console.log(row);
-        //let user = new User();
->>>>>>> ec17581c85b04322d6545bb0ded1dd7dfb1def72
 
     });
 
