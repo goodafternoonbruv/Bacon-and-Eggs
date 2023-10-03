@@ -5,6 +5,7 @@
         //addData();
     }
 
+<<<<<<< HEAD
     // addData()
     // {
     //     while () //while file is being read
@@ -30,6 +31,8 @@
     // }
 
 
+=======
+>>>>>>> 889fac890643aa7ccc147a26623f99634b40f327
     addUser(user) {
         if (this.first == null) {
             this.first = user;
@@ -45,6 +48,7 @@
 
             
         }
+        print(user);
     }
 
 }
@@ -74,14 +78,16 @@ function storeAsCsv(event) {
 }
 
 
+<<<<<<< HEAD
 
 getData();
+=======
+>>>>>>> 889fac890643aa7ccc147a26623f99634b40f327
 
 async function getData() {
 
     const response = await fetch("MatchMaker Responses.csv");
     const data = await response.text();
-    //console.log(data);
 
     const rows = data.split('\n').slice(1);
 
@@ -90,16 +96,22 @@ async function getData() {
         const row = elt.split(',');
         const firstName = row[0];
         const lastName = row[1];
+        const age = row[2];
         const Hobby1 = row[3];
         const Hobby2 = row[4];
         const Hobby3 = row[5];
         const Hobby4 = row[6];
         const Hobby5 = row[7];
         const Hobby6 = row[8];
+<<<<<<< Updated upstream
         console.log(firstName, lastName);
 
+=======
+        let hobbies = [Hobby1, Hobby2, Hobby3, Hobby4, Hobby5, Hobby6];
+        let user = new User(firstName, lastName, age, 0, hobbies);
+        userManager.addUser(user);
+>>>>>>> Stashed changes
     });
 
-    // console.log(rows);
 
 }
