@@ -68,14 +68,10 @@ async function getData() {
         const Hobby4 = row[6];
         const Hobby5 = row[7];
         const Hobby6 = row[8];
-<<<<<<< Updated upstream
-        console.log(firstName, lastName);
 
-=======
         let hobbies = [Hobby1, Hobby2, Hobby3, Hobby4, Hobby5, Hobby6];
         let user = new User(firstName, lastName, age, 0, hobbies);
         userManager.addUser(user);
->>>>>>> Stashed changes
     });
 
 
