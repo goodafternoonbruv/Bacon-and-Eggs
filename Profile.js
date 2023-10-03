@@ -5,34 +5,6 @@
         //addData();
     }
 
-<<<<<<< HEAD
-    // addData()
-    // {
-    //     while () //while file is being read
-    //     {
-    //         let user = new User(age, gender, hobbies);
-    //         if (first == null)
-    //         {
-    //             user = first;
-    //             curr = first;
-    //         } else
-    //         {
-    //             curr.setNext(user);
-    //             curr = curr.next;
-    //         }
-
-    //         curr = first;
-    //         While (curr != null)
-    //         {
-    //             prinln(curr.firstName + " " + this.curr.lastName);
-    //             curr = curr.next;
-    //         }
-    //     }
-    // }
-
-
-=======
->>>>>>> 889fac890643aa7ccc147a26623f99634b40f327
     addUser(user) {
         if (this.first == null) {
             this.first = user;
@@ -77,12 +49,6 @@ function storeAsCsv(event) {
     console.log(event);
 }
 
-
-<<<<<<< HEAD
-
-getData();
-=======
->>>>>>> 889fac890643aa7ccc147a26623f99634b40f327
 
 async function getData() {
 
