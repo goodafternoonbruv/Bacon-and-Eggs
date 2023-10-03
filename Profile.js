@@ -40,7 +40,7 @@ class List {
             {
                 this.curr = this.curr.next;
             }
-            this.curr.next = user;
+            this.curr.setNext(user);
         }
     }
 
@@ -81,6 +81,7 @@ async function getData() {
 
         const row = elt.split(',');
         console.log(row);
+        //let user = new User();
 
     });
 
