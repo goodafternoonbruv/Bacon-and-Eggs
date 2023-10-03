@@ -23,4 +23,16 @@ function uploadData() {
 
   user = new User("Brent", "Nickel", 63, 0, [false, false, false, false, false, false, true, true, false, true]);
   userManager.addUser(user);
+
+  userManager.curr = userManager.first;
+  if (userManager.first = null)
+  {
+    print("No users in link list");
+  } else
+  {
+    while (userManager.curr)
+    {
+      print(userManager.curr);
+    }
+  }
 }
