@@ -1,7 +1,5 @@
-class List
-{
-    constructor()
-    {
+class List {
+    constructor() {
         let first = null;
         this.curr = this.first;
         //addData();
@@ -21,7 +19,7 @@ class List
     //             curr.setNext(user);
     //             curr = curr.next;
     //         }
-            
+
     //         curr = first;
     //         While (curr != null)
     //         {
@@ -31,59 +29,61 @@ class List
     //     }
     // }
 
-    addUser (user) {
-        while (this.curr.next != null)
+    addUser(user) {
+        if (this.first == null) {
+            this.first = user;
+        } else 
         {
-            curr = curr.next;
+            this.curr = this.first;
+
+            while (this.curr.next)
+            {
+                this.curr = this.curr.next;
+            }
+            this.curr.next = user;
         }
-        setNext(user);
-        this.curr = this.curr.next;
     }
 
 }
 
-class User
-{
-    constructor(firstName, lastName, age, gender, hobbies)
-    {
+class User {
+    constructor(firstName, lastName, age, gender, hobbies) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.age = age;
         this.gender = gender;
         this.hobbies = hobbies;
-        let next = null;
+        this.next = null;
     }
 
-    setNext(user)
-    {
+    setNext(user) {
         this.next = user;
     }
 
 }
 
-function storeAsCsv(event)
-{
+function storeAsCsv(event) {
     event.preventDefault();
     console.log(event);
 }
 
 getData();
 
-async function getData(){
+async function getData() {
 
-   const response = await fetch("MatchMaker Responses.csv");
-   const data = await response.text();
-   //console.log(data);
+    const response = await fetch("MatchMaker Responses.csv");
+    const data = await response.text();
+    //console.log(data);
 
-   const rows = data.split('\n').slice(1);
+    const rows = data.split('\n').slice(1);
 
-   rows.forEach(elt => {
-   
-   const row = elt.split(',');
-   console.log(row);
+    rows.forEach(elt => {
 
-   });
+        const row = elt.split(',');
+        console.log(row);
 
-  // console.log(rows);
+    });
+
+    // console.log(rows);
 
 }
