@@ -1,17 +1,17 @@
-First Name,Last Name,Age,Hobby 1,Hobby 2,Hobby 3,Hobby 4,Hobby 5, Gender,
-Alice,Smith,28,Sports,Dancing,Music,Art,Outdoors/traveling, 0
-Bob,Johnson,32,Gaming,Reading,Fishing,Singing,Board games, 1
-Charlie,Davis,20,Music,Art,Gaming,Reading,Fishing,2
-David,Wilson,25,Sports,Outdoors/traveling,Fishing,Music,Reading,2
-Emma,Moore,35,Singing,Outdoors/traveling,Board games,Gaming,Art,1
-Frank,Anderson,30,Art,Fishing,Sports,Reading,Dancing,1
-Grace,Thomas,22,Music,Board games,Singing,Dancing,Outdoors/traveling,0
-Hannah,Hall,26,Gaming,Outdoors/traveling,Art,Music,Board games,1
-Isabel,Young,18,Sports,Music,Fishing,Reading,Dancing,2
-Jack,Wright,29,Outdoors/traveling,Board games,Fishing,Singing,Dancing,0
-Kevin,Harris,38,Art,Music,Sports,Reading,Fishing,0
-Lily,Martin,27,Dancing,Art,Singing,Outdoors/traveling,Board games,2
-Mike,Clark,31,Sports,Gaming,Outdoors/traveling,Fishing,Music,1
-Nora,Adams,24,Fishing,Music,Art,Reading,Gaming,0
-Olivia,Turner,40,Outdoors/traveling,Reading,Dancing,Sports,Music,1
+First Name,Last Name,Age,Hobby 1,Hobby 2,Hobby 3,Hobby 4,Hobby 5, Gender, Sexuality, 
+Alice,Smith,28,Sports,Dancing,Music,Art,Outdoors/traveling, 0, Other, 
+Bob,Johnson,32,Gaming,Reading,Fishing,Singing,Board games, 1, Women,
+Charlie,Davis,20,Music,Art,Gaming,Reading,Fishing,2, Men
+David,Wilson,25,Sports,Outdoors/traveling,Fishing,Music,Reading,2, Men
+Emma,Moore,35,Singing,Outdoors/traveling,Board games,Gaming,Art,1, Women
+Frank,Anderson,30,Art,Fishing,Sports,Reading,Dancing,1, Men
+Grace,Thomas,22,Music,Board games,Singing,Dancing,Outdoors/traveling,0, Non-Binary
+Hannah,Hall,26,Gaming,Outdoors/traveling,Art,Music,Board games,1, Non-Binary
+Isabel,Young,18,Sports,Music,Fishing,Reading,Dancing,2,Men
+Jack,Wright,29,Outdoors/traveling,Board games,Fishing,Singing,Dancing,0,Women,
+Kevin,Harris,38,Art,Music,Sports,Reading,Fishing,0, Men
+Lily,Martin,27,Dancing,Art,Singing,Outdoors/traveling,Board games,2, Women
+Mike,Clark,31,Sports,Gaming,Outdoors/traveling,Fishing,Music,1, Men
+Nora,Adams,24,Fishing,Music,Art,Reading,Gaming,0, Men
+Olivia,Turner,40,Outdoors/traveling,Reading,Dancing,Sports,Music,1, Women
 
