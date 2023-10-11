@@ -2,40 +2,43 @@ let userManager;
 function setup() {
   //load data
   createCanvas(windowWidth, windowHeight);
-  windowResized();
-  uploadData();
+  userManager = new List(); //create list
   getData();
+  angleMode(DEGREES);
 }
 
 function windowResized() {
   resizeCanvas(windowWidth, windowHeight);
 }
 
-function draw() {
-
+function draw()
+{
+  Match();
 }
 
-function uploadData() {
-  userManager = new List(); //create list
-  /*
-  //create user (link)
-  let user = new User("Jamal", "Murry", 28, 0, [true, true, true, true, false, false, false, false, false, false]);
-  //pass through user (link) to be added to the list
-  userManager.addUser(user);
-
-  user = new User("Brent", "Nickel", 63, 0, [false, false, false, false, false, false, true, true, false, true]);
-  userManager.addUser(user);
-
-
-  userManager.curr = userManager.first;
-  if (userManager.first = null)
+function Match()
+{
+  strokeWeight(5);
+  stroke(80, 80, 190);
+  translate(width/2, height/2);
+  let d = 36;
+  for (let i = 0; i<360; i++)
   {
-    print("No users in link list");
-  } else
-  {
+    if(d == 36)
+    {
+    let r = 300;
+    let x = r*cos(i);
+    let y = r*sin(i);
+    print(i/36);
+    
+    point(x, y);
+    d = 0;
+    }
+    d++;
 
   }
 
-  */
-
+  let xPos = windowWidth/2;
+  let yPos = windowHeight/2;
+  point(xPos, yPos);
 }
