@@ -2,7 +2,6 @@
     constructor() {
         let first = null;
         this.curr = this.first;
-        //addData();
     }
 
     addUser(user) {
@@ -20,7 +19,7 @@
 
             
         }
-        print(user);
+        //print(user);
     }
 
 }
