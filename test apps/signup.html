@@ -27,6 +27,39 @@
  <script type="text/javascript" src="Notifications.js"></script>
  <script type="text/javascript">
  </script>
+
+<style>
+  .collapsible {
+    background-color: #f6dd79;
+    color: black;
+    cursor: pointer;
+    padding: 18px;
+    width: 100%;
+    border: none;
+    text-align: left;
+    outline: none;
+    font-size: 15px;
+    font-family: 'Rubik', sans-serif;
+  }
+
+  body{
+    
+    font-family: 'Rubik', sans-serif;
+   
+  }
+  
+  .active, .collapsible:hover {
+    background-color: #f6dd79;
+  }
+  
+  .content {
+    padding: 0 18px;
+    display: none;
+    overflow: hidden;
+    background-color: #f1f1f1;
+  }
+  </style>
+
 </head>
 
 <body>
@@ -82,21 +115,73 @@
     <select id="gender" name="gender">
       <option value="male">Male</option>
       <option value="female">Female</option>
-      <option value="usa">USA</option>
+      <option value="usa">Other</option>
     </select>
 
     <label for="sexuality">Sexuality </label>
     <select id="sexuality" name="sexuality">
-      <option value="australia">Australia</option>
-      <option value="canada">Canada</option>
-      <option value="usa">USA</option>
+      <option value="australia">Straight</option>
+      <option value="canada">Bisexual</option>
+      <option value="usa">Gay</option>
+    </select>
+
+    <button type="button" class="collapsible">What are some of your areas of interest?</button>
+    <div class="content">
+      <input type="checkbox" id="hobby1" name="hobby1" value="Gaming">
+      <label for="hobby1"> Sports </label><br>
+      <input type="checkbox" id="hobby2" name="hobby2" value="Reading">
+      <label for="hobby2"> Dancing </label><br>
+      <input type="checkbox" id="hobby3" name="hobby3" value="Writing">
+      <label for="hobby3"> Singing</label><br>
+      <input type="checkbox" id="hobby4" name="hobby4" value="Poetry">
+      <label for="hobby4"> Music</label><br>
+      <input type="checkbox" id="hobby5" name="hobby5" value="Photography">
+      <label for="hobby5"> Art</label><br>
+      <input type="checkbox" id="hobby6" name="hobby6" value="Traveling">
+      <label for="hobby6"> Outdoors/traveling</label><br>
+      <input type="checkbox" id="hobby7" name="hobby7" value="Cycling">
+      <label for="hobby7"> Fishing</label><br>
+      <input type="checkbox" id="hobby8" name="hobby8" value="Hiking">
+      <label for="hobby8"> Board games</label><br>
+      <input type="checkbox" id="hobby9" name="hobby9" value="Swimming">
+      <label for="hobby9"> Reading</label><br>
+      <input type="checkbox" id="hobby10" name="hobby10" value="Sports">
+      <label for="hobby10"> Gaming</label><br>
+    </div>
+
+    <label for="sexuality"> What are some of your hobbies?</label>
+    <select id="sexuality" name="sexuality">
+      <option value="hobby1">Sports</option>
+      <option value="hobby2">I like Reading</option>
+      <option value="hobby">I like Writing</option>
+      <option value="usa">I like Writing</option>
     </select>
 
    <center> <input type="submit" value="Signup"> </center>
 
+   <script>
+    var coll = document.getElementsByClassName("collapsible");
+    var i;
+    
+    for (i = 0; i < coll.length; i++) {
+      coll[i].addEventListener("click", function() {
+        this.classList.toggle("active");
+        var content = this.nextElementSibling;
+        if (content.style.display === "block") {
+          content.style.display = "none";
+        } else {
+          content.style.display = "block";
+        }
+      });
+    }
+    </script>
+
 
 </form>
 </div>
+
+
+
 
 </body>
 
