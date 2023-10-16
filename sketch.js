@@ -1,9 +1,11 @@
 let userManager;
+let theHobbies = [];
+let hobbyList = ["Sports", "Dancing", "Singing", "Music", "Art", "Outdoors/Traveling", "Fishing", "Board Games", "Reading", "Gaming"];
+
 function setup() {
-  //load data
   createCanvas(windowWidth, windowHeight);
   userManager = new List(); //create list
-  getData();
+
   angleMode(DEGREES);
 }
 
@@ -13,32 +15,49 @@ function windowResized() {
 
 function draw()
 {
-  Match();
+  createHobbies();
 }
 
-function Match()
+function createHobbies()
 {
-  strokeWeight(5);
-  stroke(80, 80, 190);
-  translate(width/2, height/2);
-  let d = 36;
-  for (let i = 0; i<360; i++)
+  let j = 0;
+  for (let i = 0; i<360; i+=36) //loops to define position on screen
   {
-    if(d == 36)
-    {
     let r = 300;
     let x = r*cos(i);
     let y = r*sin(i);
-    print(i/36);
-    
-    point(x, y);
-    d = 0;
-    }
-    d++;
 
+    let pos = createVector(x, y); //converts x and y into a vector
+    let hobby = new Hobbies(pos, hobbyList[j], j); //created a hobby with the appripriate name
+    theHobbies[j] = hobby; //adds the hobby to the list
+    j++;
   }
 
-  let xPos = windowWidth/2;
-  let yPos = windowHeight/2;
-  point(xPos, yPos);
+
+  translate(width/2, height/2);
+  for (let i=0; i<theHobbies.length; i++)
+  {
+    theHobbies[i].display();
+    //print(theHobbies[i]);
+  }
+}
+
+
+class Hobbies
+{
+  constructor(pos, name, hobbyNum)
+  {
+    this.pos = pos;
+    this.name = name;
+  }
+
+  display()
+  {
+    strokeWeight(5);
+    stroke(0);
+    fill(0);
+    ellipse(this.pos.x, this.pos.y, 5);
+    noStroke();
+    text(this.name, this.pos.x-30, this.pos.y-15);
+  }
 }
