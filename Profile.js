@@ -2,6 +2,7 @@
     constructor() {
         let first = null;
         this.curr = this.first;
+        this.long = 0;
     }
 
     addUser(user) {
@@ -16,10 +17,8 @@
                 this.curr = this.curr.next;
             }
             this.curr.next = user;
-
-            
         }
-        //print(user);
+        this.long++; //length variable not working :(
     }
 
 }
@@ -32,10 +31,17 @@ class User {
         this.gender = gender;
         this.hobbies = hobbies;
         this.next = null;
+        this.pos = null;
     }
 
     setNext(user) {
         this.next = user;
+    }
+
+    display()
+    {
+        fill(0);
+        ellipse(this.pos.x, this.pos.y, 5)
     }
 
 }
@@ -73,6 +79,4 @@ async function getData() {
         let user = new User(firstName, lastName, age, 0, hobbies);
         userManager.addUser(user);
     });
-
-
 }
