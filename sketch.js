@@ -2,15 +2,18 @@ let userManager;
 let theHobbies = [];
 let hobbyList = ["Sports", "Dancing", "Singing", "Music", "Art", "Outdoors/Traveling", "Fishing", "Board Games", "Reading", "Gaming"];
 let h = [true, true, false, false, false, false, true, false, false, true]
-let jamal = new User('Jamal', 'Murry', 32, 0, h)
+
+function preload() {
+  userManager = new List(); //create list
+  getData();
+}
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
-  userManager = new List(); //create list
 
   angleMode(DEGREES);
   createHobbies();
-  graph(jamal);
+  graph();
 }
 
 function windowResized() {
@@ -49,20 +52,20 @@ function graph() {
   let j = 0;
   userManager.curr = userManager.first;
 
-  while (userManager.curr != null) 
-  {
-    for (let i = 0; i < user.hobbies.length; i++) {
-      if (userManager.curr.hobbies[i] == true) 
-      {
+  while (userManager.curr != null) {
+    for (let i = 0; i < userManager.curr.hobbies.length; i++) {
+      if (userManager.curr.hobbies[i] == true) {
         x = x + theHobbies[i].pos.x;
         y = y + theHobbies[i].pos.y;
         j++;
       }
     }
+
     x = x / j;
     y = y / j;
     let position = createVector(x, y);
     userManager.curr.pos = position;
+    //print(position);
 
     userManager.curr = userManager.curr.next;
   }
@@ -72,8 +75,8 @@ function graph() {
 
 function displayUser() {
   translate(width / 2, height / 2);
-  while (userManager.curr != null)
-  {
+  userManager.curr = userManager.first;
+  while (userManager.curr != null) {
     userManager.curr.display();
     userManager.curr = userManager.curr.next;
   }
@@ -93,5 +96,7 @@ class Hobbies {
     ellipse(this.pos.x, this.pos.y, 5);
     noStroke();
     text(this.name, this.pos.x - 30, this.pos.y - 15);
+
+
   }
 }
