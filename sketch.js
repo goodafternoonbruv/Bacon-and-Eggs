@@ -2,6 +2,7 @@ let userManager;
 let theHobbies = [];
 let hobbyList = ["Sports", "Dancing", "Singing", "Music", "Art", "Outdoors/Traveling", "Fishing", "Board Games", "Reading", "Gaming"];
 let h = [true, true, false, false, false, false, true, false, false, true]
+let displaySwitch = false;
 
 function preload() {
   userManager = new List(); //create list
@@ -20,10 +21,19 @@ function windowResized() {
   resizeCanvas(windowWidth, windowHeight);
 }
 
+//---------------------------Draw-------------------------------//
+
 function draw() {
-  displayUser();
-  drawHobbies();
+  background(235, 215, 192);
+  if (displaySwitch == false) {
+    displayUser();
+    drawHobbies();
+  } else if (displaySwitch) {
+    listUsers();
+  }
 }
+
+//----------------------------Hobby functions -------------------------------//
 
 function createHobbies() {
   let j = 0;
@@ -65,7 +75,6 @@ function graph() {
     y = y / j;
     let position = createVector(x, y);
     userManager.curr.pos = position;
-    //print(position);
 
     userManager.curr = userManager.curr.next;
   }
@@ -82,6 +91,7 @@ function displayUser() {
   }
 }
 
+//---------------------------Hobby Class-------------------------------//
 
 class Hobbies {
   constructor(pos, name, hobbyNum) {
@@ -98,5 +108,71 @@ class Hobbies {
     text(this.name, this.pos.x - 30, this.pos.y - 15);
 
 
+  }
+}
+
+//---------------------------User management-------------------------------//
+
+function keyTyped() {
+  if (key == 'q' || key == 'Q') {
+    displaySwitch = false;
+  } else if (key == 'w' || key == 'W') {
+    displaySwitch = true;
+  }
+}
+
+let yList;
+let scroll = 0;
+function listUsers() {
+  yList = 150;
+  let i = 0;
+  userManager.curr = userManager.first;
+  while (userManager.curr != null) {
+    if (yList >= 140) {
+      if (mouseX >= 200 && mouseX <= 300 && mouseY >= i * 15 + yList - scroll - 13 && mouseY <= i * 15 + yList - scroll + 15) {
+        fill(200);
+        rect(200, i * 15 + yList - scroll - 13, 100, 16, 2);
+        fill(0);
+        text("Delete?", 130, i * 15 + yList - scroll);
+
+        if (mouseIsPressed == true) {
+          deleteUser(userManager.curr);
+        }
+      }
+      // let button = createButton("Delete");
+      // button.position(300, i * 15 + yList);
+      // button.mousePressed(deleteUser(userManager.curr));
+
+      fill(0);
+      text(userManager.curr.firstName, 200, i * 15 + yList - scroll);
+      text(userManager.curr.lastName, 250, i * 15 + yList - scroll);
+
+      yList += 15;
+      i++;
+      userManager.curr = userManager.curr.next;
+    }
+  }
+}
+
+function mouseWheel(event) {
+  scroll += event.delta - 100;
+}
+
+function deleteUser(user) {
+  print(user.firstName + " " + user.lastName + " should be deleted");
+  let curr = userManager.first;
+  let prev;
+  while (userManager.curr != null) {
+    if (curr.firstName == user.firstName && curr.lastName == user.lastName && curr.age == user.age) {
+      if (userManager.first.firstName == user.firstName && userManager.first.lastName == user.lastName && userManager.first.age == user.age) {
+        userManager.first = curr.next;
+      } else {
+        prev.next = curr.next;
+      }
+      break;
+    }
+
+    prev = userManager.curr;
+    userManager.curr = userManager.curr.next;
   }
 }
