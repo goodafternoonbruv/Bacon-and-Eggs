@@ -12,6 +12,9 @@ function preload() {
 function setup() {
   createCanvas(windowWidth, windowHeight);
 
+  let input = select('#searchInput');
+  input.input(search);
+
   angleMode(DEGREES);
   createHobbies();
   graph();
@@ -76,8 +79,8 @@ function graph() {
 
     x = x / j;
     y = y / j;
-    x = x * 3;
-    y = y * 3;
+    x = x * 4;
+    y = y * 4;
     let position = createVector(x, y);
     userManager.curr.pos = position;
 
@@ -131,6 +134,20 @@ let scroll = 0;
 function listUsers() {
   yList = 150;
   let i = 0;
+
+  userManager.curr = userManager.first;
+  while (userManager.curr != null) {
+    if (yList >= 140) {
+      fill(0);
+      text(userManager.curr.firstName, 200, i * 15 + yList - scroll);
+      text(userManager.curr.lastName, 250, i * 15 + yList - scroll);
+
+      yList += 15;
+      i++;
+      userManager.curr = userManager.curr.next;
+    }
+  }
+
   userManager.curr = userManager.first;
   while (userManager.curr != null) {
     if (yList >= 140) {
@@ -144,17 +161,6 @@ function listUsers() {
           deleteUser(userManager.curr);
         }
       }
-      // let button = createButton("Delete");
-      // button.position(300, i * 15 + yList);
-      // button.mousePressed(deleteUser(userManager.curr));
-
-      fill(0);
-      text(userManager.curr.firstName, 200, i * 15 + yList - scroll);
-      text(userManager.curr.lastName, 250, i * 15 + yList - scroll);
-
-      yList += 15;
-      i++;
-      userManager.curr = userManager.curr.next;
     }
   }
 }
