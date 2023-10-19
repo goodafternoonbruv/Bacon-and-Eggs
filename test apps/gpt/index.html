@@ -3,38 +3,16 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your Dating App</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>User Search</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
 </head>
 
 <body>
-    <header>
-        <nav>
-            <div class="logo">Your Dating App</div>
-            <ul>
-                <li><a href="#features">Features</a></li>
-                <li><a href="#testimonials">Testimonials</a></li>
-                <li><a href="#download">Download</a></li>
-            </ul>
-        </nav>
-    </header>
-    <section id="hero">
-        <div class="hero-content">
-            <h1>Find Love with Your Dating App</h1>
-            <p>Connect with singles in your area</p>
-            <a href="#download" class="cta-button">Download Now</a>
-        </div>
-    </section>
-    <section id="features">
-        <!-- Features content goes here -->
-    </section>
-    <section id="testimonials">
-        <!-- Testimonials content goes here -->
-    </section>
-    <section id="download">
-        <!-- Download section content goes here -->
-    </section>
+    <h1>User Search</h1>
+    <input id="searchInput" type="text" placeholder="Search for a user">
+    <div id="results"></div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.js"></script>
+    <script src="search.js"></script>
 </body>
 
 </html>
