@@ -7,7 +7,9 @@ let users = [
     "Frank",
     "Grace",
     "Hannah",
+    "Catherine"
 ];
+
 
 function search() {
     let query = select('#searchInput').value().toLowerCase();
@@ -15,7 +17,7 @@ function search() {
 
     // Display search results
     let resultsDiv = select('#results');
-    resultsDiv.html(""); // Clear previous results
+    resultsDiv.html("");
     for (let user of results) {
         let resultP = createP(user);
         resultsDiv.child(resultP);
