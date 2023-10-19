@@ -10,10 +10,6 @@ let users = [
     "Catherine"
 ];
 
-function draw() {
-
-}
-
 function setup() {
     noCanvas();
     let input = select('#searchInput');
