@@ -7,16 +7,17 @@ let users = [
     "Frank",
     "Grace",
     "Hannah",
+    "Catherine"
 ];
 
 function draw() {
-    // Optional: You can add dynamic content here.
+
 }
 
 function setup() {
     noCanvas();
     let input = select('#searchInput');
-    input.input(search); // Use the 'input' event to call the search function while typing
+    input.input(search);
 }
 
 function search() {
@@ -25,7 +26,7 @@ function search() {
 
     // Display search results
     let resultsDiv = select('#results');
-    resultsDiv.html(""); // Clear previous results
+    resultsDiv.html("");
     for (let user of results) {
         let resultP = createP(user);
         resultsDiv.child(resultP);
