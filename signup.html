@@ -1,176 +1,185 @@
 <!DOCTYPE html>
 <html>
+
 <head>
 
- <!-- FONT IMPORTED FROM GOOGLE FONTS-->
- <link rel="preconnect" href="https://fonts.googleapis.com">
- <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
- <link href="https://fonts.googleapis.com/css2?family=Rubik:ital@1&display=swap" rel="stylesheet">
+  <!-- FONT IMPORTED FROM GOOGLE FONTS-->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Rubik:ital@1&display=swap" rel="stylesheet">
 
 
 
- <meta charset="utf-8" />
- <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
- <title> SIGN UP</title>
+  <title> SIGN UP</title>
 
- <link rel="icon" type="image/x-icon" href="/icon/Bacon and Eggs Favicon 32x32.png">
+  <link rel="icon" type="image/x-icon" href="/icon/Bacon and Eggs Favicon 32x32.png">
 
- <link rel="stylesheet" type="text/css" href="signup.css">
+  <link rel="stylesheet" type="text/css" href="signup.css">
 
- <script src="libraries/p5.min.js"></script>
- <script src="libraries/p5.sound.min.js"></script>
- <script src="./test.js"></script>
- <script src="Notifications.js"></script>
- <script src="Profile.js"></script>
- <script src="Settings.js"></script>
- <script type="text/javascript" src="Notifications.js"></script>
- <script type="text/javascript">
- </script>
+  <script src="libraries/p5.min.js"></script>
+  <script src="libraries/p5.sound.min.js"></script>
+  <script src="./test.js"></script>
+  <script src="Notifications.js"></script>
+  <script src="Profile.js"></script>
+  <script src="Settings.js"></script>
+  <script type="text/javascript" src="Notifications.js"></script>
+  <script type="text/javascript">
+  </script>
 
-<style>
-  .collapsible {
-    background-color: #f6dd79;
-    color: black;
-    cursor: pointer;
-    padding: 18px;
-    width: 100%;
-    border: none;
-    text-align: left;
-    outline: none;
-    font-size: 15px;
-    font-family: 'Rubik', sans-serif;
-  }
+  <style>
+    .collapsible {
+      background-color: #f6dd79;
+      color: black;
+      cursor: pointer;
+      padding: 18px;
+      width: 100%;
+      border: none;
+      text-align: left;
+      outline: none;
+      font-size: 15px;
+      font-family: 'Rubik', sans-serif;
+    }
 
-  body{
-    
-    font-family: 'Rubik', sans-serif;
-   
-  }
-  
-  .active, .collapsible:hover {
-    background-color: #f6dd79;
-  }
-  
-  .content {
-    padding: 0 18px;
-    display: none;
-    overflow: hidden;
-    background-color: #f1f1f1;
-  }
+    body {
+
+      font-family: 'Rubik', sans-serif;
+
+    }
+
+    .active,
+    .collapsible:hover {
+      background-color: #f6dd79;
+    }
+
+    .content {
+      padding: 0 18px;
+      display: none;
+      overflow: hidden;
+      background-color: #f1f1f1;
+    }
   </style>
 
 </head>
 
 <body>
 
-    <header>  
-        <nav class="nav">
-          <div class="logo-container">
-            <!-- NEED NEW LOGO THATS BUILT SLIMER SCALES BAD FULLSCREEN.. MAKE EGGS BLACK IN TEXT-->
-            <a href="index.html"><img src="icon/Bacon and Eggs word logo no back yellow.png" alt="logo" class="logo"></a>      
-          </div>
-  
-            <ul class="list-items">
-                <li class="list">
-                  <a href="form.html" class="link"> Profile </a>
-                </li>
-                <li class="list">
-                  <a href="#" class="link"> Matches </a>
-                </li><li class="list">
-                  <a href="#" class="link"> Settings </a>
-                </li><li class="list">
-                  <a href="index.html" class="link"> Home </a>
-                </li>
-  
-            </ul>
-            
-             
-  
-        </nav>
-    
-  
-      </header>
+  <header>
+    <nav class="nav">
+      <div class="logo-container">
+        <!-- NEED NEW LOGO THATS BUILT SLIMER SCALES BAD FULLSCREEN.. MAKE EGGS BLACK IN TEXT-->
+        <a href="index.html"><img src="icon/Bacon and Eggs word logo no back yellow.png" alt="logo" class="logo"></a>
+      </div>
+
+      <ul class="list-items">
+        <li class="list">
+          <a href="form.html" class="link"> Profile </a>
+        </li>
+        <li class="list">
+          <a href="#" class="link"> Matches </a>
+        </li>
+        <li class="list">
+          <a href="#" class="link"> Settings </a>
+        </li>
+        <li class="list">
+          <a href="index.html" class="link"> Home </a>
+        </li>
+
+      </ul>
+
+
+
+    </nav>
+
+
+  </header>
 
 
 
 
 
-    <div class="container">
-<form action="test.php" method="post">
-   
-    <label for="fname">First Name</label>
-    <input type="text" id="fname" name="firstname" placeholder="Your first name..">
+  <div class="container">
+    <form action="test.php" method="post">
 
-    <label for="lname">Last Name</label>
-    <input type="text" id="lname" name="lastname" placeholder="Your last name..">
+      <label for="fname">First Name</label>
+      <input type="text" id="fname" name="firstname" placeholder="Your first name..">
 
-    <label for="uname">Username</label>
-    <input type="text" id="username" name="username" placeholder="A fun username..">
+      <label for="lname">Last Name</label>
+      <input type="text" id="lname" name="lastname" placeholder="Your last name..">
 
-    <label for="ename">Email</label>
-    <input type="text" id="email" name="email" placeholder="Your email..">
+      <label for="uname">Username</label>
+      <input type="text" id="username" name="username" placeholder="A fun username..">
 
-    <label for="gender">Gender </label>
-    <select id="gender" name="gender">
-      <option value="male">Male</option>
-      <option value="female">Female</option>
-      <option value="usa">Other</option>
-    </select>
+      <label for="ename">Email</label>
+      <input type="text" id="email" name="email" placeholder="Your email..">
 
-    <label for="sexuality">Sexuality </label>
-    <select id="sexuality" name="sexuality">
-      <option value="australia">Straight</option>
-      <option value="canada">Bisexual</option>
-      <option value="usa">Gay</option>
-    </select>
+      <label for="gender">Gender </label>
+      <select id="gender" name="gender">
+        <option value="male">Male</option>
+        <option value="female">Female</option>
+        <option value="usa">Other</option>
+      </select>
 
-    <button type="button" class="collapsible">What are some of your areas of interest?</button>
-    <div class="content">
-      <input type="checkbox" id="hobby1" name="hobby1" value="Gaming">
-      <label for="hobby1"> Sports </label><br>
-      <input type="checkbox" id="hobby2" name="hobby2" value="Reading">
-      <label for="hobby2"> Dancing </label><br>
-      <input type="checkbox" id="hobby3" name="hobby3" value="Writing">
-      <label for="hobby3"> Singing</label><br>
-      <input type="checkbox" id="hobby4" name="hobby4" value="Poetry">
-      <label for="hobby4"> Music</label><br>
-      <input type="checkbox" id="hobby5" name="hobby5" value="Photography">
-      <label for="hobby5"> Art</label><br>
-      <input type="checkbox" id="hobby6" name="hobby6" value="Traveling">
-      <label for="hobby6"> Outdoors/traveling</label><br>
-      <input type="checkbox" id="hobby7" name="hobby7" value="Cycling">
-      <label for="hobby7"> Fishing</label><br>
-      <input type="checkbox" id="hobby8" name="hobby8" value="Hiking">
-      <label for="hobby8"> Board games</label><br>
-      <input type="checkbox" id="hobby9" name="hobby9" value="Swimming">
-      <label for="hobby9"> Reading</label><br>
-      <input type="checkbox" id="hobby10" name="hobby10" value="Sports">
-      <label for="hobby10"> Gaming</label><br>
-    </div>
-    
-   <center> <input type="submit" value="Signup"> </center>
+      <label for="sexuality">Sexuality </label>
+      <select id="sexuality" name="sexuality">
+        <option value="australia">Straight</option>
+        <option value="canada">Bisexual</option>
+        <option value="usa">Gay</option>
+      </select>
 
-   <script>
-    var coll = document.getElementsByClassName("collapsible");
-    var i;
-    
-    for (i = 0; i < coll.length; i++) {
-      coll[i].addEventListener("click", function() {
-        this.classList.toggle("active");
-        var content = this.nextElementSibling;
-        if (content.style.display === "block") {
-          content.style.display = "none";
-        } else {
-          content.style.display = "block";
+      <button type="button" class="collapsible">What are some of your areas of interest?</button>
+      <div class="content">
+        <input type="checkbox" id="hobby1" name="hobby1" value="Gaming">
+        <label for="hobby1"> Sports </label><br>
+        <input type="checkbox" id="hobby2" name="hobby2" value="Reading">
+        <label for="hobby2"> Dancing </label><br>
+        <input type="checkbox" id="hobby3" name="hobby3" value="Writing">
+        <label for="hobby3"> Singing</label><br>
+        <input type="checkbox" id="hobby4" name="hobby4" value="Poetry">
+        <label for="hobby4"> Music</label><br>
+        <input type="checkbox" id="hobby5" name="hobby5" value="Photography">
+        <label for="hobby5"> Art</label><br>
+        <input type="checkbox" id="hobby6" name="hobby6" value="Traveling">
+        <label for="hobby6"> Outdoors/traveling</label><br>
+        <input type="checkbox" id="hobby7" name="hobby7" value="Cycling">
+        <label for="hobby7"> Fishing</label><br>
+        <input type="checkbox" id="hobby8" name="hobby8" value="Hiking">
+        <label for="hobby8"> Board games</label><br>
+        <input type="checkbox" id="hobby9" name="hobby9" value="Swimming">
+        <label for="hobby9"> Reading</label><br>
+        <input type="checkbox" id="hobby10" name="hobby10" value="Sports">
+        <label for="hobby10"> Gaming</label><br>
+      </div>
+
+      <center> <input type="submit" value="Signup"> </center>
+
+      <script>
+        var coll = document.getElementsByClassName("collapsible");
+        var i;
+
+        function addUserData(firstName, lastName, age, gender, interest, hobbies) {
+          let user = new User(firstName, lastName, age, gender, interest, hobbies);
+          userManager.addUser(user);
         }
-      });
-    }
-    </script>
+
+        for (i = 0; i < coll.length; i++) {
+          coll[i].addEventListener("click", function () {
+            this.classList.toggle("active");
+            var content = this.nextElementSibling;
+            if (content.style.display === "block") {
+              content.style.display = "none";
+            } else {
+              content.style.display = "block";
+            }
+          });
+        }
+      </script>
 
 
-</form>
-</div>
+    </form>
+  </div>
 
 
 
@@ -188,5 +197,3 @@
 
 
 </html>
-
-

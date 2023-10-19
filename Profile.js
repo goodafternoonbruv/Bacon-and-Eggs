@@ -21,12 +21,12 @@ class List {
 }
 
 class User {
-    constructor(firstName, lastName, age, gender, interests, hobbies) {
+    constructor(firstName, lastName, age, gender, interest, hobbies) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.age = age;
         this.gender = gender;
-        this.interests = interests;
+        this.interests = interest;
         this.hobbies = hobbies;
         this.next = null;
         this.pos = null;
