@@ -18,9 +18,6 @@ function setup() {
   angleMode(DEGREES);
   createHobbies();
   graph();
-
-  let input = select('#searchInput');
-  //input.input(search);
 }
 
 function windowResized() {

@@ -11,12 +11,6 @@ let users = [
 ];
 
 
-function setup() {
-    noCanvas();
-    let input = select('#searchInput');
-    input.input(search);
-}
-
 function search() {
     let query = select('#searchInput').value().toLowerCase();
     let results = users.filter(user => user.toLowerCase().includes(query));
