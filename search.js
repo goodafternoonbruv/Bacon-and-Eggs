@@ -1,4 +1,5 @@
-let users = [
+
+/*let users = [
     "Alice",
     "Bob",
     "Charlie",
@@ -9,6 +10,18 @@ let users = [
     "Hannah",
     "Catherine"
 ];
+*/
+let users = [];
+let i = 0;
+userManager.curr = userManager.first;
+while (userManager.curr != null) {
+    users[i] = userManager.curr.firstName;
+    users[i + 1] = userManager.curr.lastName;
+    i += 2;
+    userManager.curr = userManager.curr.next;
+}
+print(users);
+
 
 function search() {
     let query = select('#searchInput').value().toLowerCase();
@@ -20,6 +33,7 @@ function search() {
     for (let user of results) {
         let resultP = createP(user);
         resultsDiv.child(resultP);
+        print(firstName);
     }
 }
 
