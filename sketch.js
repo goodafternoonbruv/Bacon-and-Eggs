@@ -73,6 +73,8 @@ function graph() {
 
     x = x / j;
     y = y / j;
+    x = x * 3;
+    y = y * 3;
     let position = createVector(x, y);
     userManager.curr.pos = position;
 
