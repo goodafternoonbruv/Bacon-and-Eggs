@@ -10,14 +10,12 @@ let users = [
     "Catherine"
 ];
 
-<<<<<<< HEAD
+
 function setup() {
     noCanvas();
     let input = select('#searchInput');
     input.input(search);
 }
-=======
->>>>>>> be4087ddfa675fed4c4df415c7092d748ed09672
 
 function search() {
     let query = select('#searchInput').value().toLowerCase();
