@@ -1,5 +1,5 @@
 
-/*let users = [
+let users = [
     "Alice",
     "Bob",
     "Charlie",
@@ -10,7 +10,9 @@
     "Hannah",
     "Catherine"
 ];
-*/
+
+
+/*
 let users = [];
 let i = 0;
 userManager.curr = userManager.first;
@@ -21,6 +23,8 @@ while (userManager.curr != null) {
     userManager.curr = userManager.curr.next;
 }
 print(users);
+
+*/
 
 
 function search() {
