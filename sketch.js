@@ -19,12 +19,11 @@ function setup() {
   let input = select('#searchInput');
   input.input(search);
 
-  getUserNames();
   angleMode(DEGREES);
   createHobbies();
   sortUsers();
   graph();
-  match();
+  sizzle();
 }
 
 function windowResized() {
@@ -187,7 +186,9 @@ function listUsers() {
 }
 
 function mouseWheel(event) {
-  scroll += event.delta / 3;
+  if (displaySwitch == true) {
+    scroll += event.delta / 3;
+  }
 }
 
 function deleteUser(user) {
@@ -213,7 +214,7 @@ function deleteUser(user) {
   }
 }
 
-function match() {
+function sizzle() {
   curr = userManager.curr;
   while (curr != null) {
     let i = 0;
