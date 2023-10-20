@@ -1,8 +1,11 @@
 let userManager;
 let theHobbies = [];
 let hobbyList = ["Sports", "Dancing", "Singing", "Music", "Art", "Outdoors/Traveling", "Fishing", "Board Games", "Reading", "Gaming"];
-let h = [true, true, false, false, false, false, true, false, false, true]
 let displaySwitch = false;
+let maleUsers = [];
+let femaleUsers = [];
+let otherUsers = [];
+let currUser = null;
 
 function preload() {
   userManager = new List(); //create list
@@ -18,7 +21,9 @@ function setup() {
 
   angleMode(DEGREES);
   createHobbies();
+  sortUsers();
   graph();
+  match();
 }
 
 function windowResized() {
@@ -128,6 +133,22 @@ function keyTyped() {
   }
 }
 
+function sortUsers() {
+  userManager.curr = userManager.first;
+  let i = 0;
+  while (userManager.curr != null) {
+    if (userManager.curr.gender == 0) {
+      maleUsers[i] = userManager.curr;
+    } else if (userManager.curr.gender == 1) {
+      femaleUsers[i] = userManager.curr;
+    } else if (userManager.curr.gender == 2) {
+      otherUsers[i] = userManager.curr;
+    }
+    i++;
+    userManager.curr = userManager.curr.next;
+  }
+}
+
 let scroll = 0;
 function listUsers() {
   let i = 2;
@@ -172,15 +193,11 @@ function deleteUser(user) {
   let curr = userManager.first;
   let prev = null;
   while (userManager.curr != null) {
-    print(curr.firstName);
     if (curr.firstName == user.firstName && curr.lastName == user.lastName && curr.age == user.age) {
-      print("Found correct user");
       if (prev == null) {
-        print("User is first");
         userManager.first = user.next;
         break;
       } else {
-        print("User is not first");
         prev.next = curr.next;
         break;
       }
@@ -191,7 +208,19 @@ function deleteUser(user) {
 
   curr = userManager.first;
   while (curr != null) {
-    print(curr);
     curr = curr.next;
+  }
+}
+
+function match() {
+  curr = userManager.curr;
+  while (curr != null) {
+    let i = 0;
+    //loop through array list of user interest
+    //measure dist between each user and store in arraylist (maybe store object and assign variable?)
+    //sort into order
+    //put into instances matches arraylist
+
+    cur = curr.next;
   }
 }

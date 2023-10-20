@@ -2,7 +2,6 @@
 let users = [];
 let i = 0;
 function getUserNames() {
-    print("First is: " + userManager.first);
     userManager.curr = userManager.first;
     while (userManager.curr != null) {
         users[i] = userManager.curr.firstName;
@@ -10,7 +9,6 @@ function getUserNames() {
         i += 2;
         userManager.curr = userManager.curr.next;
     }
-    print(users);
 }
 
 
@@ -24,7 +22,6 @@ function search() {
     for (let user of results) {
         let resultP = createP(user);
         resultsDiv.child(resultP);
-        print(firstName);
     }
 }
 
