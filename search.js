@@ -1,26 +1,16 @@
-
-/*let users = [
-    "Alice",
-    "Bob",
-    "Charlie",
-    "David",
-    "Eve",
-    "Frank",
-    "Grace",
-    "Hannah",
-    "Catherine"
-];
-*/
 let users = [];
 let i = 0;
-userManager.curr = userManager.first;
-while (userManager.curr != null) {
-    users[i] = userManager.curr.firstName;
-    users[i + 1] = userManager.curr.lastName;
-    i += 2;
-    userManager.curr = userManager.curr.next;
+function getUserNames() {
+    print("First is: " + userManager.first);
+    userManager.curr = userManager.first;
+    while (userManager.curr != null) {
+        users[i] = userManager.curr.firstName;
+        users[i + 1] = userManager.curr.lastName;
+        i += 2;
+        userManager.curr = userManager.curr.next;
+    }
+    print(users);
 }
-print(users);
 
 
 function search() {

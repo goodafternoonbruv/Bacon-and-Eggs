@@ -31,7 +31,7 @@ function draw() {
   if (displaySwitch == false) {
     displayUser();
     drawHobbies();
-  } else if (displaySwitch) {
+  } else if (displaySwitch == true) {
     listUsers();
   }
 }
@@ -126,61 +126,69 @@ function keyTyped() {
   }
 }
 
-let yList;
 let scroll = 0;
 function listUsers() {
-  yList = 150;
-  let i = 0;
-
+  let i = 2;
   userManager.curr = userManager.first;
   while (userManager.curr != null) {
-    if (yList >= 140) {
+    if (i * 20 - scroll >= 30) {
       fill(0);
-      text(userManager.curr.firstName, 200, i * 15 + yList - scroll);
-      text(userManager.curr.lastName, 250, i * 15 + yList - scroll);
-
-      yList += 15;
-      i++;
-      userManager.curr = userManager.curr.next;
+      text(userManager.curr.firstName, 200, i * 20 - scroll);
+      text(userManager.curr.lastName, 250, i * 20 - scroll);
     }
+    i++;
+    userManager.curr = userManager.curr.next;
   }
 
+  i = 2;
   userManager.curr = userManager.first;
   while (userManager.curr != null) {
-    if (yList >= 140) {
-      if (mouseX >= 200 && mouseX <= 300 && mouseY >= i * 15 + yList - scroll - 13 && mouseY <= i * 15 + yList - scroll + 15) {
+    if (i * 20 - scroll >= 30) {
+      if (mouseX >= 200 && mouseX <= 300 && mouseY >= i * 20 - scroll - 12 && mouseY <= i * 20 - scroll + 5) {
         fill(200);
-        rect(200, i * 15 + yList - scroll - 13, 100, 16, 2);
+        rect(200, i * 20 - scroll - 10, 100, 16);
         fill(0);
-        text("Delete?", 130, i * 15 + yList - scroll);
+        text("Delete?", 130, i * 20 - scroll);
 
         if (mouseIsPressed == true) {
           deleteUser(userManager.curr);
+          break;
         }
       }
     }
+    i++;
+    userManager.curr = userManager.curr.next;
   }
 }
 
 function mouseWheel(event) {
-  scroll += event.delta - 100;
+  scroll += event.delta / 3;
 }
 
 function deleteUser(user) {
-  print(user.firstName + " " + user.lastName + " should be deleted");
   let curr = userManager.first;
-  let prev;
+  let prev = null;
   while (userManager.curr != null) {
+    print(curr.firstName);
     if (curr.firstName == user.firstName && curr.lastName == user.lastName && curr.age == user.age) {
-      if (userManager.first.firstName == user.firstName && userManager.first.lastName == user.lastName && userManager.first.age == user.age) {
-        userManager.first = curr.next;
+      print("Found correct user");
+      if (prev == null) {
+        print("User is first");
+        userManager.first = user.next;
+        break;
       } else {
+        print("User is not first");
         prev.next = curr.next;
+        break;
       }
-      break;
     }
+    prev = curr;
+    curr = curr.next;
+  }
 
-    prev = userManager.curr;
-    userManager.curr = userManager.curr.next;
+  curr = userManager.first;
+  while (curr != null) {
+    print(curr);
+    curr = curr.next;
   }
 }
