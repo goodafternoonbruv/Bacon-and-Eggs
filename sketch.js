@@ -19,6 +19,7 @@ function setup() {
   let input = select('#searchInput');
   input.input(search);
 
+  getUserNames();
   angleMode(DEGREES);
   createHobbies();
   sortUsers();
