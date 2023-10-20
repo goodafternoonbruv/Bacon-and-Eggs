@@ -1,3 +1,4 @@
+//------------------Class List------------------//
 class List {
     constructor() {
         let first = null;
@@ -20,6 +21,8 @@ class List {
 
 }
 
+//-------------------------Class User--------------------------//
+
 class User {
     constructor(firstName, lastName, age, gender, interest, hobbies) {
         this.firstName = firstName;
@@ -30,6 +33,7 @@ class User {
         this.hobbies = hobbies;
         this.next = null;
         this.pos = null;
+        this.matches = [];
     }
 
     setNext(user) {
@@ -44,8 +48,7 @@ class User {
 
 }
 
-
-
+//-------------------File and Data Management----------------------//
 
 function storeAsCsv(event) {
     event.preventDefault();

@@ -12,8 +12,9 @@ function preload() {
 function setup() {
   createCanvas(windowWidth, windowHeight);
 
+  getUserNames();
   let input = select('#searchInput');
-  input.input(search.search);
+  input.input(search);
 
   angleMode(DEGREES);
   createHobbies();
@@ -78,7 +79,8 @@ function graph() {
     y = y / j;
     x = x * 4;
     y = y * 4;
-    let position = createVector(x, y);
+    z = userManager.curr.age;
+    let position = createVector(x, y, z);
     userManager.curr.pos = position;
 
     userManager.curr = userManager.curr.next;
@@ -135,6 +137,7 @@ function listUsers() {
       fill(0);
       text(userManager.curr.firstName, 200, i * 20 - scroll);
       text(userManager.curr.lastName, 250, i * 20 - scroll);
+      text(userManager.curr.pos.z, 300, i * 20 - scroll);
     }
     i++;
     userManager.curr = userManager.curr.next;
