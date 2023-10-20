@@ -13,7 +13,7 @@ function setup() {
   createCanvas(windowWidth, windowHeight);
 
   let input = select('#searchInput');
-  input.input(search);
+  input.input(search.search);
 
   angleMode(DEGREES);
   createHobbies();
