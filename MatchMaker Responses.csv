@@ -1,17 +1,17 @@
-First Name,Last Name,Age,Hobby 1,Hobby 2,Hobby 3,Hobby 4,Hobby 5, Gender,
-Alice,Smith,28,Sports,Dancing,Music,Art,Outdoors/traveling, 0
-Bob,Johnson,32,Gaming,Reading,Fishing,Singing,Board games, 1
-Charlie,Davis,20,Music,Art,Gaming,Reading,Fishing,2
-David,Wilson,25,Sports,Outdoors/traveling,Fishing,Music,Reading,2
-Emma,Moore,35,Singing,Outdoors/traveling,Board games,Gaming,Art,1
-Frank,Anderson,30,Art,Fishing,Sports,Reading,Dancing,1
-Grace,Thomas,22,Music,Board games,Singing,Dancing,Outdoors/traveling,0
-Hannah,Hall,26,Gaming,Outdoors/traveling,Art,Music,Board games,1
-Isabel,Young,18,Sports,Music,Fishing,Reading,Dancing,2
-Jack,Wright,29,Outdoors/traveling,Board games,Fishing,Singing,Dancing,0
-Kevin,Harris,38,Art,Music,Sports,Reading,Fishing,0
-Lily,Martin,27,Dancing,Art,Singing,Outdoors/traveling,Board games,2
-Mike,Clark,31,Sports,Gaming,Outdoors/traveling,Fishing,Music,1
-Nora,Adams,24,Fishing,Music,Art,Reading,Gaming,0
-Olivia,Turner,40,Outdoors/traveling,Reading,Dancing,Sports,Music,1
-
+First Name,Last Name,Age,Hobby1,Hobby2,Hobby3,Hobby4,Hobby5,Hobby6,Hobby7,Hobby8,Hobby9,Hobby10,Gender,interest
+John,Doe,33,False,True,True,True,False,False,True,False,False,True,0,2
+Jane,Doe,22,False,True,False,False,True,False,True,False,True,False,1,2
+Bob,Smith,23,False,False,False,True,False,True,True,False,False,False,2,2
+Alice,Johnson,40,False,True,False,False,True,False,False,False,False,False,0,2,2
+Michael,Jackson,32,True,False,True,True,True,False,False,False,False,False,1,0
+Emily,Davis,25,True,False,True,False,False,False,True,False,False,True,2,0,0
+Daniel,Kim,34,True,True,True,False,True,False,True,False,False,False,0,1
+Jessica,Wang,35,False,False,True,True,False,True,False,False,True,False,1,2
+David,Lee,26,False,True,False,False,True,True,False,False,False,False,2,0
+Sarah,Li,36,False,False,False,True,False,False,True,False,False,False,2,0
+Matthew,Brown,19,False,False,True,True,False,False,False,True,False,True,1,2
+Olivia,Chen,18,False,True,False,True,True,True,False,True,False,True,0,0
+Ethan,Nguyen,37,False,False,False,False,False,True,False,False,False,False,2,1
+Sophia,Patel,24,True,False,False,False,True,True,False,False,False,True,1,2
+Aiden,Kumar,27,False,False,False,False,True,False,False,True,False,False,0,0
+Mia,Santos,30,False,True,False,True,True,True,True,False,False,False,0,1
