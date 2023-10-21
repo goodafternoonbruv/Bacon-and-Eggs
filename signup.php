@@ -10,9 +10,9 @@ $userdata = [
     $_POST["email"],
     $_POST["gender"],
     $_POST["sexuality"],
-    $_POST["hobby"]
+    json_encode($_POST["hobbies"])
 ];
 
-$fp = fopen('users.csv', 'w');
+$fp = fopen('users.csv', 'a');
 
 fputcsv($fp, $userdata);

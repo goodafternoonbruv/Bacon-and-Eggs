@@ -1,1 +1,2 @@
-Andrew,Epp,andybaby,andrewepp6@gmail.com,male,straight,Array
+"first_name", "last_name", "username", "email", "gender", "sexuality", "hobbies"
+Andrew,Epp,andybaby,andrewepp6@gmail.com,male,straight,"[""Sports"",""Music"",""Reading"",""Gaming""]"
