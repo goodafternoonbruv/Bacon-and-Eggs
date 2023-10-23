@@ -2,6 +2,7 @@ let userManager;
 let theHobbies = [];
 let hobbyList = ["Sports", "Dancing", "Singing", "Music", "Art", "Outdoors/Traveling", "Fishing", "Board Games", "Reading", "Gaming"];
 let displaySwitch = false;
+let tab = 0;
 let maleUsers = [];
 let femaleUsers = [];
 let otherUsers = [];
@@ -248,14 +249,11 @@ function sizzle() {
       }
     }
     quickSort(0, potentialMatches.length - 1);
-    //print("Sorted list:");
-    //print(potentialMatches);
     curr.Matches = potentialMatches;
-    print(curr.Matches);
-    //loop through array list that is of the users interest
-    //measure dist between each user and store in arraylist (maybe store object and assign variable?)
-    //sort into order
-    //put into instances matches arraylist
+    print(curr);
+    print("Matched with: ");
+    print(potentialMatches);
+    print("-----------");
 
     curr = curr.next;
   }
