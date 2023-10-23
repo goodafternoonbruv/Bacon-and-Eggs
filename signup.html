@@ -101,7 +101,7 @@
 
 
   <div class="container">
-    <form action="test.php" method="post">
+    <form action="signup.php" method="post">
 
       <label for="fname">First Name</label>
       <input type="text" id="fname" name="firstname" placeholder="Your first name..">
@@ -124,32 +124,32 @@
 
       <label for="sexuality">Sexuality </label>
       <select id="sexuality" name="sexuality">
-        <option value="australia">Straight</option>
-        <option value="canada">Bisexual</option>
-        <option value="usa">Gay</option>
+        <option value="straight">Straight</option>
+        <option value="bisexual">Bisexual</option>
+        <option value="gay">Gay</option>
       </select>
 
       <button type="button" class="collapsible">What are some of your hobbies?</button>
       <div class="content">
-        <input type="checkbox" id="hobby1" name="hobby1" value="Gaming">
+        <input type="checkbox" id="hobby1" name="hobbies[]" value="Sports">
         <label for="hobby1"> Sports </label><br>
-        <input type="checkbox" id="hobby2" name="hobby2" value="Reading">
+        <input type="checkbox" id="hobby2" name="hobbies[]" value="Dancing">
         <label for="hobby2"> Dancing </label><br>
-        <input type="checkbox" id="hobby3" name="hobby3" value="Writing">
+        <input type="checkbox" id="hobby3" name="hobbies[]" value="Singing">
         <label for="hobby3"> Singing</label><br>
-        <input type="checkbox" id="hobby4" name="hobby4" value="Poetry">
+        <input type="checkbox" id="hobby4" name="hobbies[]" value="Music">
         <label for="hobby4"> Music</label><br>
-        <input type="checkbox" id="hobby5" name="hobby5" value="Photography">
+        <input type="checkbox" id="hobby5" name="hobbies[]" value="Art">
         <label for="hobby5"> Art</label><br>
-        <input type="checkbox" id="hobby6" name="hobby6" value="Traveling">
-        <label for="hobby6"> Outdoors/traveling</label><br>
-        <input type="checkbox" id="hobby7" name="hobby7" value="Cycling">
+        <input type="checkbox" id="hobby6" name="hobbies[]" value="Outdoors/Traveling">
+        <label for="hobby6"> Outdoors/Traveling</label><br>
+        <input type="checkbox" id="hobby7" name="hobbies[]" value="Fishing">
         <label for="hobby7"> Fishing</label><br>
-        <input type="checkbox" id="hobby8" name="hobby8" value="Hiking">
-        <label for="hobby8"> Board games</label><br>
-        <input type="checkbox" id="hobby9" name="hobby9" value="Swimming">
+        <input type="checkbox" id="hobby8" name="hobbies[]" value="Board Games">
+        <label for="hobby8"> Board Games</label><br>
+        <input type="checkbox" id="hobby9" name="hobbies[]" value="Reading">
         <label for="hobby9"> Reading</label><br>
-        <input type="checkbox" id="hobby10" name="hobby10" value="Sports">
+        <input type="checkbox" id="hobby10" name="hobbies[]" value="Gaming">
         <label for="hobby10"> Gaming</label><br>
       </div>
 
