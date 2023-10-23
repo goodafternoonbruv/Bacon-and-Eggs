@@ -24,7 +24,7 @@ class List {
 //-------------------------Class User--------------------------//
 
 class User {
-    constructor(firstName, lastName, age, gender, interest, hobbies) {
+    constructor(firstName, lastName, age, gender, interest, hobbies, username, password) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.age = age;
@@ -33,8 +33,11 @@ class User {
         this.hobbies = hobbies;
         this.next = null;
         this.pos = null;
-        this.MSatches = [];
+        this.Matches = [];
+        this.friends = [];
         this.dist = 0;
+        this.username = username;
+        this.password = password;
     }
 
     setNext(user) {
@@ -81,6 +84,8 @@ async function getData() {
         const Hobby10 = row[12];
         const gender = row[13];
         const interest = row[14];
+        const username = row[15];
+        const password = row[16];
 
         let hobbyColection = [Hobby1, Hobby2, Hobby3, Hobby4, Hobby5, Hobby6, Hobby7, Hobby8, Hobby9, Hobby10];
         let hobbies = [false, false, false, false, false, false, false, false, false, false];
@@ -92,7 +97,7 @@ async function getData() {
                 hobbies[i] = false;
             }
         }
-        let user = new User(firstName, lastName, age, gender, interest, hobbies);
+        let user = new User(firstName, lastName, age, gender, interest, hobbies, username, password);
         userManager.addUser(user);
     });
 }
