@@ -15,15 +15,15 @@ function preload() {
 function setup() {
   createCanvas(windowWidth, windowHeight);
 
-  getUserNames();
+  getUserNames(); //first and last name of each user for search
   let input = select('#searchInput');
   input.input(search);
 
   angleMode(DEGREES);
-  createHobbies();
-  sortUsers();
-  graph();
-  sizzle();
+  createHobbies(); //creates 10 hobbies with coodinates to be displayed
+  sortUsers(); //seperates users into male, female and other array lists
+  graph(); //calculates and graphs each users postion
+  sizzle(); //finds matches for each user
 }
 
 function windowResized() {
@@ -35,10 +35,10 @@ function windowResized() {
 function draw() {
   background(235, 215, 192);
   if (displaySwitch == false) {
-    displayUser();
-    drawHobbies();
+    displayUser(); //draws an ellipse representing the user to the screen
+    drawHobbies(); //draws the hobbies in a circle on the screen
   } else if (displaySwitch == true) {
-    listUsers();
+    listUsers(); //displays a scrollable list of all users on the screen
   }
 }
 
@@ -49,7 +49,7 @@ function createHobbies() {
   for (let i = 0; i < 360; i += 36) //loops to define position on screen
   {
     let r = 300;
-    let x = r * cos(i);
+    let x = r * cos(i); //determines x and y positions on screen
     let y = r * sin(i);
 
     let pos = createVector(x, y); //converts x and y into a vector
@@ -74,18 +74,18 @@ function graph() {
   while (userManager.curr != null) {
     for (let i = 0; i < userManager.curr.hobbies.length; i++) {
       if (userManager.curr.hobbies[i] == true) {
-        x = x + theHobbies[i].pos.x;
+        x = x + theHobbies[i].pos.x; //if the user has selected the hobby as true
         y = y + theHobbies[i].pos.y;
         j++;
       }
     }
 
-    x = x / j;
+    x = x / j; //calculates average of all x coordinates
     y = y / j;
-    x = x * 4;
-    y = y * 4;
+    x = x * 3; //spaces out coodinates for better visuals
+    y = y * 3;
     z = userManager.curr.age;
-    let position = createVector(x, y, z);
+    let position = createVector(x, y, z); //creates and passes through a positon vector
     userManager.curr.pos = position;
 
     userManager.curr = userManager.curr.next;
@@ -125,7 +125,7 @@ class Hobbies {
 
 //---------------------------User management-------------------------------//
 
-function keyTyped() {
+function keyTyped() { //switches between graph of users and list of users
   if (key == 'q' || key == 'Q') {
     displaySwitch = false;
   } else if (key == 'w' || key == 'W') {
@@ -135,16 +135,20 @@ function keyTyped() {
 
 function sortUsers() {
   userManager.curr = userManager.first;
-  let i = 0;
-  while (userManager.curr != null) {
+  let i = 0; //make three more arraylists each to make sure user interests match
+  let j = 0;
+  let b = 0;
+  while (userManager.curr != null) { //sorts users based on their gender
     if (userManager.curr.gender == 0) {
       maleUsers[i] = userManager.curr;
+      i++;
     } else if (userManager.curr.gender == 1) {
-      femaleUsers[i] = userManager.curr;
+      femaleUsers[j] = userManager.curr;
+      j++;
     } else if (userManager.curr.gender == 2) {
-      otherUsers[i] = userManager.curr;
+      otherUsers[b] = userManager.curr;
+      b++;
     }
-    i++;
     userManager.curr = userManager.curr.next;
   }
 }
@@ -153,7 +157,7 @@ let scroll = 0;
 function listUsers() {
   let i = 2;
   userManager.curr = userManager.first;
-  while (userManager.curr != null) {
+  while (userManager.curr != null) { //displays user first name, last name and age
     if (i * 20 - scroll >= 30) {
       fill(0);
       text(userManager.curr.firstName, 200, i * 20 - scroll);
@@ -174,7 +178,7 @@ function listUsers() {
         fill(0);
         text("Delete?", 130, i * 20 - scroll);
 
-        if (mouseIsPressed == true) {
+        if (mouseIsPressed == true) { //deletes the user from the array list
           deleteUser(userManager.curr);
           break;
         }
@@ -187,16 +191,16 @@ function listUsers() {
 
 function mouseWheel(event) {
   if (displaySwitch == true) {
-    scroll += event.delta / 3;
+    scroll += event.delta / 3; //calculates scroll
   }
 }
 
 function deleteUser(user) {
   let curr = userManager.first;
   let prev = null;
-  while (userManager.curr != null) {
+  while (userManager.curr != null) { //re refrences users to delete a user
     if (curr.firstName == user.firstName && curr.lastName == user.lastName && curr.age == user.age) {
-      if (prev == null) {
+      if (prev == null) { //if user is first in list
         userManager.first = user.next;
         break;
       } else {
@@ -214,15 +218,87 @@ function deleteUser(user) {
   }
 }
 
+let potentialMatches;
 function sizzle() {
-  curr = userManager.curr;
+  userManager.curr = userManager.first;
+  let curr = userManager.curr;
   while (curr != null) {
     let i = 0;
-    //loop through array list of user interest
+    potentialMatches = [];
+    if (curr.interest == 0) {
+      for (let i = 0; i < maleUsers.length; i++) { //finds matches based on interest of user
+        let user = maleUsers[i];
+        d = dist(curr.pos.x, curr.pos.y, curr.pos.z, user.pos.x, user.pos.y, user.pos.z);
+        user.dist = d;
+        potentialMatches[i] = user;
+      }
+    } else if (curr.interest == 1) {
+      for (let i = 0; i < femaleUsers.length; i++) {
+        let user = femaleUsers[i];
+        d = dist(curr.pos.x, curr.pos.y, curr.pos.z, user.pos.x, user.pos.y, user.pos.z);
+        user.dist = d;
+        potentialMatches[i] = user;
+      }
+    } else if (curr.interest == 2) {
+      for (let i = 0; i < otherUsers.length; i++) {
+        let user = otherUsers[i];
+        d = dist(curr.pos.x, curr.pos.y, curr.pos.z, user.pos.x, user.pos.y, user.pos.z);
+        user.dist = d;
+        potentialMatches[i] = user;
+      }
+    }
+    quickSort(0, potentialMatches.length - 1);
+    //print("Sorted list:");
+    //print(potentialMatches);
+    curr.Matches = potentialMatches;
+    print(curr.Matches);
+    //loop through array list that is of the users interest
     //measure dist between each user and store in arraylist (maybe store object and assign variable?)
     //sort into order
     //put into instances matches arraylist
 
-    cur = curr.next;
+    curr = curr.next;
   }
+  // curr = userManager.first;
+  // while (curr != null) {
+  //   curr.dist = 0;
+  //   curr = curr.next;
+  // }
+}
+
+function quickSort(low, high) {
+  let i = low
+  let j = high;
+  //This determines the pivot by taking the value of the index in the middle of the array. Any numbers larger will go on the right side and any 
+  let pivot = potentialMatches[round(low + (high - low) / 2)].dist;
+  while (i <= j) {
+    //This while loop goes throung the list from left to right. As soon as it finds a number that is greater than the pivot, it stops.
+    while (potentialMatches[i].dist < pivot) {
+      i++;
+    }
+    //This does the same as the previous while loop except it starts from the right and finds a number less than the pivot
+    while (potentialMatches[j].dist > pivot) {
+      j--;
+    }
+    //Before swapping the two numbers, it checks if 'i' and'j' have crossed. If they have, it means that the list has been sorted based on the pivot
+    if (i <= j) {
+      swap(i, j);
+      i++;
+      j--;
+    }
+  }
+  //This prosses continues with the left half of the list untill there is only one number left. At this point, it moves on to the list to the right of the pivot number
+  if (low < j) {
+    quickSort(low, j);
+  }
+  if (i < high) {
+    quickSort(i, high);
+  }
+}
+
+function swap(a, b) {
+  //The swap method works by storing one number in a variable, replacing it's origional spot with the new number, and then putting the number in the variable in the other numbers spot
+  let temp = potentialMatches[a];
+  potentialMatches[a] = potentialMatches[b];
+  potentialMatches[b] = temp;
 }

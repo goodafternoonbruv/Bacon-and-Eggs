@@ -29,11 +29,12 @@ class User {
         this.lastName = lastName;
         this.age = age;
         this.gender = gender;
-        this.interests = interest;
+        this.interest = interest;
         this.hobbies = hobbies;
         this.next = null;
         this.pos = null;
-        this.matches = [];
+        this.MSatches = [];
+        this.dist = 0;
     }
 
     setNext(user) {
@@ -80,7 +81,6 @@ async function getData() {
         const Hobby10 = row[12];
         const gender = row[13];
         const interest = row[14];
-        print(gender);
 
         let hobbyColection = [Hobby1, Hobby2, Hobby3, Hobby4, Hobby5, Hobby6, Hobby7, Hobby8, Hobby9, Hobby10];
         let hobbies = [false, false, false, false, false, false, false, false, false, false];
