@@ -44,7 +44,7 @@ class User {
     display() {
         fill(0);
         ellipse(this.pos.x, this.pos.y, 5)
-        //text(this.firstName, this.pos.x - 10, this.pos.y - 10);
+        text(this.firstName, this.pos.x - 10, this.pos.y - 10);
     }
 
 }
