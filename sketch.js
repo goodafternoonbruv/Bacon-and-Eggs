@@ -2,11 +2,17 @@ let userManager;
 let theHobbies = [];
 let hobbyList = ["Sports", "Dancing", "Singing", "Music", "Art", "Outdoors/Traveling", "Fishing", "Board Games", "Reading", "Gaming"];
 let displaySwitch = false;
+let tabSwitch = 0;
 let tab = 0;
 let maleUsers = [];
 let femaleUsers = [];
 let otherUsers = [];
 let currUser = null;
+
+function Switch(x) {
+  tabSwitch = x;
+  print(tabSwitch)
+}
 
 function preload() {
   userManager = new List(); //create list
