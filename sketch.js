@@ -3,6 +3,8 @@ let theHobbies = [];
 let hobbyList = ["Sports", "Dancing", "Singing", "Music", "Art", "Outdoors/Traveling", "Fishing", "Board Games", "Reading", "Gaming"];
 let displaySwitch = false;
 let tabSwitch = 0;
+let theUser = null;
+let login = false;
 let tab = 0;
 
 let maleMaleUsers = [];
@@ -55,12 +57,84 @@ function windowResized() {
 
 function draw() {
   background(235, 215, 192);
-  if (displaySwitch == false) {
-    displayUser(); //draws an ellipse representing the user to the screen
-    drawHobbies(); //draws the hobbies in a circle on the screen
-  } else if (displaySwitch == true) {
+
+  if (tabSwitch == 0) {
+    if (login == true) {
+      //enterInfo();
+    } else if (login == false) {
+      signIn();
+    }
+    //displayUser(); //draws an ellipse representing the user to the screen
+    //drawHobbies(); //draws the hobbies in a circle on the screen
+  } else if (tabSwitch == 1) {
+    profileInfo();
+  } else if (tabSwitch == 2) {
     listUsers(); //displays a scrollable list of all users on the screen
+  } else if (tabSwitch == 3) {
+    print("settings YAY");
   }
+
+  //-----------------TabSwitch == 0--------------------//
+
+  function signIn() {
+    button = createButton('Sign Up');
+    button.position(windowWidth / 2 - 100, windowHeight / 2);
+    button.mousePressed(logIn); //forward it to the form
+
+    button1 = createButton('Log In');
+    button1.position(windowWidth / 2 + 100, windowHeight / 2);
+    button1.mousePressed(logIn);
+  }
+
+  function logIn() {
+    login = true;
+    button.remove();
+    button1.remove();
+    enterInfo();
+  }
+
+  //let userNameInput = createInput('');;
+  //let passwordInput = createInput('');;
+  function enterInfo() {
+    let userNameInput = createInput('');
+    userNameInput.position(windowWidth / 2, 250);
+    userNameInput.size(200);
+    userNameInput.input(searchUsers);
+
+    let passwordInput = createInput('');
+    passwordInput.position(windowWidth / 2, 280);
+    passwordInput.size(200);
+    passwordInput.input(searchUsers);
+  }
+
+  function searchUsers() {
+    userManager.curr = userManager.first;
+    let curr = userManager.curr;
+    while (curr != null) {
+      if (userNameInput.value() == curr.username && passwordInput.value() == curr.password) {
+        currUser = curr;
+        print(currUser);
+      }
+    }
+  }
+
+  //-----------------TabSwitch == 1--------------------//
+
+  function profileInfo() {
+    //profile pic
+    fill(170);
+    ellipse(windowWidth / 2, 150, 300);
+    fill(200);
+    ellipse(windowWidth / 2, 175, 50);
+  }
+
+
+  // if (displaySwitch == false) {
+  //   displayUser(); //draws an ellipse representing the user to the screen
+  //   drawHobbies(); //draws the hobbies in a circle on the screen
+  // } else if (displaySwitch == true) {
+  //   listUsers(); //displays a scrollable list of all users on the screen
+  // }
 }
 
 //----------------------------Hobby functions -------------------------------//
@@ -348,44 +422,10 @@ function sizzle() {
       }
     }
 
-
-
-    // if (curr.interest == 0) {
-    //   for (let i = 0; i < maleUsers.length; i++) { //finds matches based on interest of user
-    //     let user = maleUsers[i];
-    //     d = dist(curr.pos.x, curr.pos.y, curr.pos.z, user.pos.x, user.pos.y, user.pos.z);
-    //     user.dist = d;
-    //     potentialMatches.push(user);
-    //   }
-    // } else if (curr.interest == 1) {
-    //   for (let i = 0; i < femaleUsers.length; i++) {
-    //     let user = femaleUsers[i];
-    //     d = dist(curr.pos.x, curr.pos.y, curr.pos.z, user.pos.x, user.pos.y, user.pos.z);
-    //     user.dist = d;
-    //     potentialMatches[i] = user;
-    //   }
-    // } else if (curr.interest == 2) {
-    //   for (let i = 0; i < otherUsers.length; i++) {
-    //     let user = otherUsers[i];
-    //     d = dist(curr.pos.x, curr.pos.y, curr.pos.z, user.pos.x, user.pos.y, user.pos.z);
-    //     user.dist = d;
-    //     potentialMatches[i] = user;
-    //   }
-    // }
     quickSort(0, potentialMatches.length - 1);
     curr.Matches = potentialMatches;
-    print(curr);
-    print("Matched with: ");
-    print(potentialMatches);
-    print("-----------");
-
     curr = curr.next;
   }
-  // curr = userManager.first;
-  // while (curr != null) {
-  //   curr.dist = 0;
-  //   curr = curr.next;
-  // }
 }
 
 function quickSort(low, high) {
