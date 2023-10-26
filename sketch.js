@@ -4,7 +4,6 @@ let hobbyList = ["Sports", "Dancing", "Singing", "Music", "Art", "Outdoors/Trave
 let displaySwitch = false;
 let tabSwitch = 0;
 let theUser = null;
-let login = false;
 let tab = 0;
 
 let maleMaleUsers = [];
@@ -47,6 +46,8 @@ function setup() {
   sortUsers(); //seperates users into male, female and other array lists
   graph(); //calculates and graphs each users postion
   sizzle(); //finds matches for each user
+
+  signIn();
 }
 
 function windowResized() {
@@ -59,10 +60,9 @@ function draw() {
   background(235, 215, 192);
 
   if (tabSwitch == 0) {
-    if (login == true) {
-      //enterInfo();
-    } else if (login == false) {
-      signIn();
+    if (correct == false)
+    {
+      text("Username Or Password Is Incorrect", windowWidth/2-50, windowHeight/2+60)
     }
     //displayUser(); //draws an ellipse representing the user to the screen
     //drawHobbies(); //draws the hobbies in a circle on the screen
@@ -73,9 +73,12 @@ function draw() {
   } else if (tabSwitch == 3) {
     print("settings YAY");
   }
+}
 
   //-----------------TabSwitch == 0--------------------//
-
+  let button;
+  let button1;
+  let logInButton;
   function signIn() {
     button = createButton('Sign Up');
     button.position(windowWidth / 2 - 100, windowHeight / 2);
@@ -86,34 +89,42 @@ function draw() {
     button1.mousePressed(logIn);
   }
 
+  let userNameInput;
+  let passwordInput;
+  let correct = true;
   function logIn() {
-    login = true;
     button.remove();
-    button1.remove();
-    enterInfo();
-  }
 
-  //let userNameInput = createInput('');;
-  //let passwordInput = createInput('');;
-  function enterInfo() {
-    let userNameInput = createInput('');
-    userNameInput.position(windowWidth / 2, 250);
+    button1.position(windowWidth/2-20, windowHeight/2+75);
+    button1.mousePressed(searchUsers);;
+
+    userNameInput = createInput('');
+    userNameInput.position(windowWidth / 2-90, 400);
     userNameInput.size(200);
-    userNameInput.input(searchUsers);
 
-    let passwordInput = createInput('');
-    passwordInput.position(windowWidth / 2, 280);
+    passwordInput = createInput('');
+    passwordInput.position(windowWidth / 2-90, 430);
     passwordInput.size(200);
-    passwordInput.input(searchUsers);
   }
 
   function searchUsers() {
+    if (userNameInput.value() == userManager.first.username)
+    {
+      print("user names match");
+    }
+    if (passwordInput.value() == userManager.first.password);
+    {
+      print("passwords match");
+    }
     userManager.curr = userManager.first;
     let curr = userManager.curr;
     while (curr != null) {
+      //print("looping");
       if (userNameInput.value() == curr.username && passwordInput.value() == curr.password) {
         currUser = curr;
-        print(currUser);
+        tabSwitch = 1;
+      } else{
+        correct = false;
       }
     }
   }
@@ -123,9 +134,9 @@ function draw() {
   function profileInfo() {
     //profile pic
     fill(170);
-    ellipse(windowWidth / 2, 150, 300);
+    ellipse(windowWidth / 2-150, 160, 300);
     fill(200);
-    ellipse(windowWidth / 2, 175, 50);
+    ellipse(windowWidth / 2-25, 170, 50);
   }
 
 
@@ -135,7 +146,6 @@ function draw() {
   // } else if (displaySwitch == true) {
   //   listUsers(); //displays a scrollable list of all users on the screen
   // }
-}
 
 //----------------------------Hobby functions -------------------------------//
 
