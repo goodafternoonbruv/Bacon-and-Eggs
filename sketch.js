@@ -4,9 +4,19 @@ let hobbyList = ["Sports", "Dancing", "Singing", "Music", "Art", "Outdoors/Trave
 let displaySwitch = false;
 let tabSwitch = 0;
 let tab = 0;
-let maleUsers = [];
-let femaleUsers = [];
-let otherUsers = [];
+
+let maleMaleUsers = [];
+let maleFemaleUsers = [];
+let maleOtherUsers = [];
+
+let femaleMaleUsers = [];
+let femaleFemaleUsers = [];
+let femaleOtherUsers = [];
+
+let otherMaleUsers = [];
+let otherFemaleUsers = [];
+let otherOtherUsers = [];
+
 let currUser = null;
 
 function Switch(x) {
@@ -14,10 +24,14 @@ function Switch(x) {
   print(tabSwitch)
 }
 
-function preload() {
+//------------------PreLoad-------------------//
+
+function preload() { //runs completely before setup
   userManager = new List(); //create list
   getData();
 }
+
+//-----------------Setup---------------------//
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
@@ -78,7 +92,7 @@ function graph() {
   let j = 0;
   userManager.curr = userManager.first;
 
-  while (userManager.curr != null) {
+  while (userManager.curr != null) { //iterate through users
     for (let i = 0; i < userManager.curr.hobbies.length; i++) {
       if (userManager.curr.hobbies[i] == true) {
         x = x + theHobbies[i].pos.x; //if the user has selected the hobby as true
@@ -140,23 +154,44 @@ function keyTyped() { //switches between graph of users and list of users
   }
 }
 
-function sortUsers() {
+function sortUsers() { //insted of looking through all users for a match,
+  //this sorts users to ensure the algo is only matching with proper gender and interests
   userManager.curr = userManager.first;
-  let i = 0; //make three more arraylists each to make sure user interests match
-  let j = 0;
-  let b = 0;
-  while (userManager.curr != null) { //sorts users based on their gender
-    if (userManager.curr.gender == 0) {
-      maleUsers[i] = userManager.curr;
-      i++;
-    } else if (userManager.curr.gender == 1) {
-      femaleUsers[j] = userManager.curr;
-      j++;
-    } else if (userManager.curr.gender == 2) {
-      otherUsers[b] = userManager.curr;
-      b++;
+  let curr = userManager.curr;
+
+  while (curr != null) { //sorts users based on their gender
+    if (curr.gender == 0) {
+      //-------------Gender Male---------//
+      if (curr.interest == 0) {
+        maleMaleUsers.push(curr);
+      } else if (curr.interest == 1) {
+        maleFemaleUsers.push(curr);
+      } else if (curr.interest == 2) {
+        maleOtherUsers.push(curr);
+      }
+      //i++;
+    } else if (curr.gender == 1) {
+      //--------------Gender Female-----------//
+      if (curr.interest == 0) {
+        femaleMaleUsers.push(curr);
+      } else if (curr.interest == 1) {
+        femaleFemaleUsers.push(curr);
+      } else if (curr.interest == 2) {
+        femaleOtherUsers.push(curr);
+      }
+      //j++;
+    } else if (curr.gender == 2) {
+      //---------------Gender Other--------------//
+      if (curr.interest == 0) {
+        otherMaleUsers.push(curr);
+      } else if (curr.interest == 1) {
+        otherFemaleUsers.push(curr);
+      } else if (curr.interest == 2) {
+        otherOtherUsers.push(curr);
+      }
+      //b++;
     }
-    userManager.curr = userManager.curr.next;
+    curr = curr.next;
   }
 }
 
@@ -230,30 +265,113 @@ function sizzle() {
   userManager.curr = userManager.first;
   let curr = userManager.curr;
   while (curr != null) {
-    let i = 0;
-    potentialMatches = [];
-    if (curr.interest == 0) {
-      for (let i = 0; i < maleUsers.length; i++) { //finds matches based on interest of user
-        let user = maleUsers[i];
-        d = dist(curr.pos.x, curr.pos.y, curr.pos.z, user.pos.x, user.pos.y, user.pos.z);
-        user.dist = d;
-        potentialMatches[i] = user;
+    potentialMatches = []; //creates an list for users matches
+    //--------------~!~Gender Male~!~-------------//
+    if (curr.gender == 0) {
+      //-------------Interest Male-----------//
+      if (curr.interest == 0) {
+        for (let i = 0; i < maleMaleUsers.length; i++) {
+          let user = maleMaleUsers[i];
+          d = dist(curr.pos.x, curr.pos.y, curr.pos.z, user.pos.x, user.pos.y, user.pos.z);
+          user.dist = d;
+          potentialMatches.push(user);
+        }
+        //--------------Interest Female-----------//
+      } else if (curr.interest == 1) {
+        for (let i = 0; i < femaleMaleUsers.length; i++) {
+          let user = femaleMaleUsers[i];
+          d = dist(curr.pos.x, curr.pos.y, curr.pos.z, user.pos.x, user.pos.y, user.pos.z);
+          user.dist = d;
+          potentialMatches.push(user);
+        }
+        //------------Interest Other-------------//
+      } else if (curr.interest == 2) {
+        for (let i = 0; i < otherMaleUsers.length; i++) {
+          let user = otherMaleUsers[i];
+          d = dist(curr.pos.x, curr.pos.y, curr.pos.z, user.pos.x, user.pos.y, user.pos.z);
+          user.dist = d;
+          potentialMatches.push(user);
+        }
       }
-    } else if (curr.interest == 1) {
-      for (let i = 0; i < femaleUsers.length; i++) {
-        let user = femaleUsers[i];
-        d = dist(curr.pos.x, curr.pos.y, curr.pos.z, user.pos.x, user.pos.y, user.pos.z);
-        user.dist = d;
-        potentialMatches[i] = user;
+      //---------------~!~Gender Female~!~----------//
+    } else if (curr.gender == 1) {
+      //-------------Interest Male-----------//
+      if (curr.interest == 0) {
+        for (let i = 0; i < maleFemaleUsers.length; i++) {
+          let user = maleFemaleUsers[i];
+          d = dist(curr.pos.x, curr.pos.y, curr.pos.z, user.pos.x, user.pos.y, user.pos.z);
+          user.dist = d;
+          potentialMatches.push(user);
+        }
+        //--------------Interest Female-----------//
+      } else if (curr.interest == 1) {
+        for (let i = 0; i < femaleFemaleUsers.length; i++) {
+          let user = femaleFemaleUsers[i];
+          d = dist(curr.pos.x, curr.pos.y, curr.pos.z, user.pos.x, user.pos.y, user.pos.z);
+          user.dist = d;
+          potentialMatches.push(user);
+        }
+        //------------Interest Other-------------//
+      } else if (curr.interest == 2) {
+        for (let i = 0; i < otherFemaleUsers.length; i++) {
+          let user = otherFemaleUsers[i];
+          d = dist(curr.pos.x, curr.pos.y, curr.pos.z, user.pos.x, user.pos.y, user.pos.z);
+          user.dist = d;
+          potentialMatches.push(user);
+        }
       }
-    } else if (curr.interest == 2) {
-      for (let i = 0; i < otherUsers.length; i++) {
-        let user = otherUsers[i];
-        d = dist(curr.pos.x, curr.pos.y, curr.pos.z, user.pos.x, user.pos.y, user.pos.z);
-        user.dist = d;
-        potentialMatches[i] = user;
+      //---------------~!~Gender Other~!~------------//
+    } else if (curr.gender == 2) {
+      if (curr.interest == 0) {
+        for (let i = 0; i < maleOtherUsers.length; i++) {
+          let user = maleOtherUsers[i];
+          d = dist(curr.pos.x, curr.pos.y, curr.pos.z, user.pos.x, user.pos.y, user.pos.z);
+          user.dist = d;
+          potentialMatches.push(user);
+        }
+        //--------------Interest Female-----------//
+      } else if (curr.interest == 1) {
+        for (let i = 0; i < femaleOtherUsers.length; i++) {
+          let user = femaleOtherUsers[i];
+          d = dist(curr.pos.x, curr.pos.y, curr.pos.z, user.pos.x, user.pos.y, user.pos.z);
+          user.dist = d;
+          potentialMatches.push(user);
+        }
+        //------------Interest Other-------------//
+      } else if (curr.interest == 2) {
+        for (let i = 0; i < otherOtherUsers.length; i++) {
+          let user = otherOtherUsers[i];
+          d = dist(curr.pos.x, curr.pos.y, curr.pos.z, user.pos.x, user.pos.y, user.pos.z);
+          user.dist = d;
+          potentialMatches.push(user);
+        }
       }
     }
+
+
+
+    // if (curr.interest == 0) {
+    //   for (let i = 0; i < maleUsers.length; i++) { //finds matches based on interest of user
+    //     let user = maleUsers[i];
+    //     d = dist(curr.pos.x, curr.pos.y, curr.pos.z, user.pos.x, user.pos.y, user.pos.z);
+    //     user.dist = d;
+    //     potentialMatches.push(user);
+    //   }
+    // } else if (curr.interest == 1) {
+    //   for (let i = 0; i < femaleUsers.length; i++) {
+    //     let user = femaleUsers[i];
+    //     d = dist(curr.pos.x, curr.pos.y, curr.pos.z, user.pos.x, user.pos.y, user.pos.z);
+    //     user.dist = d;
+    //     potentialMatches[i] = user;
+    //   }
+    // } else if (curr.interest == 2) {
+    //   for (let i = 0; i < otherUsers.length; i++) {
+    //     let user = otherUsers[i];
+    //     d = dist(curr.pos.x, curr.pos.y, curr.pos.z, user.pos.x, user.pos.y, user.pos.z);
+    //     user.dist = d;
+    //     potentialMatches[i] = user;
+    //   }
+    // }
     quickSort(0, potentialMatches.length - 1);
     curr.Matches = potentialMatches;
     print(curr);
