@@ -60,9 +60,9 @@ function draw() {
   background(235, 215, 192);
 
   if (tabSwitch == 0) {
-    if (correct == false)
-    {
-      text("Username Or Password Is Incorrect", windowWidth/2-50, windowHeight/2+60)
+    if (correct == false) {
+      fill(240, 50, 50);
+      text("Username Or Password Is Incorrect", windowWidth / 2 - 80, windowHeight / 2 + 5);
     }
     //displayUser(); //draws an ellipse representing the user to the screen
     //drawHobbies(); //draws the hobbies in a circle on the screen
@@ -75,77 +75,82 @@ function draw() {
   }
 }
 
-  //-----------------TabSwitch == 0--------------------//
-  let button;
-  let button1;
-  let logInButton;
-  function signIn() {
-    button = createButton('Sign Up');
-    button.position(windowWidth / 2 - 100, windowHeight / 2);
-    button.mousePressed(logIn); //forward it to the form
+//-----------------TabSwitch == 0--------------------//
+let button;
+let button1;
+let logInButton;
+function signIn() {
+  button = createButton('Sign Up');
+  button.position(windowWidth / 2 - 100, windowHeight / 2);
+  button.mousePressed(logIn); //forward it to the form
 
-    button1 = createButton('Log In');
-    button1.position(windowWidth / 2 + 100, windowHeight / 2);
-    button1.mousePressed(logIn);
-  }
+  button1 = createButton('Log In');
+  button1.position(windowWidth / 2 + 100, windowHeight / 2);
+  button1.mousePressed(logIn);
+}
 
-  let userNameInput;
-  let passwordInput;
-  let correct = true;
-  function logIn() {
-    button.remove();
+let userNameInput;
+let passwordInput;
+let correct = true;
+function logIn() {
+  button.remove();
+  button1.remove();
 
-    button1.position(windowWidth/2-20, windowHeight/2+75);
-    button1.mousePressed(searchUsers);;
+  logInButton = createButton("Log In");
+  logInButton.position(windowWidth / 2 - 20, windowHeight / 2 + 85);
+  logInButton.mousePressed(searchUsers);;
 
-    userNameInput = createInput('');
-    userNameInput.position(windowWidth / 2-90, 400);
-    userNameInput.size(200);
+  userNameInput = createInput('');
+  userNameInput.position(windowWidth / 2 - 90, 400);
+  userNameInput.size(200);
 
-    passwordInput = createInput('');
-    passwordInput.position(windowWidth / 2-90, 430);
-    passwordInput.size(200);
-  }
+  passwordInput = createInput('');
+  passwordInput.position(windowWidth / 2 - 90, 430);
+  passwordInput.size(200);
+}
 
-  function searchUsers() {
-    if (userNameInput.value() == userManager.first.username)
-    {
-      print("user names match");
+function searchUsers() {
+  userManager.curr = userManager.first;
+  let curr = userManager.curr;
+  while (curr != null) {
+    print(passwordInput.value() + " " + curr.password);
+    if (passwordInput.value() == curr.password) {
+      print("true");
+    } else {
+      print("fales");
     }
-    if (passwordInput.value() == userManager.first.password);
-    {
-      print("passwords match");
+    if (userNameInput.value() == curr.username && passwordInput.value() == curr.password) {
+      currUser = curr;
+      userNameInput.remove();
+      passwordInput.remove();
+      logInButton.remove();
+      tabSwitch = 1;
+      break;
+    } else {
+      correct = false;
     }
-    userManager.curr = userManager.first;
-    let curr = userManager.curr;
-    while (curr != null) {
-      //print("looping");
-      if (userNameInput.value() == curr.username && passwordInput.value() == curr.password) {
-        currUser = curr;
-        tabSwitch = 1;
-      } else{
-        correct = false;
-      }
-    }
+    curr = curr.next;
   }
+  print(currUser);
+}
 
-  //-----------------TabSwitch == 1--------------------//
+//-----------------TabSwitch == 1--------------------//
 
-  function profileInfo() {
-    //profile pic
-    fill(170);
-    ellipse(windowWidth / 2-150, 160, 300);
-    fill(200);
-    ellipse(windowWidth / 2-25, 170, 50);
-  }
+function profileInfo() {
+  //profile pic
+  fill(170);
+  ellipse(windowWidth / 2 - 150, 160, 300);
+  fill(200);
+  ellipse(windowWidth / 2 - 25, 170, 50);
+}
 
 
-  // if (displaySwitch == false) {
-  //   displayUser(); //draws an ellipse representing the user to the screen
-  //   drawHobbies(); //draws the hobbies in a circle on the screen
-  // } else if (displaySwitch == true) {
-  //   listUsers(); //displays a scrollable list of all users on the screen
-  // }
+// if (displaySwitch == false) {
+//   displayUser(); //draws an ellipse representing the user to the screen
+//   drawHobbies(); //draws the hobbies in a circle on the screen
+// } else if (displaySwitch == true) {
+//   listUsers(); //displays a scrollable list of all users on the screen
+// }
 
 //----------------------------Hobby functions -------------------------------//
 
