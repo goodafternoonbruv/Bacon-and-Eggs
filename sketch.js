@@ -22,7 +22,7 @@ let currUser = null;
 
 function Switch(x) {
   tabSwitch = x;
-  print(tabSwitch)
+  scroll = 0;
 }
 
 //------------------PreLoad-------------------//
@@ -99,7 +99,7 @@ function logIn() {
 
   logInButton = createButton("Log In");
   logInButton.position(windowWidth / 2 - 20, windowHeight / 2 + 85);
-  logInButton.mousePressed(searchUsers);;
+  logInButton.mousePressed(searchUsers);
 
   userNameInput = createInput('');
   userNameInput.position(windowWidth / 2 - 90, 400);
@@ -140,20 +140,20 @@ function searchUsers() {
 function profileInfo() {
   //profile pic
   fill(170);
-  ellipse(windowWidth / 2, 160, 250);
+  ellipse(windowWidth / 2, 160 - scroll, 250);
   fill(200);
-  ellipse(windowWidth / 2, 170 - 15, 100);
+  ellipse(windowWidth / 2, 155 - scroll, 100);
 
-  let x1 = windowWidth / 2 - 85;
-  let x2 = windowWidth / 2 - 35;
-  let x3 = windowWidth / 2 + 35;
-  let x4 = windowWidth / 2 + 85;
-  let y1 = windowHeight / 2 - 121;
-  let y2 = windowHeight / 2 - 160;
+  let x1 = (windowWidth / 2 - 85);
+  let x2 = (windowWidth / 2 - 35);
+  let x3 = (windowWidth / 2 + 35);
+  let x4 = (windowWidth / 2 + 85);
+  let y1 = (windowHeight / 2 - 121) - scroll;
+  let y2 = (windowHeight / 2 - 160) - scroll;
 
-  let x5 = windowWidth / 2 - 35;
-  let x6 = windowWidth / 2 + 35;
-  let y5 = windowHeight / 2 - 73;
+  let x5 = (windowWidth / 2 - 35);
+  let x6 = (windowWidth / 2 + 35);
+  let y5 = (windowHeight / 2 - 73) - scroll;
   bezier(x1, y1, x2, y2, x3, y2, x4, y1);
   bezier(x1, y1, x5, y5, x6, y5, x4, y1);
 
@@ -162,12 +162,12 @@ function profileInfo() {
   //display first and last name
   let displayText = currUser.firstName + " " + currUser.lastName;
   let sWidth = textWidth(displayText);
-  text(displayText, (windowWidth / 2) - (sWidth / 2), windowHeight / 2 - 50);
+  text(displayText, (windowWidth / 2) - (sWidth / 2), (windowHeight / 2 - 50) - scroll);
 
   //display age
   displayText = "Age: " + currUser.age;
   sWidth = textWidth(displayText);
-  text(displayText, (windowWidth / 2) - (sWidth / 2), windowHeight / 2 - 10);
+  text(displayText, (windowWidth / 2) - (sWidth / 2), (windowHeight / 2 - 10) - scroll);
 
   //display gender and interest
   let userGender;
@@ -188,7 +188,7 @@ function profileInfo() {
   }
   displayText = userGender + " Interested in " + userInterest;
   sWidth = textWidth(displayText);
-  text(displayText, (windowWidth / 2) - (sWidth / 2), windowHeight / 2 + 30);
+  text(displayText, (windowWidth / 2) - (sWidth / 2), (windowHeight / 2 + 30) - scroll);
 
   //display hobbies
   let userHobbies = [];
@@ -235,11 +235,25 @@ function profileInfo() {
   }
   displayText = userHobbies;
   sWidth = textWidth(displayText);
-  text(displayText, (windowWidth / 2) - (sWidth / 2), windowHeight / 2 + 70);
+  text(displayText, (windowWidth / 2) - (sWidth / 2), (windowHeight / 2 + 70) - scroll);
   //divider
   displayText = "=========================";
   sWidth = textWidth(displayText);
-  text(displayText, (windowWidth / 2) - (sWidth / 2), windowHeight / 2 + 110);
+  text(displayText, (windowWidth / 2) - (sWidth / 2), (windowHeight / 2 + 110) - scroll);
+
+  displayUserHobbies();
+}
+
+function displayUserHobbies() {
+  for (let i = 0; i < currUser.Matches.length; i++) {
+    fill(246, 221, 121);
+    rect(windowWidth / 2 - 225, i * 90 + (windowHeight / 2 + 130) - scroll, 450, 75, 8);
+
+    fill(170);
+    ellipse(windowWidth / 2 - 190, i * 90 + (windowHeight / 2 + 168) - scroll, 60);
+    fill(200);
+    ellipse(windowWidth / 2 - 190, i * 90 + (windowHeight / 2 + 160) - scroll, 25);
+  }
 }
 
 //----------------------------Hobby functions -------------------------------//
@@ -411,9 +425,14 @@ function listUsers() {
 }
 
 function mouseWheel(event) {
-  if (displaySwitch == true) {
-    scroll += event.delta / 3; //calculates scroll
-  }
+  // if (tabSwitch == 1) {
+  //   if (scroll <= 10 && scroll >= currUser.Matches.length * 50) {
+  //     scroll += event.delta / 3; //calculates scroll
+  //   }
+  // } else {
+  //   scroll += event.delta / 3; //calculates scroll
+  // }
+  scroll += event.delta / 3; //calculates scroll
 }
 
 function deleteUser(user) {
