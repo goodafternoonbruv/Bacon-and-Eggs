@@ -2,7 +2,7 @@ let userManager;
 let theHobbies = [];
 let hobbyList = ["Sports", "Dancing", "Singing", "Music", "Art", "Outdoors/Traveling", "Fishing", "Board Games", "Reading", "Gaming"];
 let displaySwitch = false;
-let tabSwitch = 1;
+let tabSwitch = 0;
 let theUser = null;
 let tab = 0;
 
