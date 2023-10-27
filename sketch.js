@@ -2,7 +2,7 @@ let userManager;
 let theHobbies = [];
 let hobbyList = ["Sports", "Dancing", "Singing", "Music", "Art", "Outdoors/Traveling", "Fishing", "Board Games", "Reading", "Gaming"];
 let displaySwitch = false;
-let tabSwitch = 0;
+let tabSwitch = 1;
 let theUser = null;
 let tab = 0;
 
@@ -47,7 +47,8 @@ function setup() {
   graph(); //calculates and graphs each users postion
   sizzle(); //finds matches for each user
 
-  signIn();
+  //signIn();
+  currUser = userManager.first;
 }
 
 function windowResized() {
@@ -139,18 +140,107 @@ function searchUsers() {
 function profileInfo() {
   //profile pic
   fill(170);
-  ellipse(windowWidth / 2 - 150, 160, 300);
+  ellipse(windowWidth / 2, 160, 250);
   fill(200);
-  ellipse(windowWidth / 2 - 25, 170, 50);
+  ellipse(windowWidth / 2, 170 - 15, 100);
+
+  let x1 = windowWidth / 2 - 85;
+  let x2 = windowWidth / 2 - 35;
+  let x3 = windowWidth / 2 + 35;
+  let x4 = windowWidth / 2 + 85;
+  let y1 = windowHeight / 2 - 121;
+  let y2 = windowHeight / 2 - 160;
+
+  let x5 = windowWidth / 2 - 35;
+  let x6 = windowWidth / 2 + 35;
+  let y5 = windowHeight / 2 - 73;
+  bezier(x1, y1, x2, y2, x3, y2, x4, y1);
+  bezier(x1, y1, x5, y5, x6, y5, x4, y1);
+
+  textSize(25);
+  fill(27, 27, 27);
+  //display first and last name
+  let displayText = currUser.firstName + " " + currUser.lastName;
+  let sWidth = textWidth(displayText);
+  text(displayText, (windowWidth / 2) - (sWidth / 2), windowHeight / 2 - 50);
+
+  //display age
+  displayText = "Age: " + currUser.age;
+  sWidth = textWidth(displayText);
+  text(displayText, (windowWidth / 2) - (sWidth / 2), windowHeight / 2 - 10);
+
+  //display gender and interest
+  let userGender;
+  let userInterest;
+  if (currUser.gender == 0) {
+    userGender = "Male";
+  } else if (currUser.gender == 1) {
+    userGender = "Female";
+  } else if (currUser.gender == 2) {
+    userGender = "Other";
+  }
+  if (currUser.interest == 0) {
+    userInterest = "Male";
+  } else if (currUser.interest == 1) {
+    userInterest = "Female";
+  } else if (currUser.interest == 2) {
+    userInterest = "Other";
+  }
+  displayText = userGender + " Interested in " + userInterest;
+  sWidth = textWidth(displayText);
+  text(displayText, (windowWidth / 2) - (sWidth / 2), windowHeight / 2 + 30);
+
+  //display hobbies
+  let userHobbies = [];
+  let aHobby
+  if (currUser.hobbies[0] == true) {
+    aHobby = " Sports";
+    userHobbies.push(aHobby);
+  }
+  if (currUser.hobbies[1] == true) {
+    aHobby = " Dancing";
+    userHobbies.push(aHobby);
+  }
+  if (currUser.hobbies[2] == true) {
+    aHobby = " Singing";
+    userHobbies.push(aHobby);
+  }
+  if (currUser.hobbies[3] == true) {
+    aHobby = " Music";
+    userHobbies.push(aHobby);
+  }
+  if (currUser.hobbies[4] == true) {
+    aHobby = " Art";
+    userHobbies.push(aHobby);
+  }
+  if (currUser.hobbies[5] == true) {
+    aHobby = " Outdoors/Traveling";
+    userHobbies.push(aHobby);
+  }
+  if (currUser.hobbies[6] == true) {
+    aHobby = " Fishing";
+    userHobbies.push(aHobby);
+  }
+  if (currUser.hobbies[7] == true) {
+    aHobby = " Board Games";
+    userHobbies.push(aHobby);
+  }
+  if (currUser.hobbies[8] == true) {
+    aHobby = " Reading";
+    userHobbies.push(aHobby);
+  }
+  if (currUser.hobbies[9] == true) {
+    aHobby = " Gaming";
+    userHobbies.push(aHobby);
+  }
+  displayText = userHobbies;
+  sWidth = textWidth(displayText);
+  text(displayText, (windowWidth / 2) - (sWidth / 2), windowHeight / 2 + 70);
+  //divider
+  displayText = "=========================";
+  sWidth = textWidth(displayText);
+  text(displayText, (windowWidth / 2) - (sWidth / 2), windowHeight / 2 + 110);
 }
-
-
-// if (displaySwitch == false) {
-//   displayUser(); //draws an ellipse representing the user to the screen
-//   drawHobbies(); //draws the hobbies in a circle on the screen
-// } else if (displaySwitch == true) {
-//   listUsers(); //displays a scrollable list of all users on the screen
-// }
 
 //----------------------------Hobby functions -------------------------------//
 
