@@ -35,6 +35,7 @@ class User {
         this.pos = null;
         this.Matches = [];
         this.friends = [];
+        this.friends = [];
         this.dist = 0;
         this.username = username;
         this.password = password;
