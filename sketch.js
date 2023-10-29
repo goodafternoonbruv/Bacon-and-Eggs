@@ -25,7 +25,9 @@ let bacon;
 let pan;
 
 function Switch(x) {
-  tabSwitch = x; //switches the tab based on html tabs pressed
+  if (currUser != null) {
+    tabSwitch = x; //switches the tab based on html tabs pressed
+  }
   scroll = 0;
 }
 
@@ -124,15 +126,11 @@ function searchUsers() {
   userManager.curr = userManager.first;
   let curr = userManager.curr;
   while (curr != null) {
-    if (passwordInput.value() == curr.password) {
-      print("passwords match");
-    } else {
-      print("Passwords don't match");
-    }
-
-
+    print("Username: " + curr.username + " Input: " + userNameInput.value());
+    print("Password: " + curr.password + " PasswordInput: " + passwordInput.value());
+    print("----------");
     if (userNameInput.value() === curr.username) { //checks if username and password match a currend user
-      //print("userNames Match");
+      //print("username match");
       //if (passwordInput.value() === curr.password) {
       //print("passwords match");
       currUser = curr; //specifys the user that loged in. used for displaying info
@@ -271,7 +269,6 @@ function userHobbyList() {
 function displayUserFriends() {
   if (currUser == displayingUser) { //ensures user is on own profile
     for (let i = 0; i < displayingUser.friends.length; i++) {
-      print("Loop times: " + i);
       if (mouseX > windowWidth / 2 - 225 && mouseX < windowWidth / 2 + 225 && mouseY > i * 90 + (windowHeight / 2 + 130) - scroll && mouseY < i * 90 + (windowHeight / 2 + 130) - scroll + 75) {
         fill(266, 241, 141);
         if (mouseIsPressed) {
@@ -280,29 +277,32 @@ function displayUserFriends() {
       } else {
         fill(246, 221, 121);
       }
-      rect(windowWidth / 2 - 225, i * 90 + (windowHeight / 2 + 130) - scroll, 450, 75, 8);
+
+      if (currUser == displayingUser) {
+        rect(windowWidth / 2 - 225, i * 90 + (windowHeight / 2 + 130) - scroll, 450, 75, 8);
 
 
-      fill(170); //anonymous profile pic
-      ellipse(windowWidth / 2 - 190, i * 90 + (windowHeight / 2 + 168) - scroll, 60);
-      fill(200);
-      ellipse(windowWidth / 2 - 190, i * 90 + (windowHeight / 2 + 160) - scroll, 25);
+        fill(170); //anonymous profile pic
+        ellipse(windowWidth / 2 - 190, i * 90 + (windowHeight / 2 + 168) - scroll, 60);
+        fill(200);
+        ellipse(windowWidth / 2 - 190, i * 90 + (windowHeight / 2 + 160) - scroll, 25);
 
-      let x1 = windowWidth / 2 - 215;
-      let x2 = (windowWidth / 2 - 190) - 9;
-      let x3 = (windowWidth / 2 - 190) + 9;
-      let x4 = windowWidth / 2 - 165;
-      let y1 = i * 90 + (windowHeight / 2 + 185) - scroll;
-      let y2 = i * 90 + (windowHeight / 2 + 173) - scroll;
-      let y3 = i * 90 + (windowHeight / 2 + 203) - scroll;
-      bezier(x1, y1, x2, y2, x3, y2, x4, y1);
-      bezier(x1, y1, x2, y3, x3, y3, x4, y1); //end of pic
+        let x1 = windowWidth / 2 - 215;
+        let x2 = (windowWidth / 2 - 190) - 9;
+        let x3 = (windowWidth / 2 - 190) + 9;
+        let x4 = windowWidth / 2 - 165;
+        let y1 = i * 90 + (windowHeight / 2 + 185) - scroll;
+        let y2 = i * 90 + (windowHeight / 2 + 173) - scroll;
+        let y3 = i * 90 + (windowHeight / 2 + 203) - scroll;
+        bezier(x1, y1, x2, y2, x3, y2, x4, y1);
+        bezier(x1, y1, x2, y3, x3, y3, x4, y1); //end of pic
 
-      //displays friends info
-      let displayText = " | " + displayingUser.friends[i].firstName + " " + displayingUser.friends[i].lastName + " | " + displayingUser.friends[i].age;
-      textSize(20);
-      fill(27, 27, 27);
-      text(displayText, windowWidth / 2 - 145, i * 90 + (windowHeight / 2 + 175) - scroll);
+        //displays friends info
+        let displayText = " | " + displayingUser.friends[i].firstName + " " + displayingUser.friends[i].lastName + " | " + displayingUser.friends[i].age;
+        textSize(20);
+        fill(27, 27, 27);
+        text(displayText, windowWidth / 2 - 145, i * 90 + (windowHeight / 2 + 175) - scroll);
+      }
     }
   }
 }
