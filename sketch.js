@@ -133,16 +133,16 @@ function searchUsers() {
 
     if (userNameInput.value() === curr.username) { //checks if username and password match a currend user
       //print("userNames Match");
-      if (passwordInput.value() === curr.password) {
-        //print("passwords match");
-        currUser = curr; //specifys the user that loged in. used for displaying info
-        displayingUser = currUser;
-        userNameInput.remove(); //removes inputs and buttons
-        passwordInput.remove();
-        logInButton.remove();
-        tabSwitch = 1; //switches to the profile page
-        break;
-      }
+      //if (passwordInput.value() === curr.password) {
+      //print("passwords match");
+      currUser = curr; //specifys the user that loged in. used for displaying info
+      displayingUser = currUser;
+      userNameInput.remove(); //removes inputs and buttons
+      passwordInput.remove();
+      logInButton.remove();
+      tabSwitch = 1; //switches to the profile page
+      break;
+      //}
     } else {
       correct = false; //if it does not match, it will display and error message
     }
@@ -167,7 +167,7 @@ function profileInfo() {
 
   let x5 = (windowWidth / 2 - 35);
   let x6 = (windowWidth / 2 + 35);
-  let y5 = (windowHeight / 2 - 73) - scroll;
+  let y5 = (windowHeight / 2 - 75) - scroll;
   bezier(x1, y1, x2, y2, x3, y2, x4, y1);
   bezier(x1, y1, x5, y5, x6, y5, x4, y1); //end of profile pic
 
@@ -270,11 +270,12 @@ function userHobbyList() {
 
 function displayUserFriends() {
   if (currUser == displayingUser) { //ensures user is on own profile
-    for (let i = 0; i < displayingUser.Matches.length; i++) {
+    for (let i = 0; i < displayingUser.friends.length; i++) {
+      print("Loop times: " + i);
       if (mouseX > windowWidth / 2 - 225 && mouseX < windowWidth / 2 + 225 && mouseY > i * 90 + (windowHeight / 2 + 130) - scroll && mouseY < i * 90 + (windowHeight / 2 + 130) - scroll + 75) {
         fill(266, 241, 141);
         if (mouseIsPressed) {
-          displayingUser = currUser.Matches[i];
+          displayingUser = currUser.friends[i];
         }
       } else {
         fill(246, 221, 121);
@@ -298,7 +299,7 @@ function displayUserFriends() {
       bezier(x1, y1, x2, y3, x3, y3, x4, y1); //end of pic
 
       //displays friends info
-      let displayText = " | " + displayingUser.Matches[i].firstName + " " + displayingUser.Matches[i].lastName + " | " + displayingUser.Matches[i].age;
+      let displayText = " | " + displayingUser.friends[i].firstName + " " + displayingUser.friends[i].lastName + " | " + displayingUser.friends[i].age;
       textSize(20);
       fill(27, 27, 27);
       text(displayText, windowWidth / 2 - 145, i * 90 + (windowHeight / 2 + 175) - scroll);
@@ -326,13 +327,14 @@ function backButton() { //returns to own profile
 let matchUser = null;
 let m = 0; //m keeps track of position in users matches list (like i in for loop)
 function displayMatches() {
-  if (m == currUser.Matches.length + 1) {
+  //print("matches length: " + currUser.Matches.length + " m: " + m);
+  if (m == currUser.Matches.length) {
     m = 0; //resets m if reached the end of the list
   }
 
-  if (currUser.Matches != null) {
+  if (currUser.Matches.length > 0) {
     matchUser = currUser.Matches[m];
-    //draws match (sizzle) and next (flip) buttons
+    //draws 'match' (sizzle) and 'next' (flip) buttons
     if (mouseX > windowWidth / 10 && mouseX < windowWidth / 10 + 175 && mouseY > windowHeight / 2 - 150 && mouseY < windowHeight / 2 + 25) {
       fill(266, 241, 141);
     } else {
@@ -423,6 +425,9 @@ function mouseClicked() {
       currUser.friends.push(matchUser);
       currUser.Matches.splice(m, 1);
       m++;
+      if (m > currUser.Matches.length) {
+        m = 0; //resets 'm' if it has reached the end of the list
+      }
       print("Sizzling!!");
     }
   } else if (tabSwitch == 3) {
