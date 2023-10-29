@@ -6,10 +6,7 @@ var_dump($_POST);
 $userdata = [
     $_POST["firstname"],
     $_POST["lastname"],
-    $_POST["username"],
-    $_POST["email"],
-    $_POST["gender"],
-    $_POST["interest"],
+    $_POST["age"],
     $_POST["hobby1"] ? "True" : "False" ,
     $_POST["hobby2"] ? "True" : "False" ,
     $_POST["hobby3"] ? "True" : "False" ,
@@ -20,6 +17,10 @@ $userdata = [
     $_POST["hobby8"] ? "True" : "False" ,
     $_POST["hobby9"] ? "True" : "False" ,
     $_POST["hobby10"] ? "True" : "False" ,
+    $_POST["gender"],
+    $_POST["interest"],
+    $_POST["email"],
+    $_POST["username"],
 ];
 
 $fp = fopen('MatchMaker Responses.csv', 'a');
