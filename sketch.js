@@ -54,6 +54,9 @@ function windowResized() {
 //---------------------------Draw-------------------------------//
 
 function draw() {
+
+  getUserNames();
+
   background(235, 215, 192);
   if (displaySwitch == false) {
     displayUser(); //draws an ellipse representing the user to the screen
@@ -244,9 +247,11 @@ function deleteUser(user) {
     if (curr.firstName == user.firstName && curr.lastName == user.lastName && curr.age == user.age) {
       if (prev == null) { //if user is first in list
         userManager.first = user.next;
+        // getUserNames(user);
         break;
       } else {
         prev.next = curr.next;
+        getUserNames(user);
         break;
       }
     }
