@@ -103,55 +103,59 @@
   <div class="container">
     <form action="signup.php" method="post">
 
-      <label for="fname">First Name</label>
-      <input type="text" id="fname" name="firstname" placeholder="Your first name..">
+      <label for="firstname">First Name</label>
+      <input type="text" id="firstname" name="firstname" placeholder="Your first name..">
 
-      <label for="lname">Last Name</label>
-      <input type="text" id="lname" name="lastname" placeholder="Your last name..">
+      <label for="lastname">Last Name</label>
+      <input type="text" id="lastname" name="lastname" placeholder="Your last name..">
 
-      <label for="uname">Username</label>
-      <input type="text" id="username" name="username" placeholder="A fun username..">
+      <label for="age">Age</label>
+      <input type="text" id="age" name="age" placeholder="Your age..">
 
-      <label for="ename">Email</label>
-      <input type="text" id="email" name="email" placeholder="Your email..">
-
-      <label for="gender">Gender </label>
+      <label for="gender">Gender</label>
       <select id="gender" name="gender">
-        <option value="male">Male</option>
-        <option value="female">Female</option>
-        <option value="usa">Other</option>
+        <option value="0">Male</option>
+        <option value="1">Female</option>
+        <option value="2">Other</option>
       </select>
 
-      <label for="sexuality">Sexuality </label>
-      <select id="sexuality" name="sexuality">
-        <option value="straight">Straight</option>
-        <option value="bisexual">Bisexual</option>
-        <option value="gay">Gay</option>
+      <label for="interest">Sexuality</label>
+      <select id="interest" name="interest">
+        <option value="0">Male</option>
+        <option value="1">Female</option>
+        <option value="2">Other</option>
       </select>
 
       <button type="button" class="collapsible">What are some of your hobbies?</button>
       <div class="content">
-        <input type="checkbox" id="hobby1" name="hobbies[]" value="Sports">
+        <input type="checkbox" id="hobby1" name="hobby1" value="True">
         <label for="hobby1"> Sports </label><br>
-        <input type="checkbox" id="hobby2" name="hobbies[]" value="Dancing">
+        <input type="checkbox" id="hobby2" name="hobby2" value="Dancing">
         <label for="hobby2"> Dancing </label><br>
-        <input type="checkbox" id="hobby3" name="hobbies[]" value="Singing">
+        <input type="checkbox" id="hobby3" name="hobby3" value="Singing">
         <label for="hobby3"> Singing</label><br>
-        <input type="checkbox" id="hobby4" name="hobbies[]" value="Music">
+        <input type="checkbox" id="hobby4" name="hobby4" value="Music">
         <label for="hobby4"> Music</label><br>
-        <input type="checkbox" id="hobby5" name="hobbies[]" value="Art">
+        <input type="checkbox" id="hobby5" name="hobby5" value="Art">
         <label for="hobby5"> Art</label><br>
-        <input type="checkbox" id="hobby6" name="hobbies[]" value="Outdoors/Traveling">
+        <input type="checkbox" id="hobby6" name="hobby6" value="Outdoors/Traveling">
         <label for="hobby6"> Outdoors/Traveling</label><br>
-        <input type="checkbox" id="hobby7" name="hobbies[]" value="Fishing">
+        <input type="checkbox" id="hobby7" name="hobby7" value="Fishing">
         <label for="hobby7"> Fishing</label><br>
-        <input type="checkbox" id="hobby8" name="hobbies[]" value="Board Games">
+        <input type="checkbox" id="hobby8" name="hobby8" value="Board Games">
         <label for="hobby8"> Board Games</label><br>
-        <input type="checkbox" id="hobby9" name="hobbies[]" value="Reading">
+        <input type="checkbox" id="hobby9" name="hobby9" value="Reading">
         <label for="hobby9"> Reading</label><br>
-        <input type="checkbox" id="hobby10" name="hobbies[]" value="Gaming">
+        <input type="checkbox" id="hobby10" name="hobby10" value="Gaming">
         <label for="hobby10"> Gaming</label><br>
       </div>
+
+        <label for="ename">Email</label>
+        <input type="text" id="email" name="email" placeholder="Your email..">
+
+        <label for="uname">Username</label>
+        <input type="text" id="username" name="username" placeholder="A fun username..">
+      
 
       <center> <input type="submit" value="Signup"> </center>
 

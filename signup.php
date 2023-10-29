@@ -9,10 +9,10 @@ $userdata = [
     $_POST["username"],
     $_POST["email"],
     $_POST["gender"],
-    $_POST["sexuality"],
+    $_POST["interest"],
     json_encode($_POST["hobbies"])
 ];
 
-$fp = fopen('users.csv', 'a');
+$fp = fopen('MatchMaker Responses.csv', 'a');
 
 fputcsv($fp, $userdata);
