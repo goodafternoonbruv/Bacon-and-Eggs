@@ -26,3 +26,5 @@ $userdata = [
 $fp = fopen('MatchMaker Responses.csv', 'a');
 
 fputcsv($fp, $userdata);
+
+header('Location: /index.html');
