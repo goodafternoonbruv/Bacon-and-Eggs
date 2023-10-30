@@ -21,6 +21,7 @@ $userdata = [
     $_POST["interest"],
     $_POST["email"],
     $_POST["username"],
+    $_POST["password"],
 ];
 
 $fp = fopen('MatchMaker Responses.csv', 'a');

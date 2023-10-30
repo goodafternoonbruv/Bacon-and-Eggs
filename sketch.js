@@ -93,9 +93,9 @@ let button;
 let button1;
 let logInButton;
 function signIn() { //creates 2 buttons
-  button = createButton('Sign Up'); //one for creating an account
-  button.position(windowWidth / 2 - 100, windowHeight / 2);
-  button.mousePressed(logIn); //forward it to the signup form
+  // button = createButton('Sign Up'); //one for creating an account
+  // button.position(windowWidth / 2 - 100, windowHeight / 2);
+  // button.mousePressed(logIn); //forward it to the signup form
 
   button1 = createButton('Log In'); //one for logging into an account
   button1.position(windowWidth / 2 + 100, windowHeight / 2);
@@ -106,7 +106,7 @@ let userNameInput;
 let passwordInput;
 let correct = true;
 function logIn() {
-  button.remove(); //deletes previous buttons
+  // button.remove(); //deletes previous buttons
   button1.remove();
 
   logInButton = createButton("Log In"); //button for checking login credidentials
