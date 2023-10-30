@@ -126,9 +126,11 @@ function searchUsers() {
   userManager.curr = userManager.first;
   let curr = userManager.curr;
   while (curr != null) {
-
-
+    print("Username: " + curr.username + " Input: " + userNameInput.value());
+    print("Password: " + curr.password + " PasswordInput: " + passwordInput.value());
+    print("----------");
     if (userNameInput.value() === curr.username) { //checks if username and password match a currend user
+      //print("username match");
       //if (passwordInput.value() === curr.password) {
       //print("passwords match");
       currUser = curr; //specifys the user that loged in. used for displaying info
