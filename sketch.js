@@ -95,7 +95,7 @@ let logInButton;
 function signIn() { //creates 2 buttons
   button = createButton('Sign Up'); //one for creating an account
   button.position(windowWidth / 2 - 100, windowHeight / 2);
-  button.mousePressed(logIn); //forward it to the form
+  button.mousePressed(logIn); //forward it to the signup form
 
   button1 = createButton('Log In'); //one for logging into an account
   button1.position(windowWidth / 2 + 100, windowHeight / 2);
