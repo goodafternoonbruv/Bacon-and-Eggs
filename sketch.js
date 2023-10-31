@@ -1,10 +1,10 @@
 let userManager;
 let theHobbies = [];
 let hobbyList = ["Sports", "Dancing", "Singing", "Music", "Art", "Outdoors/Traveling", "Fishing", "Board Games", "Reading", "Gaming"];
-let displaySwitch = false;
+//let displaySwitch = false;
 let tabSwitch = 0;
-let theUser = null;
-let tab = 0;
+//let theUser = null;
+//let tab = 0;
 
 let maleMaleUsers = [];
 let maleFemaleUsers = [];
@@ -59,6 +59,7 @@ function setup() {
 
   bacon = loadImage('bacon.png');
   pan = loadImage('pan.png');
+  print("setup");
 }
 
 function windowResized() {
@@ -93,9 +94,9 @@ let button;
 let button1;
 let logInButton;
 function signIn() { //creates 2 buttons
-  button = createButton('Sign Up'); //one for creating an account
-  button.position(windowWidth / 2 - 100, windowHeight / 2);
-  button.mousePressed(logIn); //forward it to the signup form
+  // button = createButton('Sign Up'); //one for creating an account
+  // button.position(windowWidth / 2 - 100, windowHeight / 2);
+  // button.mousePressed(logIn); //forward it to the signup form
 
   button1 = createButton('Log In'); //one for logging into an account
   button1.position(windowWidth / 2 + 100, windowHeight / 2);
@@ -106,7 +107,7 @@ let userNameInput;
 let passwordInput;
 let correct = true;
 function logIn() {
-  button.remove(); //deletes previous buttons
+  // button.remove(); //deletes previous buttons
   button1.remove();
 
   logInButton = createButton("Log In"); //button for checking login credidentials
@@ -694,7 +695,7 @@ function sizzle() {
         for (let i = 0; i < maleMaleUsers.length; i++) {
           let user = maleMaleUsers[i];
           d = dist(curr.pos.x, curr.pos.y, curr.pos.z, user.pos.x, user.pos.y, user.pos.z);
-          user.dist = d;
+          user.Dist = d;
           potentialMatches.push(user);
         }
         //--------------Interest Female-----------//
@@ -702,7 +703,7 @@ function sizzle() {
         for (let i = 0; i < femaleMaleUsers.length; i++) {
           let user = femaleMaleUsers[i];
           d = dist(curr.pos.x, curr.pos.y, curr.pos.z, user.pos.x, user.pos.y, user.pos.z);
-          user.dist = d;
+          user.Dist = d;
           potentialMatches.push(user);
         }
         //------------Interest Other-------------//
@@ -710,7 +711,7 @@ function sizzle() {
         for (let i = 0; i < otherMaleUsers.length; i++) {
           let user = otherMaleUsers[i];
           d = dist(curr.pos.x, curr.pos.y, curr.pos.z, user.pos.x, user.pos.y, user.pos.z);
-          user.dist = d;
+          user.Dist = d;
           potentialMatches.push(user);
         }
       }
@@ -721,7 +722,7 @@ function sizzle() {
         for (let i = 0; i < maleFemaleUsers.length; i++) {
           let user = maleFemaleUsers[i];
           d = dist(curr.pos.x, curr.pos.y, curr.pos.z, user.pos.x, user.pos.y, user.pos.z);
-          user.dist = d;
+          user.Dist = d;
           potentialMatches.push(user);
         }
         //--------------Interest Female-----------//
@@ -729,7 +730,7 @@ function sizzle() {
         for (let i = 0; i < femaleFemaleUsers.length; i++) {
           let user = femaleFemaleUsers[i];
           d = dist(curr.pos.x, curr.pos.y, curr.pos.z, user.pos.x, user.pos.y, user.pos.z);
-          user.dist = d;
+          user.Dist = d;
           potentialMatches.push(user);
         }
         //------------Interest Other-------------//
@@ -737,7 +738,7 @@ function sizzle() {
         for (let i = 0; i < otherFemaleUsers.length; i++) {
           let user = otherFemaleUsers[i];
           d = dist(curr.pos.x, curr.pos.y, curr.pos.z, user.pos.x, user.pos.y, user.pos.z);
-          user.dist = d;
+          user.Dist = d;
           potentialMatches.push(user);
         }
       }
@@ -747,7 +748,7 @@ function sizzle() {
         for (let i = 0; i < maleOtherUsers.length; i++) {
           let user = maleOtherUsers[i];
           d = dist(curr.pos.x, curr.pos.y, curr.pos.z, user.pos.x, user.pos.y, user.pos.z);
-          user.dist = d;
+          user.Dist = d;
           potentialMatches.push(user);
         }
         //--------------Interest Female-----------//
@@ -755,7 +756,7 @@ function sizzle() {
         for (let i = 0; i < femaleOtherUsers.length; i++) {
           let user = femaleOtherUsers[i];
           d = dist(curr.pos.x, curr.pos.y, curr.pos.z, user.pos.x, user.pos.y, user.pos.z);
-          user.dist = d;
+          user.Dist = d;
           potentialMatches.push(user);
         }
         //------------Interest Other-------------//
@@ -763,15 +764,15 @@ function sizzle() {
         for (let i = 0; i < otherOtherUsers.length; i++) {
           let user = otherOtherUsers[i];
           d = dist(curr.pos.x, curr.pos.y, curr.pos.z, user.pos.x, user.pos.y, user.pos.z);
-          user.dist = d;
+          user.Dist = d;
           potentialMatches.push(user);
         }
       }
     }
-
     quickSort(0, potentialMatches.length - 1);
     curr.Matches = potentialMatches;
     curr = curr.next;
+    print(curr);
   }
 }
 
@@ -779,16 +780,22 @@ function quickSort(low, high) {
   let i = low
   let j = high;
   //This determines the pivot by taking the value of the index in the middle of the array. Any numbers larger will go on the right side and any 
+<<<<<<< HEAD
+  print(potentialMatches[j].Dist);
+  //print(potentialMatches[i]);
+  let pivot = potentialMatches[round(low + (high - low) / 2)].Dist;
+=======
   //print(potentialMatches[round(low + (high - low) / 2)].dist);
   //print(round(low + (high - low) / 2));
   let pivot = potentialMatches[round(low + (high - low) / 2)].dist;
+>>>>>>> main
   while (i <= j) {
     //This while loop goes throung the list from left to right. As soon as it finds a number that is greater than the pivot, it stops.
-    while (potentialMatches[i].dist < pivot) {
+    while (potentialMatches[i].Dist < pivot) {
       i++;
     }
     //This does the same as the previous while loop except it starts from the right and finds a number less than the pivot
-    while (potentialMatches[j].dist > pivot) {
+    while (potentialMatches[j].Dist > pivot) {
       j--;
     }
     //Before swapping the two numbers, it checks if 'i' and'j' have crossed. If they have, it means that the list has been sorted based on the pivot
