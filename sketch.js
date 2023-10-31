@@ -780,9 +780,15 @@ function quickSort(low, high) {
   let i = low
   let j = high;
   //This determines the pivot by taking the value of the index in the middle of the array. Any numbers larger will go on the right side and any 
+<<<<<<< HEAD
   print(potentialMatches[j].Dist);
   //print(potentialMatches[i]);
   let pivot = potentialMatches[round(low + (high - low) / 2)].Dist;
+=======
+  //print(potentialMatches[round(low + (high - low) / 2)].dist);
+  //print(round(low + (high - low) / 2));
+  let pivot = potentialMatches[round(low + (high - low) / 2)].dist;
+>>>>>>> main
   while (i <= j) {
     //This while loop goes throung the list from left to right. As soon as it finds a number that is greater than the pivot, it stops.
     while (potentialMatches[i].Dist < pivot) {
