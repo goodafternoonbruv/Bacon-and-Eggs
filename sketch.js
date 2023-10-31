@@ -59,7 +59,29 @@ function setup() {
 
   bacon = loadImage('bacon.png');
   pan = loadImage('pan.png');
-  print("setup");
+  generateUsers();
+}
+
+function generateUsers() {
+
+  for (let i = 9000; i < 10000; i++) {
+    // let hobbs = [];
+    // for (let i = 0; i < 10; i++) {
+    //   let hobb = round(random(0, 1))
+    //   if (hobb == 1) {
+    //     hobbs[i] = "True";
+    //   } else {
+    //     hobbs[i] = "False";
+    //   }
+    // }
+    // print(i + "," + i + "," + round(random(18, 50)) + "," + hobbs + "," + round(random(0, 2)) + "," + round(random(0, 2)) + "," + i + "," + i);
+
+  }
+  userManager.curr = userManager.first;
+  while (userManager.curr != null) {
+    print(userManager.curr);
+    userManager.curr = userManager.curr.next;
+  }
 }
 
 function windowResized() {
@@ -127,13 +149,7 @@ function searchUsers() {
   userManager.curr = userManager.first;
   let curr = userManager.curr;
   while (curr != null) {
-    print("Username: " + curr.username + " Input: " + userNameInput.value());
-    print("Password: " + curr.password + " PasswordInput: " + passwordInput.value());
-    print("----------");
     if (userNameInput.value() === curr.username) { //checks if username and password match a currend user
-      //print("username match");
-      //if (passwordInput.value() === curr.password) {
-      //print("passwords match");
       currUser = curr; //specifys the user that loged in. used for displaying info
       displayingUser = currUser;
       userNameInput.remove(); //removes inputs and buttons
@@ -328,7 +344,6 @@ function backButton() { //returns to own profile
 let matchUser = null;
 let m = 0; //m keeps track of position in users matches list (like i in for loop)
 function displayMatches() {
-  //print("matches length: " + currUser.Matches.length + " m: " + m);
   if (m == currUser.Matches.length) {
     m = 0; //resets m if reached the end of the list
   }
@@ -372,18 +387,18 @@ function displayMatches() {
     //display gender
     let userGender;
     let userInterest;
-    if (displayingUser.gender == 0) {
+    if (currUser.Matches[m].gender == 0) {
       userGender = "Male";
-    } else if (displayingUser.gender == 1) {
+    } else if (currUser.Matches[m].gender == 1) {
       userGender = "Female";
-    } else if (displayingUser.gender == 2) {
+    } else if (currUser.Matches[m].gender == 2) {
       userGender = "Other";
     }
-    if (displayingUser.interest == 0) {
+    if (currUser.Matches[m].interest == 0) {
       userInterest = "Male";
-    } else if (displayingUser.interest == 1) {
+    } else if (currUser.Matches[m].interest == 1) {
       userInterest = "Female";
-    } else if (displayingUser.interest == 2) {
+    } else if (currUser.Matches[m].interest == 2) {
       userInterest = "Other";
     }
     textSize(23);
@@ -392,7 +407,49 @@ function displayMatches() {
     text(displayText, (windowWidth / 2) - (sWidth / 2), 470); //end of gender display
 
     //display hobbies
-    displayText = "Hobbies:" + userHobbyList();
+    let userHobbies = [];
+    let aHobby; //converst hobbies into strings
+    if (currUser.Matches[m].hobbies[0] == true) {
+      aHobby = " Sports";
+      userHobbies.push(aHobby);
+    }
+    if (currUser.Matches[m].hobbies[1] == true) {
+      aHobby = " Dancing";
+      userHobbies.push(aHobby);
+    }
+    if (currUser.Matches[m].hobbies[2] == true) {
+      aHobby = " Singing";
+      userHobbies.push(aHobby);
+    }
+    if (currUser.Matches[m].hobbies[3] == true) {
+      aHobby = " Music";
+      userHobbies.push(aHobby);
+    }
+    if (currUser.Matches[m].hobbies[4] == true) {
+      aHobby = " Art";
+      userHobbies.push(aHobby);
+    }
+    if (currUser.Matches[m].hobbies[5] == true) {
+      aHobby = " Outdoors/Traveling";
+      userHobbies.push(aHobby);
+    }
+    if (currUser.Matches[m].hobbies[6] == true) {
+      aHobby = " Fishing";
+      userHobbies.push(aHobby);
+    }
+    if (currUser.Matches[m].hobbies[7] == true) {
+      aHobby = " Board Games";
+      userHobbies.push(aHobby);
+    }
+    if (currUser.Matches[m].hobbies[8] == true) {
+      aHobby = " Reading";
+      userHobbies.push(aHobby);
+    }
+    if (currUser.Matches[m].hobbies[9] == true) {
+      aHobby = " Gaming";
+      userHobbies.push(aHobby);
+    }
+    displayText = userHobbies;
     sWidth = textWidth(displayText);
     text(displayText, (windowWidth / 2) - (sWidth / 2), 500);
 
@@ -418,7 +475,6 @@ function mouseClicked() {
   if (tabSwitch == 2) { //if on matching page,
     if (mouseX > windowWidth / 10 && mouseX < windowWidth / 10 + 175 && mouseY > windowHeight / 2 - 150 && mouseY < windowHeight / 2 + 25) {
       m++; //if flip is pressed, it advances through the list
-      print("Flipping :(");
     }
     if (mouseX > windowWidth - 350 && mouseX < windowWidth - 175 && mouseY > windowHeight / 2 - 150 && mouseY < windowHeight / 2 + 25) {
       //if sizzle is pressed, 
@@ -429,7 +485,6 @@ function mouseClicked() {
       if (m > currUser.Matches.length) {
         m = 0; //resets 'm' if it has reached the end of the list
       }
-      print("Sizzling!!");
     }
   } else if (tabSwitch == 3) {
     if (mouseX > windowWidth / 2 + 125 && mouseX < windowWidth / 2 + 325 && mouseY > 165 && mouseY < 235) {
@@ -649,13 +704,6 @@ function listUsers() {
 }
 
 function mouseWheel(event) {
-  // if (tabSwitch == 1) {
-  //   if (scroll <= 10 && scroll >= currUser.Matches.length * 50) {
-  //     scroll += event.delta / 3; //calculates scroll
-  //   }
-  // } else {
-  //   scroll += event.delta / 3; //calculates scroll
-  // }
   scroll += event.delta / 3; //calculates scroll
 }
 
@@ -683,6 +731,7 @@ function deleteUser(user) {
 }
 
 let potentialMatches;
+let numMatches = 500;
 function sizzle() {
   userManager.curr = userManager.first;
   let curr = userManager.curr;
@@ -696,6 +745,11 @@ function sizzle() {
           let user = maleMaleUsers[i];
           d = dist(curr.pos.x, curr.pos.y, curr.pos.z, user.pos.x, user.pos.y, user.pos.z);
           user.Dist = d;
+          // if (potentialMatches.length < numMatches) {
+          //   potentialMatches.push(user);
+          // } else {
+          //   break;
+          // }
           potentialMatches.push(user);
         }
         //--------------Interest Female-----------//
@@ -704,6 +758,11 @@ function sizzle() {
           let user = femaleMaleUsers[i];
           d = dist(curr.pos.x, curr.pos.y, curr.pos.z, user.pos.x, user.pos.y, user.pos.z);
           user.Dist = d;
+          // if (potentialMatches.length < numMatches) {
+          //   potentialMatches.push(user);
+          // } else {
+          //   break;
+          // }
           potentialMatches.push(user);
         }
         //------------Interest Other-------------//
@@ -712,6 +771,11 @@ function sizzle() {
           let user = otherMaleUsers[i];
           d = dist(curr.pos.x, curr.pos.y, curr.pos.z, user.pos.x, user.pos.y, user.pos.z);
           user.Dist = d;
+          // if (potentialMatches.length < numMatches) {
+          //   potentialMatches.push(user);
+          // } else {
+          //   break;
+          // }
           potentialMatches.push(user);
         }
       }
@@ -723,6 +787,11 @@ function sizzle() {
           let user = maleFemaleUsers[i];
           d = dist(curr.pos.x, curr.pos.y, curr.pos.z, user.pos.x, user.pos.y, user.pos.z);
           user.Dist = d;
+          // if (potentialMatches.length < numMatches) {
+          //   potentialMatches.push(user);
+          // } else {
+          //   break;
+          // }
           potentialMatches.push(user);
         }
         //--------------Interest Female-----------//
@@ -731,6 +800,11 @@ function sizzle() {
           let user = femaleFemaleUsers[i];
           d = dist(curr.pos.x, curr.pos.y, curr.pos.z, user.pos.x, user.pos.y, user.pos.z);
           user.Dist = d;
+          // if (potentialMatches.length < numMatches) {
+          //   potentialMatches.push(user);
+          // } else {
+          //   break;
+          // }
           potentialMatches.push(user);
         }
         //------------Interest Other-------------//
@@ -739,6 +813,11 @@ function sizzle() {
           let user = otherFemaleUsers[i];
           d = dist(curr.pos.x, curr.pos.y, curr.pos.z, user.pos.x, user.pos.y, user.pos.z);
           user.Dist = d;
+          // if (potentialMatches.length < numMatches) {
+          //   potentialMatches.push(user);
+          // } else {
+          //   break;
+          // }
           potentialMatches.push(user);
         }
       }
@@ -749,6 +828,11 @@ function sizzle() {
           let user = maleOtherUsers[i];
           d = dist(curr.pos.x, curr.pos.y, curr.pos.z, user.pos.x, user.pos.y, user.pos.z);
           user.Dist = d;
+          // if (potentialMatches.length < numMatches) {
+          //   potentialMatches.push(user);
+          // } else {
+          //   break;
+          // }
           potentialMatches.push(user);
         }
         //--------------Interest Female-----------//
@@ -757,6 +841,11 @@ function sizzle() {
           let user = femaleOtherUsers[i];
           d = dist(curr.pos.x, curr.pos.y, curr.pos.z, user.pos.x, user.pos.y, user.pos.z);
           user.Dist = d;
+          // if (potentialMatches.length < numMatches) {
+          //   potentialMatches.push(user);
+          // } else {
+          //   break;
+          // }
           potentialMatches.push(user);
         }
         //------------Interest Other-------------//
@@ -765,6 +854,11 @@ function sizzle() {
           let user = otherOtherUsers[i];
           d = dist(curr.pos.x, curr.pos.y, curr.pos.z, user.pos.x, user.pos.y, user.pos.z);
           user.Dist = d;
+          // if (potentialMatches.length < numMatches) {
+          //   potentialMatches.push(user);
+          // } else {
+          //   break;
+          // }
           potentialMatches.push(user);
         }
       }
@@ -772,7 +866,6 @@ function sizzle() {
     quickSort(0, potentialMatches.length - 1);
     curr.Matches = potentialMatches;
     curr = curr.next;
-    print(curr);
   }
 }
 
@@ -780,8 +873,6 @@ function quickSort(low, high) {
   let i = low
   let j = high;
   //This determines the pivot by taking the value of the index in the middle of the array. Any numbers larger will go on the right side and any 
-  print(potentialMatches[j].Dist);
-  //print(potentialMatches[i]);
   let pivot = potentialMatches[round(low + (high - low) / 2)].Dist;
   while (i <= j) {
     //This while loop goes throung the list from left to right. As soon as it finds a number that is greater than the pivot, it stops.
