@@ -104,20 +104,3 @@ async function getData() {
 
 
 }
-
-function createUsers() {
-
-
-    let a = ["True", "True"];
-
-    for (let i = 0; i < 1000; i++) {
-
-
-
-        let user = new User(i, i, random(20, 50), random(0, 2), random(0, 2), "Make an array of tf")
-
-    }
-    let a = [random(1 - 10)];
-
-
-}

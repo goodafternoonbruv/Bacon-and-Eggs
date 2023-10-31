@@ -788,7 +788,6 @@ function quickSort(low, high) {
   let pivot = potentialMatches[round(low + (high - low) / 2)].Dist;
   //print(potentialMatches[round(low + (high - low) / 2)].dist);
   //print(round(low + (high - low) / 2));
-  let pivot = potentialMatches[round(low + (high - low) / 2)].dist;
   while (i <= j) {
     //This while loop goes throung the list from left to right. As soon as it finds a number that is greater than the pivot, it stops.
     while (potentialMatches[i].Dist < pivot) {
