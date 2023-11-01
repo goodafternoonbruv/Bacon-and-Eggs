@@ -68,7 +68,6 @@ async function getData() {
     const rows = data.split('\n').slice(1);
 
     rows.forEach(elt => {
-
         const row = elt.split(',');
         const firstName = row[0];
         const lastName = row[1];

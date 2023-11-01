@@ -1,10 +1,14 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 maxwell,lepp,17,False,True,False,False,False,False,False,False,False,False,0,0,,coolguy7476,maxwell
 ,interest,username,password
 =======
 firstname,lastname,age,Hobby1,Hobby2,Hobby3,Hobby4,Hobby5,Hobby6,Hobby7,Hobby8,Hobby9,Hobby10,Gender,interest,username,password
 maxwell,lepp,17,False,True,False,False,False,False,False,False,False,False,0,0,coolguy7476,maxwell
 >>>>>>> 9e1b827cba0177ea6f183d324af5ad73c7bea13d
+=======
+firstname,lastname,age,Hobby1,Hobby2,Hobby3,Hobby4,Hobby5,Hobby6,Hobby7,Hobby8,Hobby9,Hobby10,Gender,interest,username,password
+>>>>>>> bf19e4f54b9bfe552d23e2907d0a6b28b1b23ce1
 John,Doe,33,False,True,True,True,False,False,True,False,False,True,0,2,johndoe,johndoe
 Jane,Doe,22,False,True,False,False,True,False,True,False,True,False,1,2,janedoe,janedoe
 Bob,Smith,23,False,False,False,True,False,True,True,False,False,False,2,2,bobsmith,bobsmith
@@ -4038,9 +4042,14 @@ Grace,Jones,65,True,False,False,False,True,False,False,True,True,False,2,2,grace
 3997,3997,50,False,False,True,False,True,False,False,False,False,False,2,2,3997,3997
 3998,3998,41,True,False,False,False,False,True,False,True,False,True,2,2,3998,3998
 3999,3999,46,True,False,False,False,False,True,True,False,True,False,0,1,3999,3999
+<<<<<<< HEAD
 4000,4000,26,True,False,False,False,False,True,True,False,True,False,1,0,4000,4000
 4001,4001,37,True,True,True,False,False,True,True,True,False,True,2,1,4001,4001
 4002,4002,27,False,True,True,True,False,False,False,False,True,False,1,0,4002,4002
+=======
+4001,4001,37,True,True,True,False,False,True,True,True,False,True,2,1,4001,4001
+4002,4002,27,False,True,True,True,False,False,False,False,True,False,1,0,4002,4002 
+>>>>>>> bf19e4f54b9bfe552d23e2907d0a6b28b1b23ce1
 4003,4003,24,False,False,True,False,True,False,False,True,False,False,1,2,4003,4003
 4004,4004,44,False,True,True,True,False,False,True,False,True,False,1,1,4004,4004
 4005,4005,31,False,True,False,True,False,False,True,False,True,False,1,2,4005,4005
