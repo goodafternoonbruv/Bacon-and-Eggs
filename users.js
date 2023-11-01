@@ -1,7 +1,7 @@
 // Define lists of first names, last names, and hobbies
 const firstNames = ["Alice", "Bob", "Charlie", "David", "Eve", "Frank", "Grace", "Hannah", "Ivy", "Jack"];
 const lastNames = ["Smith", "Johnson", "Brown", "Davis", "Miller", "Wilson", "Moore", "Taylor", "Anderson", "Jones"];
-const hobbies = ["True", "False", "True", "False", "True", "False", "True", "False", "True", "False"];
+const hobbies = ["Reading", "Cooking", "Gaming", "Sports", "Music", "Painting", "Traveling", "Photography", "Hiking", "Dancing"];
 
 // Function to generate a random number between 0 and 2 for interests
 function randomInterest() {
@@ -32,7 +32,7 @@ function generateUsers(numUsers) {
         const firstName = firstNames[Math.floor(Math.random() * firstNames.length)];
         const lastName = lastNames[Math.floor(Math.random() * lastNames.length)];
         const age = Math.floor(Math.random() * 48) + 18; // Random age between 18 and 65
-        const interests = Array.from({ length: 2 }, randomInterest);
+        const interests = Array.from({ length: 10 }, randomInterest);
         const username = randomUsername(firstName, lastName);
         const password = randomPassword();
 
@@ -50,19 +50,7 @@ function generateUsers(numUsers) {
     return users;
 }
 
-const usersData = generateUsers(1001);
+const usersData = generateUsers(1000);
 
-function formatUsersForConsole(usersData) {
-    return usersData.map(user => ({
-        ...user,
-        hobbies: user.hobbies.map(value => value ? 'True' : 'False'),
-    }));
-}
-
-console.log("First Name,Last Name,Age,Hobbies,Interests,Username,Password");
-
-usersData.forEach(user => {
-    const hobbies = user.hobbies.map(value => value ? 'True' : 'False').join(',');
-    const interests = user.interests.join(',');
-    console.log(`${user.firstName},${user.lastName},${user.age},${hobbies},${interests},${user.username},${user.password}`);
-});
+// You can access the generated user data in the 'usersData' variable.
+console.log(usersData);

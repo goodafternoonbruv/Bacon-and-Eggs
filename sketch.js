@@ -684,12 +684,12 @@ function sizzle() {
           let user = maleMaleUsers[i];
           d = dist(curr.pos.x, curr.pos.y, curr.pos.z, user.pos.x, user.pos.y, user.pos.z);
           user.Dist = d;
-          if (potentialMatches.length < numMatches) {
-            potentialMatches.push(user);
-          } else {
-            break;
-          }
-          //potentialMatches.push(user);
+          // if (potentialMatches.length < numMatches) {
+          //   potentialMatches.push(user);
+          // } else {
+          //   break;
+          // }
+          potentialMatches.push(user);
         }
         //--------------Interest Female-----------//
       } else if (curr.interest == 1) {
@@ -697,12 +697,12 @@ function sizzle() {
           let user = femaleMaleUsers[i];
           d = dist(curr.pos.x, curr.pos.y, curr.pos.z, user.pos.x, user.pos.y, user.pos.z);
           user.Dist = d;
-          if (potentialMatches.length < numMatches) {
-            potentialMatches.push(user);
-          } else {
-            break;
-          }
-          //potentialMatches.push(user);
+          // if (potentialMatches.length < numMatches) {
+          //   potentialMatches.push(user);
+          // } else {
+          //   break;
+          // }
+          potentialMatches.push(user);
         }
         //------------Interest Other-------------//
       } else if (curr.interest == 2) {
@@ -710,12 +710,12 @@ function sizzle() {
           let user = otherMaleUsers[i];
           d = dist(curr.pos.x, curr.pos.y, curr.pos.z, user.pos.x, user.pos.y, user.pos.z);
           user.Dist = d;
-          if (potentialMatches.length < numMatches) {
-            potentialMatches.push(user);
-          } else {
-            break;
-          }
-          //potentialMatches.push(user);
+          // if (potentialMatches.length < numMatches) {
+          //   potentialMatches.push(user);
+          // } else {
+          //   break;
+          // }
+          potentialMatches.push(user);
         }
       }
       //---------------~!~Gender Female~!~----------//
@@ -726,12 +726,12 @@ function sizzle() {
           let user = maleFemaleUsers[i];
           d = dist(curr.pos.x, curr.pos.y, curr.pos.z, user.pos.x, user.pos.y, user.pos.z);
           user.Dist = d;
-          if (potentialMatches.length < numMatches) {
-            potentialMatches.push(user);
-          } else {
-            break;
-          }
-          //potentialMatches.push(user);
+          // if (potentialMatches.length < numMatches) {
+          //   potentialMatches.push(user);
+          // } else {
+          //   break;
+          // }
+          potentialMatches.push(user);
         }
         //--------------Interest Female-----------//
       } else if (curr.interest == 1) {
@@ -739,12 +739,12 @@ function sizzle() {
           let user = femaleFemaleUsers[i];
           d = dist(curr.pos.x, curr.pos.y, curr.pos.z, user.pos.x, user.pos.y, user.pos.z);
           user.Dist = d;
-          if (potentialMatches.length < numMatches) {
-            potentialMatches.push(user);
-          } else {
-            break;
-          }
-          //potentialMatches.push(user);
+          // if (potentialMatches.length < numMatches) {
+          //   potentialMatches.push(user);
+          // } else {
+          //   break;
+          // }
+          potentialMatches.push(user);
         }
         //------------Interest Other-------------//
       } else if (curr.interest == 2) {
@@ -752,12 +752,12 @@ function sizzle() {
           let user = otherFemaleUsers[i];
           d = dist(curr.pos.x, curr.pos.y, curr.pos.z, user.pos.x, user.pos.y, user.pos.z);
           user.Dist = d;
-          if (potentialMatches.length < numMatches) {
-            potentialMatches.push(user);
-          } else {
-            break;
-          }
-          //potentialMatches.push(user);
+          // if (potentialMatches.length < numMatches) {
+          //   potentialMatches.push(user);
+          // } else {
+          //   break;
+          // }
+          potentialMatches.push(user);
         }
       }
       //---------------~!~Gender Other~!~------------//
@@ -767,12 +767,12 @@ function sizzle() {
           let user = maleOtherUsers[i];
           d = dist(curr.pos.x, curr.pos.y, curr.pos.z, user.pos.x, user.pos.y, user.pos.z);
           user.Dist = d;
-          if (potentialMatches.length < numMatches) {
-            potentialMatches.push(user);
-          } else {
-            break;
-          }
-          //potentialMatches.push(user);
+          // if (potentialMatches.length < numMatches) {
+          //   potentialMatches.push(user);
+          // } else {
+          //   break;
+          // }
+          potentialMatches.push(user);
         }
         //--------------Interest Female-----------//
       } else if (curr.interest == 1) {
@@ -780,12 +780,12 @@ function sizzle() {
           let user = femaleOtherUsers[i];
           d = dist(curr.pos.x, curr.pos.y, curr.pos.z, user.pos.x, user.pos.y, user.pos.z);
           user.Dist = d;
-          if (potentialMatches.length < numMatches) {
-            potentialMatches.push(user);
-          } else {
-            break;
-          }
-          //potentialMatches.push(user);
+          // if (potentialMatches.length < numMatches) {
+          //   potentialMatches.push(user);
+          // } else {
+          //   break;
+          // }
+          potentialMatches.push(user);
         }
         //------------Interest Other-------------//
       } else if (curr.interest == 2) {
@@ -793,12 +793,12 @@ function sizzle() {
           let user = otherOtherUsers[i];
           d = dist(curr.pos.x, curr.pos.y, curr.pos.z, user.pos.x, user.pos.y, user.pos.z);
           user.Dist = d;
-          if (potentialMatches.length < numMatches) {
-            potentialMatches.push(user);
-          } else {
-            break;
-          }
-          //potentialMatches.push(user);
+          // if (potentialMatches.length < numMatches) {
+          //   potentialMatches.push(user);
+          // } else {
+          //   break;
+          // }
+          potentialMatches.push(user);
         }
       }
     }
@@ -813,11 +813,6 @@ function quickSort(low, high) {
   let j = high;
   //This determines the pivot by taking the value of the index in the middle of the array. Any numbers larger will go on the right side and any 
   let pivot = potentialMatches[round(low + (high - low) / 2)].Dist;
-<<<<<<< HEAD
-  //print(potentialMatches[round(low + (high - low) / 2)].dist);
-  //print(round(low + (high - low) / 2));
-=======
->>>>>>> bf19e4f54b9bfe552d23e2907d0a6b28b1b23ce1
   while (i <= j) {
     //This while loop goes throung the list from left to right. As soon as it finds a number that is greater than the pivot, it stops.
     while (potentialMatches[i].Dist < pivot) {

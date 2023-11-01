@@ -1,14 +1,4 @@
-<<<<<<< HEAD
-<<<<<<< HEAD
-maxwell,lepp,17,False,True,False,False,False,False,False,False,False,False,0,0,,coolguy7476,maxwell
-,interest,username,password
-=======
 firstname,lastname,age,Hobby1,Hobby2,Hobby3,Hobby4,Hobby5,Hobby6,Hobby7,Hobby8,Hobby9,Hobby10,Gender,interest,username,password
-maxwell,lepp,17,False,True,False,False,False,False,False,False,False,False,0,0,coolguy7476,maxwell
->>>>>>> 9e1b827cba0177ea6f183d324af5ad73c7bea13d
-=======
-firstname,lastname,age,Hobby1,Hobby2,Hobby3,Hobby4,Hobby5,Hobby6,Hobby7,Hobby8,Hobby9,Hobby10,Gender,interest,username,password
->>>>>>> bf19e4f54b9bfe552d23e2907d0a6b28b1b23ce1
 John,Doe,33,False,True,True,True,False,False,True,False,False,True,0,2,johndoe,johndoe
 Jane,Doe,22,False,True,False,False,True,False,True,False,True,False,1,2,janedoe,janedoe
 Bob,Smith,23,False,False,False,True,False,True,True,False,False,False,2,2,bobsmith,bobsmith
@@ -27,15 +17,12 @@ Aiden,Kumar,27,False,False,False,False,True,False,False,True,False,False,0,0,aid
 Mia,Santos,30,False,True,False,True,True,True,True,False,False,False,0,1,miasantos,miasantos
 Maxwell, Mwangi,69,False,True,False,True,True,True,True,False,False,False,0,1,maxwellmwangi,eickelisthebestcoder
 Mohamed,Elatrelsh,30,True,True,True,True,True,False,False,False,False,False,0,1,mohamedelatrelsh,mohamedelatrelsh
-max,mwangi,17,False,False,True,False,False,False,True,False,False,False,0,0,maxiepoo,sdfgfgds
-max,mwangi,17,False,False,True,False,False,False,True,False,False,False,0,0,spudbro,sdfgdsfgs
-max,mwangi,17,False,False,True,False,False,False,True,False,False,False,0,0,animekid4,sdfgsdfgdfg
-Maxwell,Mwangi,17,True,False,True,False,False,True,True,False,False,False,0,0,maxwell,maxwell
-maxwell,maxwell,17,True,False,True,False,False,True,False,True,False,False,0,0,maxwell,maxwell
+max,mwangi,17,False,False,True,False,False,False,True,False,False,False,0,0,,maxiepoo
+max,mwangi,17,False,False,True,False,False,False,True,False,False,False,0,0,,spudbro
+max,mwangi,17,False,False,True,False,False,False,True,False,False,False,0,0,,animekid4
+Maxwell,Mwangi,17,True,False,True,False,False,True,True,False,False,False,0,0,,maxwell,maxwell
+maxwell,maxwell,17,True,False,True,False,False,True,False,True,False,False,0,0,,maxwell,maxwell
 Maxwell,Mwangi,69,False,True,False,True,True,True,True,False,False,False,0,1,maxwellmwangi,eickelisthebestcoder
-<<<<<<< HEAD
-Mohamed,Elatrelsh,30,True,True,True,True,True,False,False,False,False,False,0,1,mohamedelatrelsh,mohamedelatrelsh
-=======
 Mohamed,Elatrelsh,30,True,True,True,True,True,False,False,False,False,False,0,1,mohamedelatrelsh,mohamedelatrelsh
 David,Taylor,52,True,False,False,False,False,False,False,False,True,False,1,1,davidtaylor763,ENUnF2vQ
 Grace,Anderson,42,True,True,True,True,True,False,False,False,False,False,0,0,graceanderson301,YBorQwGM
@@ -4042,14 +4029,8 @@ Grace,Jones,65,True,False,False,False,True,False,False,True,True,False,2,2,grace
 3997,3997,50,False,False,True,False,True,False,False,False,False,False,2,2,3997,3997
 3998,3998,41,True,False,False,False,False,True,False,True,False,True,2,2,3998,3998
 3999,3999,46,True,False,False,False,False,True,True,False,True,False,0,1,3999,3999
-<<<<<<< HEAD
-4000,4000,26,True,False,False,False,False,True,True,False,True,False,1,0,4000,4000
-4001,4001,37,True,True,True,False,False,True,True,True,False,True,2,1,4001,4001
-4002,4002,27,False,True,True,True,False,False,False,False,True,False,1,0,4002,4002
-=======
 4001,4001,37,True,True,True,False,False,True,True,True,False,True,2,1,4001,4001
 4002,4002,27,False,True,True,True,False,False,False,False,True,False,1,0,4002,4002 
->>>>>>> bf19e4f54b9bfe552d23e2907d0a6b28b1b23ce1
 4003,4003,24,False,False,True,False,True,False,False,True,False,False,1,2,4003,4003
 4004,4004,44,False,True,True,True,False,False,True,False,True,False,1,1,4004,4004
 4005,4005,31,False,True,False,True,False,False,True,False,True,False,1,2,4005,4005
@@ -8560,7 +8541,7 @@ Grace,Jones,65,True,False,False,False,True,False,False,True,True,False,2,2,grace
 8510,8510,46,True,False,True,True,False,False,True,True,False,True,1,1,8510,8510
 8511,8511,43,True,False,True,False,False,True,True,True,True,True,1,1,8511,8511
 8512,8512,20,False,False,False,False,True,True,True,True,False,True,1,1,8512,8512
-8513,8513,46,True,False,False,True,True,True,True,False,True,False,1,1,8513,8513
+8513,8513,46,True,False,False,True,True,True,True,False,True,False,1,1,8513,851
 9000,9000,49,False,True,True,True,False,True,False,True,False,True,1,1,9000,9000
 9001,9001,28,False,True,False,False,True,False,True,True,False,True,2,1,9001,9001
 9002,9002,19,True,False,False,False,False,True,False,False,True,False,2,2,9002,9002
@@ -9561,4 +9542,3 @@ Grace,Jones,65,True,False,False,False,True,False,False,True,True,False,2,2,grace
 9997,9997,21,True,False,False,True,False,False,True,False,False,False,2,1,9997,9997
 9998,9998,27,False,False,False,False,False,True,False,True,True,True,0,2,9998,9998
 9999,9999,24,True,True,True,True,False,True,False,True,False,True,0,1,9999,9999
->>>>>>> 9e1b827cba0177ea6f183d324af5ad73c7bea13d
