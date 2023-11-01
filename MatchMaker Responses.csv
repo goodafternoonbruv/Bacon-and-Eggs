@@ -1,5 +1,5 @@
+firstname,lastname,age,Hobby1,Hobby2,Hobby3,Hobby4,Hobby5,Hobby6,Hobby7,Hobby8,Hobby9,Hobby10,Gender,interest,username,password
 maxwell,lepp,17,False,True,False,False,False,False,False,False,False,False,0,0,,coolguy7476,maxwell
-,interest,username,password
 John,Doe,33,False,True,True,True,False,False,True,False,False,True,0,2,johndoe,johndoe
 Jane,Doe,22,False,True,False,False,True,False,True,False,True,False,1,2,janedoe,janedoe
 Bob,Smith,23,False,False,False,True,False,True,True,False,False,False,2,2,bobsmith,bobsmith
