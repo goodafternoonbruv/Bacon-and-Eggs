@@ -1,10 +1,7 @@
 let userManager;
 let theHobbies = [];
 let hobbyList = ["Sports", "Dancing", "Singing", "Music", "Art", "Outdoors/Traveling", "Fishing", "Board Games", "Reading", "Gaming"];
-//let displaySwitch = false;
 let tabSwitch = 0;
-//let theUser = null;
-//let tab = 0;
 
 let maleMaleUsers = [];
 let maleFemaleUsers = [];
@@ -41,9 +38,6 @@ function preload() { //runs completely before setup
 //-----------------Setup---------------------//
 
 function setup() {
-
-  generateUsers(1000);
-  displayUsers();
   createCanvas(windowWidth, windowHeight);
 
   getUserNames(); //first and last name of each user for search
@@ -62,24 +56,10 @@ function setup() {
 
   bacon = loadImage('bacon.png');
   pan = loadImage('pan.png');
-  generateUsers();
+  makeUsers();
 }
 
-function generateUsers() {
-
-  for (let i = 9000; i < 10000; i++) {
-    // let hobbs = [];
-    // for (let i = 0; i < 10; i++) {
-    //   let hobb = round(random(0, 1))
-    //   if (hobb == 1) {
-    //     hobbs[i] = "True";
-    //   } else {
-    //     hobbs[i] = "False";
-    //   }
-    // }
-    // print(i + "," + i + "," + round(random(18, 50)) + "," + hobbs + "," + round(random(0, 2)) + "," + round(random(0, 2)) + "," + i + "," + i);
-
-  }
+function makeUsers() {
   userManager.curr = userManager.first;
   while (userManager.curr != null) {
     print(userManager.curr);
@@ -102,10 +82,10 @@ function draw() {
       textSize(15);
       text("Username Or Password Is Incorrect", windowWidth / 2 - 100, windowHeight / 2 + 5);
     }
-    //displayUser(); //draws an ellipse representing the user to the screen
-    //drawHobbies(); //draws the hobbies in a circle on the screen
   } else if (tabSwitch == 1) {
     profileInfo();
+    //displayUser(); //draws an ellipse representing the user to the screen
+    //drawHobbies(); //draws the hobbies in a circle on the screen
   } else if (tabSwitch == 2) {
     displayMatches()
     //listUsers(); //displays a scrollable list of all users on the screen
@@ -124,7 +104,7 @@ function signIn() { //creates 2 buttons
   // button.mousePressed(logIn); //forward it to the signup form
 
   button1 = createButton('Log In'); //one for logging into an account
-  button1.position(windowWidth / 2 + 100, windowHeight / 2);
+  button1.position(windowWidth / 2, windowHeight / 2);
   button1.mousePressed(logIn);
 }
 
@@ -140,12 +120,12 @@ function logIn() {
   logInButton.mousePressed(searchUsers);
 
   userNameInput = createInput(''); //input for username
-  userNameInput.position(windowWidth / 2 - 90, 400);
+  userNameInput.position(windowWidth / 2 - 100, 400);
   userNameInput.size(200);
 
-  passwordInput = createInput(''); //input for password
-  passwordInput.position(windowWidth / 2 - 90, 430);
-  passwordInput.size(200);
+  //passwordInput = createInput(''); //input for password
+  //passwordInput.position(windowWidth / 2 - 100, 430);
+  //passwordInput.size(200);
 }
 
 function searchUsers() {
@@ -156,7 +136,7 @@ function searchUsers() {
       currUser = curr; //specifys the user that loged in. used for displaying info
       displayingUser = currUser;
       userNameInput.remove(); //removes inputs and buttons
-      passwordInput.remove();
+      //passwordInput.remove();
       logInButton.remove();
       tabSwitch = 1; //switches to the profile page
       break;
@@ -621,14 +601,6 @@ class Hobbies {
 
 //---------------------------User management-------------------------------//
 
-function keyTyped() { //switches between graph of users and list of users
-  if (key == 'q' || key == 'Q') {
-    displaySwitch = false;
-  } else if (key == 'w' || key == 'W') {
-    displaySwitch = true;
-  }
-}
-
 function sortUsers() { //insted of looking through all users for a match,
   //this sorts users to ensure the algo is only matching with proper gender and interests
   userManager.curr = userManager.first;
@@ -667,42 +639,6 @@ function sortUsers() { //insted of looking through all users for a match,
       //b++;
     }
     curr = curr.next;
-  }
-}
-
-let scroll = 0;
-function listUsers() {
-  let i = 2;
-  userManager.curr = userManager.first;
-  while (userManager.curr != null) { //displays user first name, last name and age
-    if (i * 20 - scroll >= 30) {
-      fill(0);
-      text(userManager.curr.firstName, 200, i * 20 - scroll);
-      text(userManager.curr.lastName, 250, i * 20 - scroll);
-      text(userManager.curr.pos.z, 300, i * 20 - scroll);
-    }
-    i++;
-    userManager.curr = userManager.curr.next;
-  }
-
-  i = 2;
-  userManager.curr = userManager.first;
-  while (userManager.curr != null) {
-    if (i * 20 - scroll >= 30) {
-      if (mouseX >= 200 && mouseX <= 300 && mouseY >= i * 20 - scroll - 12 && mouseY <= i * 20 - scroll + 5) {
-        fill(200);
-        rect(200, i * 20 - scroll - 10, 100, 16);
-        fill(0);
-        text("Delete?", 130, i * 20 - scroll);
-
-        if (mouseIsPressed == true) { //deletes the user from the array list
-          deleteUser(userManager.curr);
-          break;
-        }
-      }
-    }
-    i++;
-    userManager.curr = userManager.curr.next;
   }
 }
 
@@ -748,12 +684,12 @@ function sizzle() {
           let user = maleMaleUsers[i];
           d = dist(curr.pos.x, curr.pos.y, curr.pos.z, user.pos.x, user.pos.y, user.pos.z);
           user.Dist = d;
-          // if (potentialMatches.length < numMatches) {
-          //   potentialMatches.push(user);
-          // } else {
-          //   break;
-          // }
-          potentialMatches.push(user);
+          if (potentialMatches.length < numMatches) {
+            potentialMatches.push(user);
+          } else {
+            break;
+          }
+          //potentialMatches.push(user);
         }
         //--------------Interest Female-----------//
       } else if (curr.interest == 1) {
@@ -761,12 +697,12 @@ function sizzle() {
           let user = femaleMaleUsers[i];
           d = dist(curr.pos.x, curr.pos.y, curr.pos.z, user.pos.x, user.pos.y, user.pos.z);
           user.Dist = d;
-          // if (potentialMatches.length < numMatches) {
-          //   potentialMatches.push(user);
-          // } else {
-          //   break;
-          // }
-          potentialMatches.push(user);
+          if (potentialMatches.length < numMatches) {
+            potentialMatches.push(user);
+          } else {
+            break;
+          }
+          //potentialMatches.push(user);
         }
         //------------Interest Other-------------//
       } else if (curr.interest == 2) {
@@ -774,12 +710,12 @@ function sizzle() {
           let user = otherMaleUsers[i];
           d = dist(curr.pos.x, curr.pos.y, curr.pos.z, user.pos.x, user.pos.y, user.pos.z);
           user.Dist = d;
-          // if (potentialMatches.length < numMatches) {
-          //   potentialMatches.push(user);
-          // } else {
-          //   break;
-          // }
-          potentialMatches.push(user);
+          if (potentialMatches.length < numMatches) {
+            potentialMatches.push(user);
+          } else {
+            break;
+          }
+          //potentialMatches.push(user);
         }
       }
       //---------------~!~Gender Female~!~----------//
@@ -790,12 +726,12 @@ function sizzle() {
           let user = maleFemaleUsers[i];
           d = dist(curr.pos.x, curr.pos.y, curr.pos.z, user.pos.x, user.pos.y, user.pos.z);
           user.Dist = d;
-          // if (potentialMatches.length < numMatches) {
-          //   potentialMatches.push(user);
-          // } else {
-          //   break;
-          // }
-          potentialMatches.push(user);
+          if (potentialMatches.length < numMatches) {
+            potentialMatches.push(user);
+          } else {
+            break;
+          }
+          //potentialMatches.push(user);
         }
         //--------------Interest Female-----------//
       } else if (curr.interest == 1) {
@@ -803,12 +739,12 @@ function sizzle() {
           let user = femaleFemaleUsers[i];
           d = dist(curr.pos.x, curr.pos.y, curr.pos.z, user.pos.x, user.pos.y, user.pos.z);
           user.Dist = d;
-          // if (potentialMatches.length < numMatches) {
-          //   potentialMatches.push(user);
-          // } else {
-          //   break;
-          // }
-          potentialMatches.push(user);
+          if (potentialMatches.length < numMatches) {
+            potentialMatches.push(user);
+          } else {
+            break;
+          }
+          //potentialMatches.push(user);
         }
         //------------Interest Other-------------//
       } else if (curr.interest == 2) {
@@ -816,12 +752,12 @@ function sizzle() {
           let user = otherFemaleUsers[i];
           d = dist(curr.pos.x, curr.pos.y, curr.pos.z, user.pos.x, user.pos.y, user.pos.z);
           user.Dist = d;
-          // if (potentialMatches.length < numMatches) {
-          //   potentialMatches.push(user);
-          // } else {
-          //   break;
-          // }
-          potentialMatches.push(user);
+          if (potentialMatches.length < numMatches) {
+            potentialMatches.push(user);
+          } else {
+            break;
+          }
+          //potentialMatches.push(user);
         }
       }
       //---------------~!~Gender Other~!~------------//
@@ -831,12 +767,12 @@ function sizzle() {
           let user = maleOtherUsers[i];
           d = dist(curr.pos.x, curr.pos.y, curr.pos.z, user.pos.x, user.pos.y, user.pos.z);
           user.Dist = d;
-          // if (potentialMatches.length < numMatches) {
-          //   potentialMatches.push(user);
-          // } else {
-          //   break;
-          // }
-          potentialMatches.push(user);
+          if (potentialMatches.length < numMatches) {
+            potentialMatches.push(user);
+          } else {
+            break;
+          }
+          //potentialMatches.push(user);
         }
         //--------------Interest Female-----------//
       } else if (curr.interest == 1) {
@@ -844,12 +780,12 @@ function sizzle() {
           let user = femaleOtherUsers[i];
           d = dist(curr.pos.x, curr.pos.y, curr.pos.z, user.pos.x, user.pos.y, user.pos.z);
           user.Dist = d;
-          // if (potentialMatches.length < numMatches) {
-          //   potentialMatches.push(user);
-          // } else {
-          //   break;
-          // }
-          potentialMatches.push(user);
+          if (potentialMatches.length < numMatches) {
+            potentialMatches.push(user);
+          } else {
+            break;
+          }
+          //potentialMatches.push(user);
         }
         //------------Interest Other-------------//
       } else if (curr.interest == 2) {
@@ -857,12 +793,12 @@ function sizzle() {
           let user = otherOtherUsers[i];
           d = dist(curr.pos.x, curr.pos.y, curr.pos.z, user.pos.x, user.pos.y, user.pos.z);
           user.Dist = d;
-          // if (potentialMatches.length < numMatches) {
-          //   potentialMatches.push(user);
-          // } else {
-          //   break;
-          // }
-          potentialMatches.push(user);
+          if (potentialMatches.length < numMatches) {
+            potentialMatches.push(user);
+          } else {
+            break;
+          }
+          //potentialMatches.push(user);
         }
       }
     }
@@ -877,9 +813,6 @@ function quickSort(low, high) {
   let j = high;
   //This determines the pivot by taking the value of the index in the middle of the array. Any numbers larger will go on the right side and any 
   let pivot = potentialMatches[round(low + (high - low) / 2)].Dist;
-  //print(potentialMatches[round(low + (high - low) / 2)].dist);
-  //print(round(low + (high - low) / 2));
-  let pivot = potentialMatches[round(low + (high - low) / 2)].dist;
   while (i <= j) {
     //This while loop goes throung the list from left to right. As soon as it finds a number that is greater than the pivot, it stops.
     while (potentialMatches[i].Dist < pivot) {
