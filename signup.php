@@ -19,13 +19,19 @@ $userdata = [
     $_POST["hobby10"] ? "True" : "False" ,
     $_POST["gender"],
     $_POST["interest"],
-    $_POST["email"],
     $_POST["username"],
-    $_POST["password"],
+    $_POST["password"]
 ];
+
 
 $fp = fopen('MatchMaker Responses.csv', 'a');
 
+stream_context_set_option($fp,'ftp', 'use_include_path', false);
+
+fwrite($fp, "\n");
+
 fputcsv($fp, $userdata);
 
-header('Location: /index.html');
+fclose($fp);
+
+header('Location: http://127.0.0.1:5500/index.html');
