@@ -1,4 +1,7 @@
 # Bacon-and-Eggs
+
+![GitHub Logo](goodafternoonbruv/Bacon-and-Eggs/edit/main/icon/Bacon and Eggs word logo back.png)
+
 Find Your Match!
 Rizzle & Sizzle
 SIZZLE or FLIP
