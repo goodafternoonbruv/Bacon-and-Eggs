@@ -60,6 +60,19 @@ function setup() {
 }
 
 function makeUsers() {
+  // for (let i = 8514; i < 9000; i++) {
+  //   let hobbs = [];
+  //   for (let j = 0; j < 10; j++) {
+  //     if (round(random(0, 1)) == 1) {
+  //       hobbs[j] = "True";
+  //     } else {
+  //       hobbs[j] = "False";
+  //     }
+  //   }
+
+  //   print(i + "," + i + "," + round(random(18, 55)) + "," + hobbs + "," + round(random(0, 3)) + "," + round(random(0, 3)) + "," + i + "," + i);
+  // }
+
   userManager.curr = userManager.first;
   while (userManager.curr != null) {
     print(userManager.curr);
@@ -302,6 +315,17 @@ function displayUserFriends() {
         textSize(20);
         fill(27, 27, 27);
         text(displayText, windowWidth / 2 - 145, i * 90 + (windowHeight / 2 + 175) - scroll);
+
+        if (mouseX > windowWidth / 2 + 240 && mouseX < windowWidth / 2 + 290 && mouseY > i * 90 + (windowHeight / 2 + 130) - scroll && mouseY < i * 90 + (windowHeight / 2 + 130) - scroll + 50) {
+          fill(260, 70, 70);
+        } else {
+          fill(220, 50, 50);
+        }
+        rect(windowWidth / 2 + 240, i * 90 + (windowHeight / 2 + 130) - scroll + 10, 50, 50, 5);
+        fill(27, 27, 27);
+        rect(windowWidth / 2 + 255, i * 90 + (windowHeight / 2 + 130) - scroll + 30, 20, 20, 0, 0, 5, 5);
+        rect(windowWidth / 2 + 250, i * 90 + (windowHeight / 2 + 125) - scroll + 30, 30, 5, 5, 5, 5, 5);
+        rect(windowWidth / 2 + 260, i * 90 + (windowHeight / 2 + 121) - scroll + 30, 10, 10, 5, 5, 5, 5);
       }
     }
   }
@@ -491,6 +515,16 @@ function mouseClicked() {
       tabSwitch = 0;
       signIn();
     }
+  } else if (tabSwitch == 1) //on profile
+    for (let i = 0; i < displayingUser.friends.length; i++) {
+      if (mouseX > windowWidth / 2 + 240 && mouseX < windowWidth / 2 + 290 && mouseY > i * 90 + (windowHeight / 2 + 130) - scroll && mouseY < i * 90 + (windowHeight / 2 + 130) - scroll + 50) {
+        delUser = currUser.friends[i];
+        currUser.Matches.push(delUser);
+        currUser.friends.splice(i, 1);
+      }
+    }
+  {
+
   }
 }
 
@@ -670,7 +704,7 @@ function deleteUser(user) {
 }
 
 let potentialMatches;
-let numMatches = 500;
+let numMatches = 10000;
 function sizzle() {
   userManager.curr = userManager.first;
   let curr = userManager.curr;
@@ -684,12 +718,12 @@ function sizzle() {
           let user = maleMaleUsers[i];
           d = dist(curr.pos.x, curr.pos.y, curr.pos.z, user.pos.x, user.pos.y, user.pos.z);
           user.Dist = d;
-          if (potentialMatches.length < numMatches) {
-            potentialMatches.push(user);
-          } else {
-            break;
-          }
-          //potentialMatches.push(user);
+          // if (potentialMatches.length < numMatches) {
+          //   potentialMatches.push(user);
+          // } else {
+          //   break;
+          // }
+          potentialMatches.push(user);
         }
         //--------------Interest Female-----------//
       } else if (curr.interest == 1) {
@@ -697,12 +731,12 @@ function sizzle() {
           let user = femaleMaleUsers[i];
           d = dist(curr.pos.x, curr.pos.y, curr.pos.z, user.pos.x, user.pos.y, user.pos.z);
           user.Dist = d;
-          if (potentialMatches.length < numMatches) {
-            potentialMatches.push(user);
-          } else {
-            break;
-          }
-          //potentialMatches.push(user);
+          // if (potentialMatches.length < numMatches) {
+          //   potentialMatches.push(user);
+          // } else {
+          //   break;
+          // }
+          potentialMatches.push(user);
         }
         //------------Interest Other-------------//
       } else if (curr.interest == 2) {
@@ -710,12 +744,12 @@ function sizzle() {
           let user = otherMaleUsers[i];
           d = dist(curr.pos.x, curr.pos.y, curr.pos.z, user.pos.x, user.pos.y, user.pos.z);
           user.Dist = d;
-          if (potentialMatches.length < numMatches) {
-            potentialMatches.push(user);
-          } else {
-            break;
-          }
-          //potentialMatches.push(user);
+          // if (potentialMatches.length < numMatches) {
+          //   potentialMatches.push(user);
+          // } else {
+          //   break;
+          // }
+          potentialMatches.push(user);
         }
       }
       //---------------~!~Gender Female~!~----------//
@@ -726,12 +760,12 @@ function sizzle() {
           let user = maleFemaleUsers[i];
           d = dist(curr.pos.x, curr.pos.y, curr.pos.z, user.pos.x, user.pos.y, user.pos.z);
           user.Dist = d;
-          if (potentialMatches.length < numMatches) {
-            potentialMatches.push(user);
-          } else {
-            break;
-          }
-          //potentialMatches.push(user);
+          // if (potentialMatches.length < numMatches) {
+          //   potentialMatches.push(user);
+          // } else {
+          //   break;
+          // }
+          potentialMatches.push(user);
         }
         //--------------Interest Female-----------//
       } else if (curr.interest == 1) {
@@ -739,12 +773,12 @@ function sizzle() {
           let user = femaleFemaleUsers[i];
           d = dist(curr.pos.x, curr.pos.y, curr.pos.z, user.pos.x, user.pos.y, user.pos.z);
           user.Dist = d;
-          if (potentialMatches.length < numMatches) {
-            potentialMatches.push(user);
-          } else {
-            break;
-          }
-          //potentialMatches.push(user);
+          // if (potentialMatches.length < numMatches) {
+          //   potentialMatches.push(user);
+          // } else {
+          //   break;
+          // }
+          potentialMatches.push(user);
         }
         //------------Interest Other-------------//
       } else if (curr.interest == 2) {
@@ -752,12 +786,12 @@ function sizzle() {
           let user = otherFemaleUsers[i];
           d = dist(curr.pos.x, curr.pos.y, curr.pos.z, user.pos.x, user.pos.y, user.pos.z);
           user.Dist = d;
-          if (potentialMatches.length < numMatches) {
-            potentialMatches.push(user);
-          } else {
-            break;
-          }
-          //potentialMatches.push(user);
+          // if (potentialMatches.length < numMatches) {
+          //   potentialMatches.push(user);
+          // } else {
+          //   break;
+          // }
+          potentialMatches.push(user);
         }
       }
       //---------------~!~Gender Other~!~------------//
@@ -767,12 +801,12 @@ function sizzle() {
           let user = maleOtherUsers[i];
           d = dist(curr.pos.x, curr.pos.y, curr.pos.z, user.pos.x, user.pos.y, user.pos.z);
           user.Dist = d;
-          if (potentialMatches.length < numMatches) {
-            potentialMatches.push(user);
-          } else {
-            break;
-          }
-          //potentialMatches.push(user);
+          // if (potentialMatches.length < numMatches) {
+          //   potentialMatches.push(user);
+          // } else {
+          //   break;
+          // }
+          potentialMatches.push(user);
         }
         //--------------Interest Female-----------//
       } else if (curr.interest == 1) {
@@ -780,12 +814,12 @@ function sizzle() {
           let user = femaleOtherUsers[i];
           d = dist(curr.pos.x, curr.pos.y, curr.pos.z, user.pos.x, user.pos.y, user.pos.z);
           user.Dist = d;
-          if (potentialMatches.length < numMatches) {
-            potentialMatches.push(user);
-          } else {
-            break;
-          }
-          //potentialMatches.push(user);
+          // if (potentialMatches.length < numMatches) {
+          //   potentialMatches.push(user);
+          // } else {
+          //   break;
+          // }
+          potentialMatches.push(user);
         }
         //------------Interest Other-------------//
       } else if (curr.interest == 2) {
@@ -793,16 +827,19 @@ function sizzle() {
           let user = otherOtherUsers[i];
           d = dist(curr.pos.x, curr.pos.y, curr.pos.z, user.pos.x, user.pos.y, user.pos.z);
           user.Dist = d;
-          if (potentialMatches.length < numMatches) {
-            potentialMatches.push(user);
-          } else {
-            break;
-          }
-          //potentialMatches.push(user);
+          // if (potentialMatches.length < numMatches) {
+          //   potentialMatches.push(user);
+          // } else {
+          //   break;
+          // }
+          potentialMatches.push(user);
         }
       }
     }
     quickSort(0, potentialMatches.length - 1);
+    if (numMatches <= potentialMatches.length) {
+      potentialMatches.splice(numMatches, potentialMatches.length);
+    }
     curr.Matches = potentialMatches;
     curr = curr.next;
   }

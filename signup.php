@@ -19,13 +19,14 @@ $userdata = [
     $_POST["hobby10"] ? "True" : "False" ,
     $_POST["gender"],
     $_POST["interest"],
-    $_POST["email"],
     $_POST["username"],
     $_POST["password"],
 ];
 
 $fp = fopen('MatchMaker Responses.csv', 'a');
 
-fputcsv($fp, $userdata);
+fputcsv($fp, $userdata, string $eol = "");
+
+fclose();
 
 header('Location: /index.html');
