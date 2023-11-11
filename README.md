@@ -1,10 +1,7 @@
 # Bacon-and-Eggs
 
-![GitHub Logo](goodafternoonbruv/Bacon-and-Eggs/edit/main/icon/Letter logo no back.png)
-
 Find Your Match!
 Rizzle & Sizzle
-SIZZLE or FLIP
 
 # README: Setting Up XAMPP on Windows for Local PHP Development
 
