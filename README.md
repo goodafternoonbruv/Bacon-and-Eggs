@@ -1,6 +1,6 @@
 # Bacon-and-Eggs
 
-![GitHub Logo](goodafternoonbruv/Bacon-and-Eggs/edit/main/icon/Bacon-and-Eggs-Logo.png)
+![GitHub Logo](goodafternoonbruv/Bacon-and-Eggs/edit/main/icon/)
 
 Find Your Match!
 Rizzle & Sizzle
